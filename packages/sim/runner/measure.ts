@@ -7,7 +7,7 @@ import path from "node:path";
 import { parseArgs } from "node:util";
 import { formatBps, type HookRecord, type HooksFile, type PoolRecord, type PoolsFile } from "@hooktax/core";
 import { DATA, RAW_DIR, SIM_DIR, forkBlock, forkRpc, mergeResults, runForge, setup } from "./common";
-import { parseLines, toSimRecords } from "./parse";
+import { parseLines, supersededByMeasure, toSimRecords } from "./parse";
 import { selectPools, selectionLines } from "./select";
 
 async function main() {
@@ -65,9 +65,9 @@ async function main() {
       return { hook, hookOwner: ownerByHook.get(hook.toLowerCase()) ?? null };
     },
   });
-  // Replace this fork block's non-demo results for the measured pools.
+  // Replace this fork block's "today" results for the measured pools (keep demonstrations).
   const measuredPools = new Set(records.map((r) => r.poolId));
-  mergeResults(records, (r) => !r.isDemo && r.forkBlock === block && measuredPools.has(r.poolId));
+  mergeResults(records, supersededByMeasure(block, measuredPools));
 
   let ok = 0;
   const statuses: Record<string, number> = {};

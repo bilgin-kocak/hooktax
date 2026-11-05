@@ -40,16 +40,21 @@ contract MeasureReal is TakeMeter {
             Row memory r = rows[i];
             // Each measurement is isolated: a revert in one pool must not abort the rest. The swap
             // itself is already wrapped in try/catch inside measureSwap; this guards the tracing too.
+            // Both directions start from the fork block's pool state (as in ProbeUpgrade), so the
+            // second swap is not measured against a price the first one moved.
+            uint256 snap = vm.snapshotState();
             try this.measureOne(r.key, true, r.amount0In, address(0)) returns (Measurement memory m) {
                 _writeMeasurement(OUT, r.poolId, "today", m);
             } catch {
                 _writeError(r.poolId, true);
             }
+            vm.revertToState(snap);
             try this.measureOne(r.key, false, r.amount1In, address(0)) returns (Measurement memory m) {
                 _writeMeasurement(OUT, r.poolId, "today", m);
             } catch {
                 _writeError(r.poolId, false);
             }
+            vm.revertToState(snap);
         }
     }
 

@@ -277,3 +277,13 @@ export function toProbeRecords(
   }
   return out;
 }
+
+/**
+ * Which stored results a `today` re-measure of `pools` at `forkBlock` supersedes: only those pools'
+ * non-demo "today" results at that block. Demonstrations (e.g. "after-admin-upgrade" from
+ * `make probe`) are different measurements and are never dropped by a re-measure.
+ */
+export function supersededByMeasure(forkBlock: number, pools: ReadonlySet<string>) {
+  return (r: Pick<SimResultRecord, "poolId" | "scenario" | "forkBlock" | "isDemo">): boolean =>
+    !r.isDemo && r.scenario === "today" && r.forkBlock === forkBlock && pools.has(r.poolId);
+}

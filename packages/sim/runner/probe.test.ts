@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { probeOutcome, type HookRecord, type PoolRecord } from "@hooktax/core";
-import { parseLines, toProbeRecords } from "./parse";
+import { parseLines, supersededByMeasure, toProbeRecords } from "./parse";
 import { selectProbeTargets } from "./select";
 
 const P1 = "0x" + "11".repeat(32);
@@ -119,5 +119,17 @@ describe("selectProbeTargets", () => {
 
   it("skips hooks without a priced pool that has liquidity", () => {
     expect(selectProbeTargets([hook(H1)], [pool(P1, "0"), pool(P2, "5", TOK)])).toEqual([]);
+  });
+});
+
+describe("supersededByMeasure", () => {
+  it("a today re-measure replaces only that pool's today results at that block, never a demonstration", () => {
+    const rec = (poolId: string, scenario: string, forkBlock: number, isDemo = false) => ({ poolId, scenario, forkBlock, isDemo }) as never;
+    const drop = supersededByMeasure(26347887, new Set([P1]));
+    expect(drop(rec(P1, "today", 26347887))).toBe(true);
+    expect(drop(rec(P1, "after-admin-upgrade", 26347887))).toBe(false);
+    expect(drop(rec(P1, "today", 26000000))).toBe(false);
+    expect(drop(rec(P2, "today", 26347887))).toBe(false);
+    expect(drop(rec(P1, "today", 26347887, true))).toBe(false);
   });
 });
