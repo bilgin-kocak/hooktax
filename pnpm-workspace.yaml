@@ -1,0 +1,12 @@
+packages:
+  - "packages/*"
+  - "apps/*"
+# cre/ is added once the CRE project layout is chosen in M3 (TS workflows build with bun).
+# packages/sim is a Foundry project (no package.json), so pnpm ignores it.
+
+# Supply-chain guard: refuse versions published less than 24h ago.
+minimumReleaseAge: 1440
+
+# pnpm 10 blocks dependency lifecycle scripts by default; allow only these.
+onlyBuiltDependencies:
+  - esbuild
