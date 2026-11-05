@@ -35,4 +35,17 @@ jobs:
         env:
           ARKIV_PRIVATE_KEY: ${{ secrets.ARKIV_PRIVATE_KEY }}
           ARKIV_ACCESS_KEY: ${{ secrets.ARKIV_ACCESS_KEY }}
-        run: pnpm --filter @hooktax/arkiv run sync --write --reserve "${{ inputs.reserve }}"
+        # The executor stops at the first failed or uncertain transaction (it never guesses). Retry:
+        # each attempt re-plans from what the writer already owns on Arkiv, so it continues where
+        # the last one stopped, and refuses to start while a transaction is still pending.
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            echo "::group::attempt $attempt"
+            if pnpm --filter @hooktax/arkiv run sync --write --reserve "${{ inputs.reserve }}"; then
+              echo "::endgroup::"; exit 0
+            fi
+            echo "::endgroup::"
+            echo "attempt $attempt stopped; retrying in 60s"
+            sleep 60
+          done
+          exit 1
