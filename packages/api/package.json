@@ -1,0 +1,25 @@
+{
+  "name": "@hooktax/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "POST /refresh {poolId}: re-index the pool from mainnet, simulate it on a fork, mirror results to Arkiv. Called by the Chainlink CRE workflow.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@hooktax/arkiv": "workspace:*",
+    "@hooktax/core": "workspace:*",
+    "@hooktax/indexer": "workspace:*",
+    "viem": "2.57.16"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}

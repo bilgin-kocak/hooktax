@@ -6,7 +6,7 @@ SHELL := /bin/bash
 export PATH := $(HOME)/.foundry/bin:$(PATH)
 
 .DEFAULT_GOAL := help
-.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync
+.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
@@ -43,3 +43,6 @@ arkiv-estimate: ## M2: unsigned gas estimate + projected tGLM cost (never signs)
 
 arkiv-sync: ## M2: write HookAtlas to Arkiv (needs a funded ARKIV_PRIVATE_KEY)
 	pnpm --filter @hooktax/arkiv run sync --write
+
+api: ## M3: start the refresh API (POST /refresh) on API_PORT (default 8787)
+	pnpm --filter @hooktax/api run start

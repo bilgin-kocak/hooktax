@@ -45,3 +45,38 @@ export async function readExisting(
   } while (lastKey);
   return out;
 }
+
+/** Like readExisting, but only for specific natural IDs (one indexed eq query per ID). */
+export async function readExistingFor(
+  client: ArkivPublicClient,
+  schema: Schema,
+  idColumn: string,
+  idType: "addr" | "str",
+  ids: readonly string[],
+  owner: Address,
+  optionalColumns: readonly string[],
+  hasContentHash = true,
+): Promise<ExistingEntity[]> {
+  const { addr } = await import("@arkiv-network/sdk/schema");
+  const { eq } = await import("@arkiv-network/sdk/query");
+  const { getAddress } = await import("viem");
+  const selection: Record<string, true> = { $key: true, $expiresAt: true, [idColumn]: true };
+  if (hasContentHash) selection.contentHash = true;
+  for (const c of optionalColumns) selection[c] = true;
+  const out: ExistingEntity[] = [];
+  for (const id of ids) {
+    const value = idType === "addr" ? addr(getAddress(id)) : id;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const page = await (client as any).select(selection).from(schema).ownedBy(owner).where(eq(idColumn, value)).limit(100).fetch();
+    for (const row of page.entities as Row[]) {
+      out.push({
+        id: id.toLowerCase(),
+        entityKey: row.$key,
+        contentHash: hasContentHash ? ((row.contentHash?.value as string | undefined) ?? null) : null,
+        expiresAt: row.$expiresAt,
+        presentOptional: optionalColumns.filter((c) => row[c] !== undefined),
+      });
+    }
+  }
+  return out;
+}

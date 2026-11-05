@@ -20,7 +20,7 @@ import {
   simResultValues,
 } from "./map";
 import { planSync, type DesiredEntity, type ExistingEntity, type SyncPlan } from "./plan";
-import { readExisting } from "./read";
+import { readExisting, readExistingFor } from "./read";
 import { HookSchema, ImportSchema, PoolSchema, SimResultSchema } from "./schemas";
 
 /** Arkiv counts lifetimes in 2-second blocks. */
@@ -48,6 +48,8 @@ export interface SyncOptions {
   journalFile: string;
   /** Cap the number of operations (for a first small test write). */
   limitOps?: number;
+  /** Targeted sync (e.g. one refreshed pool): only these natural IDs, looked up one by one. */
+  only?: { hooks?: string[]; pools?: string[]; sims?: string[] };
   log: (msg: string) => void;
 }
 
@@ -148,9 +150,28 @@ export async function syncHookAtlas(opts: SyncOptions): Promise<SyncSummary> {
   log(`Arkiv Rabdi (chain ${chainId}); writer ${writer ?? "(none: everything is a create)"}`);
 
   const built = buildDesired(opts.hooksFile, opts.poolsFile, opts.simFile);
+  if (opts.only) {
+    const keep = (ids: string[] | undefined) => {
+      const set = new Set((ids ?? []).map((x) => x.toLowerCase()));
+      return (d: { id: string }) => set.has(d.id);
+    };
+    built.hookDesired = built.hookDesired.filter(keep(opts.only.hooks));
+    built.poolDesired = built.poolDesired.filter(keep(opts.only.pools));
+    built.simDesired = built.simDesired.filter(keep(opts.only.sims));
+  }
   const currentBlock = await pub.getBlockNumber();
-  const existing = async (schema: Schema, idColumn: string, optional: readonly string[], hasHash = true): Promise<ExistingEntity[]> =>
-    writer ? readExisting(pub, schema, idColumn, writer, optional, hasHash) : [];
+  const existing = async (
+    schema: Schema,
+    idColumn: string,
+    optional: readonly string[],
+    hasHash = true,
+    idType: "addr" | "str" = "str",
+    ids?: string[],
+  ): Promise<ExistingEntity[]> => {
+    if (!writer) return [];
+    if (opts.only) return readExistingFor(pub, schema, idColumn, idType, ids ?? [], writer, optional, hasHash);
+    return readExisting(pub, schema, idColumn, writer, optional, hasHash);
+  };
 
   const ops: Op[] = [];
   const plans = {} as SyncSummary["plans"];
@@ -164,21 +185,21 @@ export async function syncHookAtlas(opts: SyncOptions): Promise<SyncSummary> {
   });
 
   if (opts.targets.includes("hooks")) {
-    const ex = await existing(HookSchema, "hook", HOOK_OPTIONAL);
+    const ex = await existing(HookSchema, "hook", HOOK_OPTIONAL, true, "addr", built.hookDesired.map((d) => d.id));
     const plan = planSync(built.hookDesired, ex, planOpts(HOOK_OPTIONAL));
     plans.hooks = summarize(plan);
     ops.push(...planToOps(plan, HookSchema, HOOK_LIFETIME_DAYS));
     log(`hooks: ${built.hookDesired.length} desired, ${ex.length} on Arkiv -> ${JSON.stringify(plans.hooks)}`);
   }
   if (opts.targets.includes("pools")) {
-    const ex = await existing(PoolSchema, "poolId", POOL_OPTIONAL);
+    const ex = await existing(PoolSchema, "poolId", POOL_OPTIONAL, true, "str", built.poolDesired.map((d) => d.id));
     const plan = planSync(built.poolDesired, ex, planOpts(POOL_OPTIONAL));
     plans.pools = summarize(plan);
     ops.push(...planToOps(plan, PoolSchema, POOL_LIFETIME_DAYS));
     log(`pools (active only): ${built.poolDesired.length} desired, ${ex.length} on Arkiv -> ${JSON.stringify(plans.pools)}`);
   }
   if (opts.targets.includes("sims")) {
-    const ex = await existing(SimResultSchema, "simId", [], false);
+    const ex = await existing(SimResultSchema, "simId", [], false, "str", built.simDesired.map((d) => d.id));
     const have = new Set(ex.map((e) => e.id));
     const creates = built.simDesired.filter((d) => !have.has(d.id));
     plans.sims = { ...empty, creates: creates.length, unchanged: built.simDesired.length - creates.length };
@@ -188,8 +209,8 @@ export async function syncHookAtlas(opts: SyncOptions): Promise<SyncSummary> {
     log(`sim results: ${built.simDesired.length} in file, ${ex.length} on Arkiv -> ${creates.length} to create`);
   }
 
-  // One Import entity per run that changes anything: freshness + provenance.
-  if (ops.length > 0) {
+  // One Import entity per full run that changes anything: freshness + provenance.
+  if (ops.length > 0 && !opts.only) {
     const m = opts.hooksFile.meta;
     const values = {
       runId: `${m.toBlock}-${m.generatedAt}`,

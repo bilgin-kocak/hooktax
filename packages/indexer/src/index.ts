@@ -5,3 +5,5 @@ export { readHookFacts, readPoolStates, readTokenMeta, type HookFacts, type Toke
 export { buildHookRecord, buildPoolRecord, sortHooks, sortPools } from "./build";
 export { loadRepoEnv, REPO_ROOT } from "./env";
 export type { RawLog } from "./logs";
+export { refreshPool, findInitializeLog, type RefreshResult } from "./refresh";
+export { writeDataset } from "./output";

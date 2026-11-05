@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync } from "node:fs";
 import path from "node:path";
 import {
   CHAIN_ID,
@@ -13,6 +13,7 @@ import { readHookFacts, readPoolStates, readTokenMeta } from "./enrich";
 import { intEnv } from "./env";
 import { syncInitializeLogs, viemRangeFetcher } from "./logs";
 import { decodeInitializeLog, groupByHook, hasHook } from "./pools";
+import { writeDataset } from "./output";
 import { mainnetRpcUrls, makeMainnetClient, rpcHost } from "./rpc";
 
 export interface IndexerOptions {
@@ -105,7 +106,7 @@ export async function runIndexer(opts: IndexerOptions): Promise<IndexerResult> {
   mkdirSync(opts.outDir, { recursive: true });
   const hooksPath = path.join(opts.outDir, "hooks.json");
   const poolsPath = path.join(opts.outDir, "pools.json");
-  writeFileSync(hooksPath, JSON.stringify(hooksFile, null, 2) + "\n");
-  writeFileSync(poolsPath, JSON.stringify(poolsFile, null, 2) + "\n");
+  writeDataset(hooksPath, meta, "hooks", hooks);
+  writeDataset(poolsPath, meta, "pools", pools);
   return { hooksFile, poolsFile, hooksPath, poolsPath };
 }
