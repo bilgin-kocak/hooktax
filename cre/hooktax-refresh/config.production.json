@@ -1,0 +1,5 @@
+{
+  "chainSelectorName": "ethereum-mainnet",
+  "poolManager": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+  "refreshUrl": "https://YOUR-API-HOST/refresh"
+}

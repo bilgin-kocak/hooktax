@@ -1,0 +1,15 @@
+# ==========================================================================
+# CRE PROJECT SETTINGS (HookTax)
+# The workflow watches Ethereum MAINNET (read-only): it only reads logs and
+# makes one HTTP call. It never writes onchain.
+# ==========================================================================
+staging-settings:
+  rpcs:
+    - chain-name: ethereum-mainnet
+      url: https://mainnet.gateway.tenderly.co
+
+# ==========================================================================
+production-settings:
+  rpcs:
+    - chain-name: ethereum-mainnet
+      url: https://mainnet.gateway.tenderly.co
