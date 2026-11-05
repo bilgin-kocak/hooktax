@@ -6,7 +6,7 @@ SHELL := /bin/bash
 export PATH := $(HOME)/.foundry/bin:$(PATH)
 
 .DEFAULT_GOAL := help
-.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure sim-build
+.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure sim-build check atlas web
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
@@ -55,3 +55,12 @@ demo: ## M5: SneakyFeeHook worst case on a local mainnet fork: 0.3% today, 100% 
 
 measure: ## M4: measured take on real hooked pools on a fork (ARGS="--limit 12" to size the batch)
 	pnpm --filter @hooktax/sim run measure $(ARGS)
+
+check: ## M6: print the HookTax card for a pool or hook (ARG=0x...): make check ARG=0x<poolId|hook>
+	pnpm --filter @hooktax/cli exec tsx src/bin.ts check $(ARG)
+
+atlas: ## M6: one-line summary of the imported HookAtlas dataset
+	pnpm --filter @hooktax/cli exec tsx src/bin.ts atlas
+
+web: ## M2: run the HookAtlas web app (reads Arkiv directly) in dev mode
+	pnpm --filter @hooktax/web run dev
