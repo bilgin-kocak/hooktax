@@ -89,8 +89,12 @@ Prerequisites: Node ≥ 22.12, pnpm 10.28, Foundry 1.5.1, and (for CRE) bun ≥ 
 Exact versions and how they were installed: [`docs/versions.md`](docs/versions.md).
 
 ```bash
-pnpm install --frozen-lockfile
+git clone --recurse-submodules https://github.com/bilgin-kocak/hooktax && cd hooktax
+make install            # Foundry submodules + pnpm deps (lockfile) + CRE workflow deps (bun)
 ```
+
+Already cloned without `--recurse-submodules`? `make install` runs `git submodule update --init
+--recursive` for you (forge-std and v4-periphery are submodules of `packages/sim`).
 
 ```bash
 cp .env.example .env    # fill in MAINNET_RPC_URL (optional; a public RPC is used otherwise)

@@ -11,8 +11,11 @@ export PATH := $(HOME)/.foundry/bin:$(PATH)
 help: ## List available targets
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
 
-install: ## Install JS dependencies from the lockfile
+install: ## Install everything: Foundry submodules, JS deps (lockfile), CRE workflow deps
+	git submodule update --init --recursive
 	pnpm install --frozen-lockfile
+	@if command -v bun >/dev/null 2>&1; then cd cre/hooktax-refresh && bun install --frozen-lockfile; \
+	else echo "bun not found: skipping CRE deps (only needed for make cre-build / cre-sim)"; fi
 
 doctor: ## Print toolchain versions and which config keys are set (never prints values)
 	@echo "node   $$(node --version 2>/dev/null || echo MISSING)"
