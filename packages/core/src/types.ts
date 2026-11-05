@@ -111,3 +111,73 @@ export interface PoolsFile {
   meta: DatasetMeta;
   pools: PoolRecord[];
 }
+
+// ---------------------------------------------------------------------------
+// Fork simulation results (M4/M5): produced by packages/sim, mirrored to Arkiv as SimResult.
+// ---------------------------------------------------------------------------
+
+export type SimStatus =
+  | "ok"
+  | "hook-reverted"
+  | "no-liquidity"
+  | "unsupported-token"
+  | "swap-failed"
+  | "not-run"
+  | "error";
+
+export type FlowRole = "swapper" | "pool-manager" | "hook" | "hook-owner" | "other";
+
+/** Net value movement for one address and one token during a single fork swap. */
+export interface ValueFlow {
+  address: string;
+  role: FlowRole;
+  /** Currency address; 0x000…000 is native ETH. */
+  token: string;
+  /** Net change in raw units (signed decimal string). */
+  amount: string;
+  kind: "erc20" | "native" | "erc6909";
+}
+
+export interface DirectionResult {
+  zeroForOne: boolean;
+  status: SimStatus;
+  error: string | null;
+  tokenIn: string;
+  tokenOut: string;
+  /** Raw units the swapper paid / received. */
+  amountIn: string;
+  amountOut: string;
+  /** Value that went to the hook, its owner or other addresses, valued in input-token raw units. */
+  takeAmountIn: string;
+  /** takeAmountIn / amountIn in basis points (excludes normal LP fees). */
+  takeBps: number | null;
+  /** The LP fee the pool charged on this swap, in basis points. */
+  lpFeeBps: number | null;
+  flows: ValueFlow[];
+}
+
+export interface SimResultRecord {
+  /** `${poolId}:${scenario}:${forkBlock}` */
+  simId: string;
+  poolId: string;
+  hook: string;
+  /** e.g. "today", "after-admin-upgrade", "max-dynamic-fee". */
+  scenario: string;
+  label?: string;
+  /** True for the planted SneakyFeeHook, which exists only on a local fork. */
+  isDemo: boolean;
+  forkBlock: number;
+  /** Unix seconds. */
+  measuredAt: number;
+  status: SimStatus;
+  /** Worst direction's take in bps; null unless at least one direction measured ok. */
+  measuredTakeBps: number | null;
+  lpFeeBps: number | null;
+  directions: DirectionResult[];
+  notes?: string[];
+}
+
+export interface SimResultsFile {
+  meta: { schemaVersion: 1; forkBlock: number; generatedAt: string; source: string; count: number };
+  results: SimResultRecord[];
+}

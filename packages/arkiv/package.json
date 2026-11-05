@@ -1,0 +1,27 @@
+{
+  "name": "@hooktax/arkiv",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mirrors HookAtlas (Hook, Pool, SimResult entities) to Arkiv, the Web3 database (Rabdi testnet).",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "sync": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@arkiv-network/sdk": "1.0.1",
+    "@hooktax/core": "workspace:*",
+    "viem": "2.57.16"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}
