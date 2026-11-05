@@ -92,6 +92,12 @@ export const SimResultSchema = defineSchema("hooktax.v1.simresult", {
   takeOneForZeroBps: dec().optional(),
   lpFeeBps: dec().optional(),
   measuredAt: u64(),
+  /**
+   * sha256 of this entity's other values. SimResults are readonly, so when a re-derivation changes
+   * one (runner/rederive.ts) the sync replaces it: delete + create. Optional: entities written
+   * before this column existed have none, and are replaced once.
+   */
+  contentHash: str().optional(),
   details: bytes(),
 });
 

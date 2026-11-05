@@ -23,7 +23,7 @@ export interface SyncPlan<V> {
   creates: DesiredEntity<V>[];
   patches: Array<{ entityKey: `0x${string}`; desired: DesiredEntity<V>; unset: string[] }>;
   extensions: Array<{ entityKey: `0x${string}`; id: string }>;
-  deletes: Array<{ entityKey: `0x${string}`; id: string; reason: "duplicate" }>;
+  deletes: Array<{ entityKey: `0x${string}`; id: string; reason: "duplicate" | "replaced" }>;
   unchanged: number;
 }
 
@@ -41,19 +41,7 @@ export function planSync<V extends object>(
   opts: PlanOptions,
 ): SyncPlan<V> {
   const plan: SyncPlan<V> = { creates: [], patches: [], extensions: [], deletes: [], unchanged: 0 };
-
-  // Duplicates (e.g. from an older crashed run): keep the one that lives longest.
-  const byId = new Map<string, ExistingEntity>();
-  for (const e of existing) {
-    const prev = byId.get(e.id);
-    if (!prev) {
-      byId.set(e.id, e);
-      continue;
-    }
-    const [keep, drop] = e.expiresAt > prev.expiresAt ? [e, prev] : [prev, e];
-    byId.set(e.id, keep);
-    plan.deletes.push({ entityKey: drop.entityKey, id: drop.id, reason: "duplicate" });
-  }
+  const byId = dedupe(existing, plan);
 
   const seen = new Set<string>();
   for (const d of desired) {
@@ -78,4 +66,44 @@ export function planSync<V extends object>(
 
 export function planSize(p: SyncPlan<unknown>): number {
   return p.creates.length + p.patches.length + p.extensions.length + p.deletes.length;
+}
+
+/** Duplicates (e.g. from an older crashed run): keep the one that lives longest, delete the rest. */
+function dedupe(existing: readonly ExistingEntity[], plan: SyncPlan<unknown>): Map<string, ExistingEntity> {
+  const byId = new Map<string, ExistingEntity>();
+  for (const e of existing) {
+    const prev = byId.get(e.id);
+    if (!prev) {
+      byId.set(e.id, e);
+      continue;
+    }
+    const [keep, drop] = e.expiresAt > prev.expiresAt ? [e, prev] : [prev, e];
+    byId.set(e.id, keep);
+    plan.deletes.push({ entityKey: drop.entityKey, id: drop.id, reason: "duplicate" });
+  }
+  return byId;
+}
+
+/**
+ * Plan for readonly entities (SimResults): they can never be patched, so a desired entity whose
+ * content hash differs from what is on Arkiv (or that predates content hashes) is replaced:
+ * delete the old entity, create the new one. Entities that are not desired are left alone, and
+ * nothing is extended: a SimResult lives exactly as long as it was created to.
+ */
+export function planImmutable<V extends object>(
+  desired: readonly DesiredEntity<V>[],
+  existing: readonly ExistingEntity[],
+): SyncPlan<V> {
+  const plan: SyncPlan<V> = { creates: [], patches: [], extensions: [], deletes: [], unchanged: 0 };
+  const byId = dedupe(existing, plan);
+  for (const d of desired) {
+    const e = byId.get(d.id);
+    if (e && e.contentHash === d.contentHash) {
+      plan.unchanged++;
+      continue;
+    }
+    if (e) plan.deletes.push({ entityKey: e.entityKey, id: e.id, reason: "replaced" });
+    plan.creates.push(d);
+  }
+  return plan;
 }

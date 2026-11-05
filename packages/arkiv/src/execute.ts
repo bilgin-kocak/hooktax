@@ -127,6 +127,11 @@ export interface ExecuteOptions {
   log: (msg: string) => void;
   /** Called after each confirmed batch (for progress persistence). */
   onBatch?: (info: { ops: readonly Op[]; txHash: Hex; createdKeys: Hex[] }) => void;
+  /**
+   * Stop cleanly (no error) before a batch whose gas limit x gas price would take the writer's
+   * balance below this many wei. Keeps tGLM for later small writes (CRE refreshes, the Import).
+   */
+  reserveWei?: bigint;
 }
 
 export interface ExecuteResult {
@@ -134,6 +139,8 @@ export interface ExecuteResult {
   ops: number;
   gasUsedEstimate: bigint;
   txHashes: Hex[];
+  /** Set when the run stopped early because of reserveWei; ops[result.ops..] were not sent. */
+  stoppedForBudget?: { balanceWei: bigint; neededWei: bigint };
 }
 
 function journal(file: string, entry: Record<string, unknown>) {
@@ -171,16 +178,22 @@ export async function executeOps(
   const result: ExecuteResult = { transactions: 0, ops: 0, gasUsedEstimate: 0n, txHashes: [] };
   let i = 0;
   while (i < ops.length) {
-    const [latestNonce, pendingNonce, block, gasPrice] = await Promise.all([
+    const [latestNonce, pendingNonce, block, gasPrice, balance] = await Promise.all([
       publicClient.getTransactionCount({ address: writer, blockTag: "latest" }),
       publicClient.getTransactionCount({ address: writer, blockTag: "pending" }),
       publicClient.getBlock({ blockTag: "latest" }),
       gasPriceOf(publicClient),
+      opts.reserveWei !== undefined ? publicClient.getBalance({ address: writer }) : Promise.resolve(0n),
     ]);
     if (pendingNonce !== latestNonce) {
       throw new Error(`writer ${writer} has a pending transaction (nonce ${latestNonce}..${pendingNonce}); reconcile before writing`);
     }
     const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, opts, block.gasLimit);
+    if (opts.reserveWei !== undefined && balance < gas * gasPrice + opts.reserveWei) {
+      result.stoppedForBudget = { balanceWei: balance, neededWei: gas * gasPrice + opts.reserveWei };
+      opts.log(`  stopping before op ${i}/${ops.length}: balance ${balance} wei < batch ${gas * gasPrice} + reserve ${opts.reserveWei}`);
+      break;
+    }
     const ids = batch.map((o) => `${o.kind}:${o.id}`);
     journal(opts.journalFile, { status: "submitting", nonce: latestNonce, gas, gasPrice, estimate: estimate.gas, calldataBytes: estimate.calldataBytes, ids });
     let res;

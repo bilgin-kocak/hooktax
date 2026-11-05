@@ -5,18 +5,10 @@
 // price is fine; it just keeps the probe near a fixed USD notional instead of a fixed token count.
 
 import type { HookRecord, PoolRecord } from "@hooktax/core";
-import { NATIVE_CURRENCY } from "@hooktax/core";
+import { APPROX_PRICES_USD } from "@hooktax/core";
 
-/** Approximate USD prices for sizing only (mainnet). Unknown tokens use a decimal-based fallback. */
-export const SIZING_PRICES_USD: Record<string, number> = {
-  [NATIVE_CURRENCY]: 3000, // ETH
-  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 3000, // WETH
-  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 3600, // wstETH
-  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 1, // USDC
-  "0xdac17f958d2ee523a2206206994597c13d831ec7": 1, // USDT
-  "0x6b175474e89094c44da98b954eedeac495271d0f": 1, // DAI
-  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 95000, // WBTC
-};
+/** Approximate USD prices for sizing only (mainnet), shared with the Arkiv mirror's ranking. */
+export const SIZING_PRICES_USD = APPROX_PRICES_USD;
 
 const TARGET_USD = 50;
 const Q192 = 1n << 192n;

@@ -141,7 +141,7 @@ export function simResultValues(r: SimResultRecord): SimResultValues {
   const dir = (z: boolean) => r.directions.find((d) => d.zeroForOne === z);
   const z1 = dir(true);
   const z0 = dir(false);
-  return {
+  const base = {
     simId: r.simId,
     poolId: r.poolId.toLowerCase(),
     hook: addr(r.hook),
@@ -156,6 +156,7 @@ export function simResultValues(r: SimResultRecord): SimResultValues {
     measuredAt: u64(BigInt(r.measuredAt)),
     details: jsonBytes({ v: 1, directions: r.directions, notes: r.notes ?? [], label: r.label ?? null }),
   };
+  return { ...base, contentHash: contentHashOf(base) };
 }
 
 /** Pools to mirror: hooked pools with in-range liquidity at the snapshot block. */
