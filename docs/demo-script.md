@@ -3,10 +3,14 @@
 🧑 Record with your own voice. No AI voiceover, no phone recording. Times are targets.
 
 Setup before recording:
-- `make web` running (HookAtlas open at the atlas view).
+- HookAtlas open at the atlas view: **https://bilgin-kocak.github.io/hooktax/** (or `make web`).
 - A terminal with `make demo` ready and the repo visible.
-- The hook detail page for a real measured hook open in a second tab
-  (e.g. `#/hook/0x676E38B66A7547FF685549E4Ad88134aC62200cC`).
+- Tab 2: a real measured hook,
+  `https://bilgin-kocak.github.io/hooktax/#/hook/0x676E38B66A7547FF685549E4Ad88134aC62200cC`.
+- Tab 3: a real hook whose worst case was proved on a fork,
+  `https://bilgin-kocak.github.io/hooktax/#/hook/0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf`.
+- [`docs/cre-simulation.md`](cre-simulation.md) open, or a terminal ready to run `make cre-sim`
+  (with `make api` running).
 
 ---
 
@@ -30,7 +34,7 @@ Point at the card: **Measured take today 1.00%**, **LP fee 0%**, capability rule
 > "One percent of every swap goes to the hook — separate from the LP fee, which is zero here. These
 > are measured numbers from a real swap, not a guess. And it's a measurement, not an audit."
 
-**1:25–2:15 — Worst case, proved.** Switch to the terminal, run `make demo`.
+**1:25–2:00 — Worst case, proved.** Switch to the terminal, run `make demo`.
 > "The scary part is the hooks that *could* start taking more. Here's SneakyFeeHook — upgradeable,
 > and its address has the bit that lets it change swap amounts. From those facts alone, before
 > anything happens, HookTax says: worst case, 100% of your swap."
@@ -41,9 +45,17 @@ Point at the upgrade line, then `after upgrade (v2): 100%, swapper received 0`.
 > it takes everything. The swapper gets nothing. HookTax flagged this risk *before* the upgrade,
 > from the address bits and the proxy slot."
 
-**2:15–2:35 — Live refresh (CRE).** Show `cre/hooktax-refresh/workflow.ts` or the build.
-> "A Chainlink CRE workflow watches the PoolManager for new hooked pools and triggers a refresh and
-> re-measurement automatically — the atlas stays current with no server polling the chain."
+**2:00–2:20 — And on real hooks.** Switch to tab 3.
+> "That was our planted hook. So we did it to the real ones. Of the 35 mainnet hooks with this worst
+> case, 24 had a pool we could swap through. For 19, impersonating the real upgrade authority on a
+> fork turned a 1 to 10% take into 100%."
+Point at **Demonstrated worst case: 100% … after "authority upgrade (ProxyAdmin.upgradeAndCall)"**.
+> "And where we couldn't, it says why: two had renounced their admin, so no one can upgrade them."
+
+**2:20–2:35 — Live refresh (CRE).** Show the `make cre-sim` output (or `docs/cre-simulation.md`).
+> "A Chainlink CRE workflow watches the PoolManager. Here it's fed a real pool creation from
+> mainnet: it spots the hook, calls our refresh, checks the answer, and the pool is re-indexed and
+> re-measured. No server polling the chain."
 
 **2:35–2:45 — Close.** Back on HookAtlas.
 > "HookTax. Know what a hook can take — before you trade."
