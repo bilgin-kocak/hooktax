@@ -148,18 +148,32 @@ function journal(file: string, entry: Record<string, unknown>) {
   appendFileSync(file, JSON.stringify({ ts: new Date().toISOString(), ...entry }, (_k, v) => (typeof v === "bigint" ? v.toString() : v)) + "\n");
 }
 
-/** Split ops into batches that fit maxOps, gas (half block) and calldata limits, using unsigned estimates. */
-async function nextFittingBatch(
+/**
+ * Split ops into batches that fit maxOps, gas (half block) and calldata limits, using unsigned
+ * estimates. A batch the node refuses to estimate at all (e.g. calldata over its 128 KiB tx cap,
+ * which fails as "Execution error without revert data") is halved too; only a single operation
+ * that cannot be estimated is an error.
+ */
+export async function nextFittingBatch(
   writer: Address,
   ops: readonly Op[],
   start: number,
-  opts: ExecuteOptions,
+  opts: Pick<ExecuteOptions, "maxOps" | "maxCalldataBytes" | "accessKey" | "log">,
   blockGasLimit: bigint,
+  estimateFn: (writer: Address, ops: readonly Op[], accessKey?: string) => Promise<Estimate> = estimateBatch,
 ): Promise<{ batch: Op[]; gas: bigint; estimate: Estimate }> {
   let n = Math.min(opts.maxOps, ops.length - start);
   while (n >= 1) {
     const batch = ops.slice(start, start + n);
-    const estimate = await estimateBatch(writer, batch, opts.accessKey);
+    let estimate: Estimate;
+    try {
+      estimate = await estimateFn(writer, batch, opts.accessKey);
+    } catch (err) {
+      if (n === 1) throw err;
+      opts.log(`  estimate of ${n} ops failed; retrying with ${Math.floor(n / 2)}`);
+      n = Math.floor(n / 2);
+      continue;
+    }
     const gas = [gasFloor(batch.length), 2n * estimate.gas].reduce((a, b) => (a > b ? a : b));
     if (gas <= blockGasLimit / 2n && estimate.calldataBytes <= opts.maxCalldataBytes) return { batch, gas, estimate };
     if (n === 1) throw new Error(`a single operation does not fit (gas ${gas}, calldata ${estimate.calldataBytes} bytes)`);
@@ -177,6 +191,9 @@ export async function executeOps(
   const writer = wallet.account.address;
   const result: ExecuteResult = { transactions: 0, ops: 0, gasUsedEstimate: 0n, txHashes: [] };
   let i = 0;
+  // Start each batch at the size that last fitted (+2), so a run of large entities does not pay
+  // a failed estimate per transaction, and smaller ones later grow back to maxOps.
+  let cap = opts.maxOps;
   while (i < ops.length) {
     const [latestNonce, pendingNonce, block, gasPrice, balance] = await Promise.all([
       publicClient.getTransactionCount({ address: writer, blockTag: "latest" }),
@@ -188,7 +205,8 @@ export async function executeOps(
     if (pendingNonce !== latestNonce) {
       throw new Error(`writer ${writer} has a pending transaction (nonce ${latestNonce}..${pendingNonce}); reconcile before writing`);
     }
-    const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, opts, block.gasLimit);
+    const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, { ...opts, maxOps: cap }, block.gasLimit);
+    cap = Math.min(opts.maxOps, batch.length + 2);
     if (opts.reserveWei !== undefined && balance < gas * gasPrice + opts.reserveWei) {
       result.stoppedForBudget = { balanceWei: balance, neededWei: gas * gasPrice + opts.reserveWei };
       opts.log(`  stopping before op ${i}/${ops.length}: balance ${balance} wei < batch ${gas * gasPrice} + reserve ${opts.reserveWei}`);
