@@ -177,7 +177,9 @@ export async function nextFittingBatch(
     const gas = [gasFloor(batch.length), 2n * estimate.gas].reduce((a, b) => (a > b ? a : b));
     if (gas <= blockGasLimit / 2n && estimate.calldataBytes <= opts.maxCalldataBytes) return { batch, gas, estimate };
     if (n === 1) throw new Error(`a single operation does not fit (gas ${gas}, calldata ${estimate.calldataBytes} bytes)`);
-    n = Math.max(1, Math.floor(n / 2));
+    // Shrink in proportion to the worse overflow (gas or calldata), always by at least one op.
+    const ratio = Math.min(opts.maxCalldataBytes / Math.max(1, estimate.calldataBytes), Number(blockGasLimit / 2n) / Number(gas));
+    n = Math.max(1, Math.min(n - 1, Math.floor(n * ratio)));
   }
   throw new Error("unreachable");
 }

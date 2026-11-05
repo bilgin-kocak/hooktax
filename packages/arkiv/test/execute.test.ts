@@ -18,10 +18,11 @@ describe("nextFittingBatch", () => {
     expect(r.batch).toHaveLength(10);
   });
 
-  it("still splits on its own calldata limit after a successful estimate", async () => {
+  it("shrinks proportionally to its own calldata limit after a successful estimate (not by half)", async () => {
     const estimate = async (_w: unknown, batch: readonly Op[]) => ({ gas: 1n, calldataBytes: batch.length * 6_700 });
-    const r = await nextFittingBatch(W, ops, 0, base, 60_000_000n, estimate);
-    expect(r.batch).toHaveLength(10);
+    const r = await nextFittingBatch(W, ops, 0, { ...base, maxOps: 16 }, 60_000_000n, estimate);
+    // 16 x 6,700 = 107 KB > 96 KiB; 14 x 6,700 = 93.8 KB fits.
+    expect(r.batch).toHaveLength(14);
   });
 
   it("rethrows when a single operation cannot be estimated", async () => {
