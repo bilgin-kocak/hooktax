@@ -30,7 +30,7 @@ Click **"Can change swap amounts"** → "8,716 hooks can change how much you rec
 **0:40–1:25 — Measured take (a real pool).** Open the hook detail tab.
 > "Pick a real one. HookTax swapped a small amount through this pool on a mainnet fork, both ways,
 > and traced every token movement."
-Point at the card: **Measured take today 1.00%**, **LP fee 0%**, capability rules, permissions.
+Point at the card: **Measured take today 0.9999%**, **LP fee 0%**, capability rules, permissions.
 > "One percent of every swap goes to the hook — separate from the LP fee, which is zero here. These
 > are measured numbers from a real swap, not a guess. And it's a measurement, not an audit."
 
@@ -48,7 +48,7 @@ Point at the upgrade line, then `after upgrade (v2): 100%, swapper received 0`.
 **2:00–2:20 — And on real hooks.** Switch to tab 3.
 > "That was our planted hook. So we did it to the real ones. Of the 35 mainnet hooks with this worst
 > case, 24 had a pool we could swap through. For 19, impersonating the real upgrade authority on a
-> fork turned a 1 to 10% take into 100%."
+> fork turned a take of between 0 and 10% into 100%."
 Point at **Demonstrated worst case: 100% … after "authority upgrade (ProxyAdmin.upgradeAndCall)"**.
 > "And where we couldn't, it says why: two had renounced their admin, so no one can upgrade them."
 
