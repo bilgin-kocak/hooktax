@@ -1,0 +1,34 @@
+# --- Secrets: never commit (spec rule 4) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+keystore/
+
+# --- JS / TS ---
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# --- Foundry (packages/sim) ---
+packages/sim/out/
+packages/sim/cache/
+# We never broadcast; ignore just in case a script is run with --broadcast by mistake.
+broadcast/
+
+# --- Data ---
+# Raw RPC caches are large and re-derivable; the final datasets in data/*.json are committed.
+data/cache/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
