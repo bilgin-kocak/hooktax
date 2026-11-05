@@ -242,8 +242,22 @@ export async function syncHookAtlas(opts: SyncOptions): Promise<SyncSummary> {
 
   if (opts.mode === "estimate") {
     const estimator = writer ?? "0x000000000000000000000000000000000000dEaD";
-    const sample = selected.slice(0, Math.min(opts.maxOps, selected.length));
-    const est = await estimateBatch(estimator as Address, sample, opts.accessKey);
+    // Shrink the sample on failure (an unfunded account's node can reject a large batch estimate,
+    // and providers cap calldata) until one succeeds, down to a single op.
+    let sampleSize = Math.min(opts.maxOps, selected.length);
+    let est: Awaited<ReturnType<typeof estimateBatch>> | undefined;
+    let sample = selected.slice(0, sampleSize);
+    for (;;) {
+      sample = selected.slice(0, sampleSize);
+      try {
+        est = await estimateBatch(estimator as Address, sample, opts.accessKey);
+        break;
+      } catch (err) {
+        if (sampleSize === 1) throw err;
+        sampleSize = Math.max(1, Math.floor(sampleSize / 2));
+        log(`  estimate of ${sample.length} ops failed; retrying with ${sampleSize}`);
+      }
+    }
     const gasPrice = await gasPriceOf(pub);
     const perOp = est.gas / BigInt(sample.length);
     // Charged gas is gas used (~ the estimate), not the gas limit; the floor only sizes the limit.
