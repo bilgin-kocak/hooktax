@@ -1,12 +1,13 @@
 # Arkiv judging files
 
-Required by the Arkiv track (spec §7). These are filled with real numbers, links and runnable
-queries as the milestones land:
+Filled with real numbers from the import at Ethereum mainnet block 26,347,887.
 
-| File | Content | Filled in |
-|---|---|---|
-| `schema.md` | entities, queried fields, owner, expiry rules and why | M2 |
-| `friction.md` | problems we hit: expected / happened / repro | M2 → M7 |
-| `reach.md` | who depends on this data; hook and pool counts from our import | M2 → M7 |
-| `why-arkiv.md` | what would be lost if this sat in Postgres | M2 |
-| `data-quality.md` | freshness, re-running the importer, filter coverage | M2 → M3 |
+| File | Content |
+|---|---|
+| [`schema.md`](schema.md) | entities, every queried field, owner, expiry rules, one copy-paste query |
+| [`why-arkiv.md`](why-arkiv.md) | what is lost if this sat in Postgres |
+| [`reach.md`](reach.md) | who depends on the data; hook/pool counts; full-mirror cost |
+| [`friction.md`](friction.md) | honest problems, with expected / happened / repro |
+| [`data-quality.md`](data-quality.md) | freshness, re-running the importer, filter coverage, gaps |
+
+Writer wallet and the live link are in the repo root [`README.md`](../README.md).
