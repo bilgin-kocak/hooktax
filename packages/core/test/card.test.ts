@@ -46,6 +46,14 @@ describe("buildCard", () => {
     expect(card.lines[0]!.value).toBe("not measured: the hook reverted the swap");
   });
 
+  it("a swap that ran but could not be attributed is not shown as a take or as 'ok'", () => {
+    const card = buildCard({ hook: hook(0xc0), today: sim("today", null, "ok") });
+    expect(card.lines[0]!.value).toBe(
+      "not determined: the swap ran, but other addresses received more than the swapper paid (e.g. a token paying out its own tax inside the swap); see the money flows",
+    );
+    expect(card.lines[0]!.tone).toBe("info");
+  });
+
   it("lists probes that did not execute", () => {
     const card = buildCard({ hook: hook(0x88, true), notDemonstrated: ["upgradeToAndCall", "setFee"] });
     expect(card.lines.at(-1)!.value).toBe("not demonstrated (tried: upgradeToAndCall, setFee)");

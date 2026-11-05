@@ -73,6 +73,14 @@ export function buildCard(input: CardInput): Card {
       value: `${formatBps(today.measuredTakeBps)} of swap input (worst of both directions, fork block ${today.forkBlock})`,
       tone: today.measuredTakeBps > 0 ? "warn" : "ok",
     });
+  } else if (today && today.status === "ok") {
+    // The swap ran, but every direction's take exceeded 100% of input (sim runner headlineTake).
+    lines.push({
+      label: "Measured take today",
+      value:
+        "not determined: the swap ran, but other addresses received more than the swapper paid (e.g. a token paying out its own tax inside the swap); see the money flows",
+      tone: "info",
+    });
   } else if (today) {
     lines.push({ label: "Measured take today", value: `not measured: ${STATUS_TEXT[today.status] ?? today.status}`, tone: "info" });
   } else {

@@ -2393,7 +2393,7 @@
    "forkBlock": 26347887,
    "measuredAt": 1793877077,
    "status": "ok",
-   "measuredTakeBps": 9264865.5,
+   "measuredTakeBps": null,
    "lpFeeBps": 0,
    "directions": [
     {
@@ -2551,7 +2551,10 @@
      ]
     }
    ],
-   "notes": []
+   "notes": [
+    "zeroForOne: measured take 92648.7% exceeds 100% of input; attribution is unreliable for this swap (see flows), excluded from the headline take",
+    "oneForZero: measured take 82814.5% exceeds 100% of input; attribution is unreliable for this swap (see flows), excluded from the headline take"
+   ]
   },
   {
    "simId": "0x888b07bd282f587d3c6b0fcb23e7fc55bbb33abe8910dd7492db815dc8dc5592:today:26347887",
