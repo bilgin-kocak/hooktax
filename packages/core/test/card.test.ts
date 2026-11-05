@@ -59,6 +59,20 @@ describe("buildCard", () => {
     expect(card.lines.at(-1)!.value).toBe("not demonstrated (tried: upgradeToAndCall, setFee)");
   });
 
+  it("a real-hook probe that did not execute says why, with decoded reasons", () => {
+    const notRun = {
+      ...sim("after-admin-upgrade", null, "not-run"),
+      probes: [
+        { method: "ProxyAdmin.owner-renounced", caller: "0x0", executed: false },
+        { method: "ProxyAdmin.upgradeAndCall", caller: "0x1f22", executed: false, revertData: "0x118cdaa7" },
+      ],
+    };
+    const card = buildCard({ hook: hook(0x88, true), demonstrations: [notRun] });
+    expect(card.lines.at(-1)!.value).toBe(
+      "not demonstrated (tried: ProxyAdmin ownership renounced, ProxyAdmin.upgradeAndCall: OwnableUnauthorizedAccount)",
+    );
+  });
+
   it("dynamic pool fee is shown as dynamic", () => {
     const card = buildCard({ hook: hook(0x80, false, true), poolFeePips: 0x800000 });
     expect(card.lines.find((l) => l.label === "LP fee")!.value).toBe("dynamic (set by the hook)");

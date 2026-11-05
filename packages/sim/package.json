@@ -8,6 +8,7 @@
   "scripts": {
     "demo": "tsx runner/demo.ts",
     "measure": "tsx runner/measure.ts",
+    "probe": "tsx runner/probe.ts",
     "rederive": "tsx runner/rederive.ts",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json"

@@ -175,6 +175,22 @@ export interface SimResultRecord {
   lpFeeBps: number | null;
   directions: DirectionResult[];
   notes?: string[];
+  /**
+   * For "after-admin-upgrade" on a real hook: every upgrade path tried on the fork, executed or
+   * not. When none executed, status is "not-run" and the worst case is "not demonstrated".
+   */
+  probes?: ProbeAttempt[];
+}
+
+/** One impersonated upgrade attempt on a local fork (runner/probe.ts, test/ProbeUpgrade.t.sol). */
+export interface ProbeAttempt {
+  /** e.g. "ProxyAdmin.upgradeAndCall", "proxy.upgradeToAndCall", "no-upgrade-authority-found". */
+  method: string;
+  /** The impersonated caller (zero address when no authority was found). */
+  caller: string;
+  executed: boolean;
+  /** Revert data when the call reverted (truncated). */
+  revertData?: string;
 }
 
 export interface SimResultsFile {

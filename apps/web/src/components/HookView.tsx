@@ -9,6 +9,7 @@ import {
   shortAddress,
   type CardSim,
   type HookPermissions,
+  type ProbeAttempt,
   type ProxyType,
 } from "@hooktax/core";
 import type { Address } from "viem";
@@ -39,7 +40,7 @@ export function simFromRow(r: Row): CardSim & { simId: string; poolId: string; i
     const v = val<string>(r, n);
     return v === undefined ? null : Number(v);
   };
-  const details = decodeDetails<{ label?: string | null }>(r.details as { value: `0x${string}` } | undefined);
+  const details = decodeDetails<{ label?: string | null; probes?: ProbeAttempt[] }>(r.details as { value: `0x${string}` } | undefined);
   return {
     simId: val<string>(r, "simId") ?? "",
     poolId: val<string>(r, "poolId") ?? "",
@@ -51,6 +52,7 @@ export function simFromRow(r: Row): CardSim & { simId: string; poolId: string; i
     forkBlock: Number(val<bigint>(r, "forkBlock") ?? 0n),
     measuredAt: Number(val<bigint>(r, "measuredAt") ?? 0n),
     label: details?.label ?? null,
+    probes: details?.probes ?? null,
   };
 }
 

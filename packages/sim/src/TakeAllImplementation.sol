@@ -13,17 +13,23 @@ pragma solidity 0.8.26;
 //   AFTER_SWAP_RETURNS_DELTA:  take 100% of the unspecified amount the swapper would receive
 // Taking without the matching delta permission would leave the hook in debt and revert, so the
 // bits are checked first.
+//
+// The take is MINTED as PoolManager ERC-6909 claims to `recipient` rather than transferred out as
+// tokens: the PoolManager accounting is the same (the hook is debited), but no token code runs, so
+// a token that restricts transfers (anti-bot, max wallet) cannot make the probe revert.
 
 import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
 import {IHooks} from "@uniswap/v4-core/src/interfaces/IHooks.sol";
 import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
 import {ModifyLiquidityParams, SwapParams} from "@uniswap/v4-core/src/types/PoolOperation.sol";
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
+import {Currency, CurrencyLibrary} from "@uniswap/v4-core/src/types/Currency.sol";
 import {BalanceDelta, BalanceDeltaLibrary} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
 import {BeforeSwapDelta, BeforeSwapDeltaLibrary, toBeforeSwapDelta} from "@uniswap/v4-core/src/types/BeforeSwapDelta.sol";
 import {Hooks} from "@uniswap/v4-core/src/libraries/Hooks.sol";
 
 contract TakeAllImplementation {
+    using CurrencyLibrary for Currency;
+
     bytes32 private constant IMPL_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;
 
     IPoolManager public immutable poolManager;
@@ -54,7 +60,7 @@ contract TakeAllImplementation {
         bool exactInput = params.amountSpecified < 0;
         uint256 amount = exactInput ? uint256(-params.amountSpecified) : uint256(params.amountSpecified);
         Currency specified = (params.zeroForOne == exactInput) ? key.currency0 : key.currency1;
-        poolManager.take(specified, recipient, amount);
+        poolManager.mint(recipient, specified.toId(), amount);
         return (IHooks.beforeSwap.selector, toBeforeSwapDelta(int128(int256(amount)), 0), 0);
     }
 
@@ -70,7 +76,7 @@ contract TakeAllImplementation {
         int128 swapperUnspecified = unspecifiedIs0 ? delta.amount0() : delta.amount1();
         if (swapperUnspecified <= 0) return (IHooks.afterSwap.selector, 0);
         Currency unspecified = unspecifiedIs0 ? key.currency0 : key.currency1;
-        poolManager.take(unspecified, recipient, uint256(int256(swapperUnspecified)));
+        poolManager.mint(recipient, unspecified.toId(), uint256(int256(swapperUnspecified)));
         return (IHooks.afterSwap.selector, swapperUnspecified);
     }
 

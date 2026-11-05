@@ -5,7 +5,7 @@
 // price is fine; it just keeps the probe near a fixed USD notional instead of a fixed token count.
 
 import type { HookRecord, PoolRecord } from "@hooktax/core";
-import { APPROX_PRICES_USD } from "@hooktax/core";
+import { APPROX_PRICES_USD, depthUsd } from "@hooktax/core";
 
 /** Approximate USD prices for sizing only (mainnet), shared with the Arkiv mirror's ranking. */
 export const SIZING_PRICES_USD = APPROX_PRICES_USD;
@@ -121,5 +121,38 @@ export function selectPools(hooks: HookRecord[], pools: PoolRecord[], opts: Sele
 export function selectionLines(sel: Selection[]): string {
   return sel
     .map((s) => [s.poolId, s.currency0, s.currency1, s.fee, s.tickSpacing, s.hooks, s.amount0In, s.amount1In].join("|"))
+    .join("\n");
+}
+
+export interface ProbeTarget extends Selection {
+  /** The indexer's upgrade authority (ProxyAdmin owner, admin slot or owner()); zero if none. */
+  authority: string;
+}
+
+/**
+ * M5 on real hooks: one pool per hook whose worst case is 100% of swap value (upgradeable AND a
+ * swap RETURNS_DELTA bit), the deepest active pool with a priced token, so the probe swap is sized.
+ */
+export function selectProbeTargets(hooks: HookRecord[], pools: PoolRecord[]): ProbeTarget[] {
+  const byId = new Map(pools.map((p) => [p.poolId.toLowerCase(), p]));
+  const out: ProbeTarget[] = [];
+  for (const hook of hooks) {
+    if (hook.status !== "ok" || hook.worstCase.level !== "swap-100") continue;
+    const candidates = hook.poolIds
+      .map((id) => byId.get(id.toLowerCase()))
+      .filter((p): p is PoolRecord => !!p && isActive(p))
+      .map((p) => ({ p, s: toSelection(p), depth: depthUsd(p) }))
+      .filter((c) => c.s !== null && c.depth > 0)
+      .sort((a, b) => b.depth - a.depth);
+    const best = candidates[0];
+    if (!best) continue;
+    out.push({ ...best.s!, authority: hook.proxy.upgradeAuthority ?? "0x0000000000000000000000000000000000000000" });
+  }
+  return out;
+}
+
+export function probeSelectionLines(sel: ProbeTarget[]): string {
+  return sel
+    .map((s) => [s.poolId, s.currency0, s.currency1, s.fee, s.tickSpacing, s.hooks, s.amount0In, s.amount1In, s.authority].join("|"))
     .join("\n");
 }

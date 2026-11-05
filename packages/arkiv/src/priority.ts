@@ -12,25 +12,10 @@
 // current price (concentrated liquidity L at the current tick), valued with APPROX_PRICES_USD.
 // A hook ranks by its deepest active pool.
 
-import { APPROX_PRICES_USD, type HookRecord, type PoolRecord, type SimResultRecord } from "@hooktax/core";
+import { depthUsd, type HookRecord, type PoolRecord, type SimResultRecord } from "@hooktax/core";
 import { isActivePool } from "./map";
 
-const Q96 = 2 ** 96;
-
-/** Approximate USD depth at the current price (ranking only). 0 if no side is priced. */
-export function depthUsd(p: PoolRecord): number {
-  if (!p.state) return 0;
-  const L = Number(BigInt(p.state.liquidity));
-  const sqrtP = Number(BigInt(p.state.sqrtPriceX96)) / Q96;
-  if (!(L > 0) || !(sqrtP > 0)) return 0;
-  const side = (token: string, decimals: number | null, rawAmount: number) => {
-    const price = APPROX_PRICES_USD[token.toLowerCase()];
-    return price ? (rawAmount / 10 ** (decimals ?? 18)) * price : 0;
-  };
-  // Virtual reserves at the current price: x = L / sqrtP (token0), y = L * sqrtP (token1).
-  const usd = Math.max(side(p.currency0, p.decimals0, L / sqrtP), side(p.currency1, p.decimals1, L * sqrtP));
-  return Number.isFinite(usd) ? usd : 0;
-}
+export { depthUsd };
 
 export function hookTier(h: HookRecord, measuredHooks: ReadonlySet<string>): number {
   if (h.worstCase.level === "swap-100") return 0;

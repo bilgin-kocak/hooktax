@@ -2,11 +2,5087 @@
  "meta": {
   "schemaVersion": 1,
   "forkBlock": 26348110,
-  "generatedAt": "2026-11-05T11:31:12.343Z",
+  "generatedAt": "2026-11-05T17:48:29.708Z",
   "source": "packages/sim fork simulations (local mainnet fork; nothing broadcast)",
-  "count": 22
+  "count": 70
  },
  "results": [
+  {
+   "simId": "0x01e60a26a6848ca3775b25d7bb579688e23e53220248caadc7ef36b578421229:after-admin-upgrade:26347887",
+   "poolId": "0x01e60a26a6848ca3775b25d7bb579688e23e53220248caadc7ef36b578421229",
+   "hook": "0x92568Ec3F25956f6788AAA8938C93BaFB183BFfF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "9994326207591471599297340653",
+     "amountOut": "0",
+     "takeAmountIn": "9994326207591471599297340653",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "-9994326207591471599297340653",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "9994326207591471599297340653",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "-9994326207591471599297340653",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "9994326207591471599297340653",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x07a083e00BF23e25C3073a4D43371D7F217B7D9f and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x07a083e00BF23e25C3073a4D43371D7F217B7D9f",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x01e60a26a6848ca3775b25d7bb579688e23e53220248caadc7ef36b578421229:today:26347887",
+   "poolId": "0x01e60a26a6848ca3775b25d7bb579688e23e53220248caadc7ef36b578421229",
+   "hook": "0x92568Ec3F25956f6788AAA8938C93BaFB183BFfF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 199.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+     "amountIn": "16666666666666666",
+     "amountOut": "64363264076159016500249103",
+     "takeAmountIn": "333333333333333",
+     "takeBps": 199.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "-64363264076159016500249103",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "64363264076159016500249103",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16333333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x95Db62B635612dd3A5EBe2227EC5468a1e54001c",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "133333333333332",
+       "kind": "native"
+      },
+      {
+       "address": "0x7718F0899A0a67F4b9E4CB04Ae21E7dD9f2D4E73",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "200000000000001",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "9994326207591471599297340653",
+     "amountOut": "105200171472410",
+     "takeAmountIn": "1287434486681331471426009",
+     "takeBps": 1.28,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "-9994326207591471599297340653",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xF7eF7E5498D9e359a04866263e0DBeFf071321F4",
+       "amount": "9994326207591471599297340653",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-107347113747357",
+       "kind": "native"
+      },
+      {
+       "address": "0x95Db62B635612dd3A5EBe2227EC5468a1e54001c",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "858776909977",
+       "kind": "native"
+      },
+      {
+       "address": "0x7718F0899A0a67F4b9E4CB04Ae21E7dD9f2D4E73",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "1288165364970",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "105200171472410",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x0f50828267692b0c01cea8e2bb97b3bc2a2c131ca1b56e53196811f4c627530b:after-admin-upgrade:26347887",
+   "poolId": "0x0f50828267692b0c01cea8e2bb97b3bc2a2c131ca1b56e53196811f4c627530b",
+   "hook": "0xf911442ABAEE91A6eB1a0476160d787F407D3fFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631522",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631522",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "10904002759595417856631522",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x2C5b5f5655d45c9320BEe098378D882C6B133e9e and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x2C5b5f5655d45c9320BEe098378D882C6B133e9e",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x0f50828267692b0c01cea8e2bb97b3bc2a2c131ca1b56e53196811f4c627530b:today:26347887",
+   "poolId": "0x0f50828267692b0c01cea8e2bb97b3bc2a2c131ca1b56e53196811f4c627530b",
+   "hook": "0xf911442ABAEE91A6eB1a0476160d787F407D3fFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xf911442ABAEE91A6eB1a0476160d787F407D3fFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "24",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "-24",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xAD0c31632b305d00Fa6090C912d1Fc9C4305FA06",
+       "amount": "24",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x1784fd2dccfde85cd3a4e0adf3de01520a0b359dfba2f555dd1b640996b70245:after-admin-upgrade:26347887",
+   "poolId": "0x1784fd2dccfde85cd3a4e0adf3de01520a0b359dfba2f555dd1b640996b70245",
+   "hook": "0x6d3e3447440359911f2E715F332e3609D3D0AACc",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "not-run",
+   "measuredTakeBps": null,
+   "lpFeeBps": null,
+   "directions": [],
+   "probes": [
+    {
+     "method": "no-upgrade-authority-found",
+     "caller": "0x0000000000000000000000000000000000000000",
+     "executed": false
+    }
+   ],
+   "notes": [
+    "upgrade not demonstrated on the fork: no upgrade authority found (no admin slot, owner() or role admin)"
+   ]
+  },
+  {
+   "simId": "0x1784fd2dccfde85cd3a4e0adf3de01520a0b359dfba2f555dd1b640996b70245:today:26347887",
+   "poolId": "0x1784fd2dccfde85cd3a4e0adf3de01520a0b359dfba2f555dd1b640996b70245",
+   "hook": "0x6d3e3447440359911f2E715F332e3609D3D0AACc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 199.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x2D781489ac23FD8A0F23879E8Bca1bE2381D4bC0",
+     "amountIn": "16666666666666666",
+     "amountOut": "4954842748022753432063",
+     "takeAmountIn": "333333333333333",
+     "takeBps": 199.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xf9073875D84462520077b55436e6cb828E6e85B2",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x2D781489ac23FD8A0F23879E8Bca1bE2381D4bC0",
+       "amount": "-4954842748022753432063",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x2D781489ac23FD8A0F23879E8Bca1bE2381D4bC0",
+       "amount": "4954842748022753432063",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "hook-reverted",
+     "error": "0x90bfb8650000000000000000000000006d3e3447440359911f2e715f332e3609d3d0aaccb47b2fb1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080",
+     "tokenIn": "0x2D781489ac23FD8A0F23879E8Bca1bE2381D4bC0",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "0",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": null,
+     "lpFeeBps": null,
+     "flows": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x3e46d8b25306a4d0684e23078878a4921e1c5fd5d83bba66e737105b58d02103:after-admin-upgrade:26347887",
+   "poolId": "0x3e46d8b25306a4d0684e23078878a4921e1c5fd5d83bba66e737105b58d02103",
+   "hook": "0x7d2E8B42903bAad3c4f0819Fd4E16110f1B83FFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631523",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631523",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "-10904002759595417856631523",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "10904002759595417856631523",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "-10904002759595417856631523",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "10904002759595417856631523",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xD9d93B55BF00b1b7875096Ff5ddB749614A87Ad9 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xD9d93B55BF00b1b7875096Ff5ddB749614A87Ad9",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x3e46d8b25306a4d0684e23078878a4921e1c5fd5d83bba66e737105b58d02103:today:26347887",
+   "poolId": "0x3e46d8b25306a4d0684e23078878a4921e1c5fd5d83bba66e737105b58d02103",
+   "hook": "0x7d2E8B42903bAad3c4f0819Fd4E16110f1B83FFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x7d2E8B42903bAad3c4f0819Fd4E16110f1B83FFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "1",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "-1",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xAc9DE8140C08031a0Dc4ed89Bb9a75cF763B637F",
+       "amount": "1",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x401fd71b87f78ef75107ab373f1147f8498e7f801deaac605cfec6fc49e99377:after-admin-upgrade:26347887",
+   "poolId": "0x401fd71b87f78ef75107ab373f1147f8498e7f801deaac605cfec6fc49e99377",
+   "hook": "0xc1fEa6dfDd54d8a49104CF0315F0bc48Fa207FFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631522",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631522",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "10904002759595417856631522",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x2bE29bd9348760c37FB0a9A22470D775d7709B19 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x2bE29bd9348760c37FB0a9A22470D775d7709B19",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x401fd71b87f78ef75107ab373f1147f8498e7f801deaac605cfec6fc49e99377:today:26347887",
+   "poolId": "0x401fd71b87f78ef75107ab373f1147f8498e7f801deaac605cfec6fc49e99377",
+   "hook": "0xc1fEa6dfDd54d8a49104CF0315F0bc48Fa207FFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 612.15,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "1020251098694165",
+     "takeBps": 612.15,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "853584432027499",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xc1fEa6dfDd54d8a49104CF0315F0bc48Fa207FFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-853584432027499",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "15646415567972501",
+       "kind": "native"
+      },
+      {
+       "address": "0xeed9201737D2BF11834C59A64EE53812108817bC",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "1020251098694165",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "4",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "-4",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xbc8CD0B7655b0842343ade70A6ff5c11D75bEEC1",
+       "amount": "4",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x47292d1284a439c8831660f1401cdb9a4c6cc5e913f743905a1697f95f0c4efd:after-admin-upgrade:26347887",
+   "poolId": "0x47292d1284a439c8831660f1401cdb9a4c6cc5e913f743905a1697f95f0c4efd",
+   "hook": "0xd1821058426F5D61305400565a10Bd7c4C847FFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10890032451662504971960770",
+     "amountOut": "0",
+     "takeAmountIn": "10890032451662504971960770",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "-10890032451662504971960770",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "10890032451662504971960770",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "-10890032451662504971960770",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "10890032451662504971960770",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xa60516A2ed6B0132af0b1eDfd22f8dD934D845Cc and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xa60516A2ed6B0132af0b1eDfd22f8dD934D845Cc",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x47292d1284a439c8831660f1401cdb9a4c6cc5e913f743905a1697f95f0c4efd:today:26347887",
+   "poolId": "0x47292d1284a439c8831660f1401cdb9a4c6cc5e913f743905a1697f95f0c4efd",
+   "hook": "0xd1821058426F5D61305400565a10Bd7c4C847FFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+     "amountIn": "16666666666666666",
+     "amountOut": "10666066123558320888675216",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xd1821058426F5D61305400565a10Bd7c4C847FFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "-10666066123558320888675216",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "10666066123558320888675216",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "640809885662027473721138",
+     "amountOut": "970299000000000",
+     "takeAmountIn": "6403992483523999518458",
+     "takeBps": 99.93,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-9800999999999",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xd1821058426F5D61305400565a10Bd7c4C847FFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "9800999999999",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "-640809885662027473721138",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x62D20D919185fc83352dE89EDf2B5cd9fA19e4db",
+       "amount": "640809885662027473721138",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-970299000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "970299000000000",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x4a3382142bac0e41a222bc5950e2dec8770e05441766a7de0646de0bdadfe31e:after-admin-upgrade:26347887",
+   "poolId": "0x4a3382142bac0e41a222bc5950e2dec8770e05441766a7de0646de0bdadfe31e",
+   "hook": "0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "8300281786945820057219791",
+     "amountOut": "0",
+     "takeAmountIn": "8300281786945820057219791",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "-8300281786945820057219791",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "8300281786945820057219791",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "-8300281786945820057219791",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "8300281786945820057219791",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x837D20762696E70f611A4ccda964Fb1F1BdEB21B and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x837D20762696E70f611A4ccda964Fb1F1BdEB21B",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x4a3382142bac0e41a222bc5950e2dec8770e05441766a7de0646de0bdadfe31e:today:26347887",
+   "poolId": "0x4a3382142bac0e41a222bc5950e2dec8770e05441766a7de0646de0bdadfe31e",
+   "hook": "0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 229.9,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+     "amountIn": "16666666666666666",
+     "amountOut": "8040050577877199304040396",
+     "takeAmountIn": "341666666666667",
+     "takeBps": 205,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-341666666666667",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "41666666666667",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xAcF422fdF369b7572951894CF01A45f4264DF667",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666667",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x7b6c7258C8d622463c21C64D4682dFc3c5d8756E",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "50000000000000",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x6dd550EfcA91ae44b926bf263c9b27EeD25C2322",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "-8060447568970146879664341",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "20396991092947575623945",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "8040050577877199304040396",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "401717146712188533463907",
+     "amountOut": "787744509000313",
+     "takeAmountIn": "9235549573320510114135",
+     "takeBps": 229.9,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-18544650672474",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "4031445798363",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xAcF422fdF369b7572951894CF01A45f4264DF667",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "8062891596729",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x7b6c7258C8d622463c21C64D4682dFc3c5d8756E",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "2418867479019",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x6dd550EfcA91ae44b926bf263c9b27EeD25C2322",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "4031445798363",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "-401717146712188533463907",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x034185F6Dc1e9844b37Fda189A05a4ecEf2D1341",
+       "amount": "401717146712188533463907",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-787744509000313",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "787744509000313",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x4c9d70ac7fdc3ae6ab1545cacb18c78caf0a032d8c9e36acb21bb5d27dc55300:after-admin-upgrade:26347887",
+   "poolId": "0x4c9d70ac7fdc3ae6ab1545cacb18c78caf0a032d8c9e36acb21bb5d27dc55300",
+   "hook": "0x585DD51eb8866d8b951B6a1349DC68Fc2830BFFf",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "4436165965230895173951310",
+     "amountOut": "0",
+     "takeAmountIn": "4436165965230895173951310",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "-4436165965230895173951310",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "4436165965230895173951310",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "-4436165965230895173951310",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "4436165965230895173951310",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xBb145cA83272c3806D4dDc75cA1D5514789cF1C5 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xBb145cA83272c3806D4dDc75cA1D5514789cF1C5",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x4c9d70ac7fdc3ae6ab1545cacb18c78caf0a032d8c9e36acb21bb5d27dc55300:today:26347887",
+   "poolId": "0x4c9d70ac7fdc3ae6ab1545cacb18c78caf0a032d8c9e36acb21bb5d27dc55300",
+   "hook": "0x585DD51eb8866d8b951B6a1349DC68Fc2830BFFf",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 199.99,
+   "lpFeeBps": 5,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+     "amountIn": "16666666666666666",
+     "amountOut": "4318716387264935460001500",
+     "takeAmountIn": "333333333333333",
+     "takeBps": 199.99,
+     "lpFeeBps": 5,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x585DD51eb8866d8b951B6a1349DC68Fc2830BFFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "-4318716387264935460001500",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "4318716387264935460001500",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "4436165965230895173951310",
+     "amountOut": "16223385655746199",
+     "takeAmountIn": "88126079126738219611888",
+     "takeBps": 198.65,
+     "lpFeeBps": 5,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-331089503178493",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x585DD51eb8866d8b951B6a1349DC68Fc2830BFFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "331089503178493",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "-4436165965230895173951310",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xCA9b3FCF392Bbc6E98053501158e49C3816B77D6",
+       "amount": "4436165965230895173951310",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16223385655746199",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16223385655746199",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x534bd3149e19f11e3f05a1b5d1ab84be59fe1cab4c3d46c5ce1d189f89b93f5b:after-admin-upgrade:26347887",
+   "poolId": "0x534bd3149e19f11e3f05a1b5d1ab84be59fe1cab4c3d46c5ce1d189f89b93f5b",
+   "hook": "0xd26F8F3549f3651BA881F7748579783016A03fff",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 130,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 130,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "552402536345053989869652",
+     "amountOut": "0",
+     "takeAmountIn": "552402536345053989869652",
+     "takeBps": 10000,
+     "lpFeeBps": 130,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "-552402536345053989869652",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "552402536345053989869652",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "-552402536345053989869652",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "552402536345053989869652",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x86C63771B0E68048c672722ABc4f28F153ED5e5e and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (proxy.upgradeToAndCall)",
+   "probes": [
+    {
+     "method": "proxy.upgradeToAndCall",
+     "caller": "0x86C63771B0E68048c672722ABc4f28F153ED5e5e",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x534bd3149e19f11e3f05a1b5d1ab84be59fe1cab4c3d46c5ce1d189f89b93f5b:today:26347887",
+   "poolId": "0x534bd3149e19f11e3f05a1b5d1ab84be59fe1cab4c3d46c5ce1d189f89b93f5b",
+   "hook": "0xd26F8F3549f3651BA881F7748579783016A03fff",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 0,
+   "lpFeeBps": 130,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+     "amountIn": "16666666666666666",
+     "amountOut": "544878782968496767801677",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 130,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "-544878782968496767801677",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "544878782968496767801677",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "552402536345053989869652",
+     "amountOut": "16439665736441104",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 130,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "-552402536345053989869652",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x7205253E20AE3b591C02A82C2021f7d793DAf60F",
+       "amount": "552402536345053989869652",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16439665736441104",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16439665736441104",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x61f1ba46e6d965ce49d1442dfa14ebd4ccffa71f391119d1dfbcd832066f6c95:after-admin-upgrade:26347887",
+   "poolId": "0x61f1ba46e6d965ce49d1442dfa14ebd4ccffa71f391119d1dfbcd832066f6c95",
+   "hook": "0x7fCFf74ba004A632637A801B3ca77AFdd4c57FFf",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631523",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631523",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "-10904002759595417856631523",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "10904002759595417856631523",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "-10904002759595417856631523",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "10904002759595417856631523",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x54e378d877802D1F20bD0f2aD7e4b78f19789eF7 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x54e378d877802D1F20bD0f2aD7e4b78f19789eF7",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x61f1ba46e6d965ce49d1442dfa14ebd4ccffa71f391119d1dfbcd832066f6c95:today:26347887",
+   "poolId": "0x61f1ba46e6d965ce49d1442dfa14ebd4ccffa71f391119d1dfbcd832066f6c95",
+   "hook": "0x7fCFf74ba004A632637A801B3ca77AFdd4c57FFf",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x7fCFf74ba004A632637A801B3ca77AFdd4c57FFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "2",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "-2",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xc83861620aB6246E30E52604D0e63ca6319A08F9",
+       "amount": "2",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x6f84401252a7c93d8da59f47ff172dffda836218ffbd1062db93973fd977dd66:after-admin-upgrade:26347887",
+   "poolId": "0x6f84401252a7c93d8da59f47ff172dffda836218ffbd1062db93973fd977dd66",
+   "hook": "0x9B092718fa852cc27f730C13AF765cC14320BfFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "8298807980461659767360311",
+     "amountOut": "0",
+     "takeAmountIn": "8298807980461659767360311",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "-8298807980461659767360311",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "8298807980461659767360311",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "-8298807980461659767360311",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "8298807980461659767360311",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xa9d4572DBF08b6e860181028302a80BFeACed4e7 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xa9d4572DBF08b6e860181028302a80BFeACed4e7",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x6f84401252a7c93d8da59f47ff172dffda836218ffbd1062db93973fd977dd66:today:26347887",
+   "poolId": "0x6f84401252a7c93d8da59f47ff172dffda836218ffbd1062db93973fd977dd66",
+   "hook": "0x9B092718fa852cc27f730C13AF765cC14320BfFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 229.88,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+     "amountIn": "16666666666666666",
+     "amountOut": "8038629079573438012370127",
+     "takeAmountIn": "300000000000000",
+     "takeBps": 180,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-294676597409016",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x9B092718fa852cc27f730C13AF765cC14320BfFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-5323402590984",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xF19C2b71043803391e1514ab1dEf8e21FEa1944d",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666667",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x3dBc8984D774E6221d1A274DA47FD5Da86eD72E3",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "50000000000000",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x1Fc66FA7A01ccB1939e94D7f251ae374D116Dc4e",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "-8082020304730489091743870",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "43391225157051079373743",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "8038629079573438012370127",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "485218769822102949781770",
+     "amountOut": "951570934109757",
+     "takeAmountIn": "11154276517412590112965",
+     "takeBps": 229.88,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-22401362829605",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x9B092718fa852cc27f730C13AF765cC14320BfFF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "4869861484696",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xF19C2b71043803391e1514ab1dEf8e21FEa1944d",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "9739722969395",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x3dBc8984D774E6221d1A274DA47FD5Da86eD72E3",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "2921916890818",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x1Fc66FA7A01ccB1939e94D7f251ae374D116Dc4e",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "4869861484696",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "-485218769822102949781770",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x9d1565B54adF7C8D6A80B9D8e4e80671F0C85b47",
+       "amount": "485218769822102949781770",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-951570934109757",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "951570934109757",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x8728f9263ef9bf99675facea9960bd7ad13c9808f3dd13974196f2faedc5318b:after-admin-upgrade:26347887",
+   "poolId": "0x8728f9263ef9bf99675facea9960bd7ad13c9808f3dd13974196f2faedc5318b",
+   "hook": "0xB76854802683c03ef423B4962ef2C6587E947FfF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631522",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631522",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "10904002759595417856631522",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xE4fAf010b83aff87181f468A02Ba413F5f9934f8 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xE4fAf010b83aff87181f468A02Ba413F5f9934f8",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x8728f9263ef9bf99675facea9960bd7ad13c9808f3dd13974196f2faedc5318b:today:26347887",
+   "poolId": "0x8728f9263ef9bf99675facea9960bd7ad13c9808f3dd13974196f2faedc5318b",
+   "hook": "0xB76854802683c03ef423B4962ef2C6587E947FfF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xB76854802683c03ef423B4962ef2C6587E947FfF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "4",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "-4",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC4e5672359A64B1bFbEF43599a8d93c03FcB4d49",
+       "amount": "4",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x8bf0a6b33185fb91e0ae6652cfb90d30fd066d5f58a979f38e90d4d143402334:after-admin-upgrade:26347887",
+   "poolId": "0x8bf0a6b33185fb91e0ae6652cfb90d30fd066d5f58a979f38e90d4d143402334",
+   "hook": "0xE2D9a7D916e7D7aD85d486989C50BB55Ca6efFFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "6961363000348102774825722",
+     "amountOut": "0",
+     "takeAmountIn": "6961363000348102774825722",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "-6961363000348102774825722",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "6961363000348102774825722",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "-6961363000348102774825722",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "6961363000348102774825722",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xBb145cA83272c3806D4dDc75cA1D5514789cF1C5 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xBb145cA83272c3806D4dDc75cA1D5514789cF1C5",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x8bf0a6b33185fb91e0ae6652cfb90d30fd066d5f58a979f38e90d4d143402334:today:26347887",
+   "poolId": "0x8bf0a6b33185fb91e0ae6652cfb90d30fd066d5f58a979f38e90d4d143402334",
+   "hook": "0xE2D9a7D916e7D7aD85d486989C50BB55Ca6efFFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 229.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+     "amountIn": "16666666666666666",
+     "amountOut": "6749162469113812999752753",
+     "takeAmountIn": "383333333333333",
+     "takeBps": 229.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-383333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xa02F943B20DbF6016Dd690c3f602e839D3cD983E",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xC3FdDCef8d96ed0f648245a96c44162FB77bf014",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "50000000000000",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "-6749162469113812999752753",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "6749162469113812999752753",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "6961363000348102774825722",
+     "amountOut": "16155710274640523",
+     "takeAmountIn": "158856452380053264035585",
+     "takeBps": 228.19,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-380328901040667",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xa02F943B20DbF6016Dd690c3f602e839D3cD983E",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "330720783513623",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xC3FdDCef8d96ed0f648245a96c44162FB77bf014",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "49608117527044",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "-6961363000348102774825722",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x92C7D78306ae671D2D03118bD316e452399bd20F",
+       "amount": "6961363000348102774825722",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16155710274640523",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16155710274640523",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x92d233aac5aacb4dee7da6c60f6e166499cf85203ea4ac18099b1def3afdcd86:after-admin-upgrade:26347887",
+   "poolId": "0x92d233aac5aacb4dee7da6c60f6e166499cf85203ea4ac18099b1def3afdcd86",
+   "hook": "0xda9993623E1Ec76eC433e59003d7a42895c6a8C4",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 9813.31,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16355522316982687",
+     "takeBps": 9813.31,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+       "amount": "-8751582289509391580778571",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+       "amount": "8751582289509391580778571",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "swap-failed",
+     "error": null,
+     "tokenIn": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "0",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": null,
+     "lpFeeBps": null,
+     "flows": []
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x4488344E5957d8C027E73f97b2aC27208db0277B and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x4488344E5957d8C027E73f97b2aC27208db0277B",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x92d233aac5aacb4dee7da6c60f6e166499cf85203ea4ac18099b1def3afdcd86:today:26347887",
+   "poolId": "0x92d233aac5aacb4dee7da6c60f6e166499cf85203ea4ac18099b1def3afdcd86",
+   "hook": "0xda9993623E1Ec76eC433e59003d7a42895c6a8C4",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 989.47,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+     "amountIn": "16666666666666666",
+     "amountOut": "8751582289509391580778571",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+       "amount": "-8751582289509391580778571",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+       "amount": "8751582289509391580778571",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "535367996415401998255606",
+     "amountOut": "891000000000000",
+     "takeAmountIn": "52973340127559934372233",
+     "takeBps": 989.47,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+       "amount": "-535367996415401998255606",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xBDeF42B3A883E37Ac83b4a6c6f9f8aF4B380aFC5",
+       "amount": "535367996415401998255606",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-989999999999999",
+       "kind": "native"
+      },
+      {
+       "address": "0xda9993623E1Ec76eC433e59003d7a42895c6a8C4",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "98999999999999",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "891000000000000",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x930ac9ef6d0e177d65f62be4e0daf6d2d55a5ad53a16dcf61a526a59085aca2d:after-admin-upgrade:26347887",
+   "poolId": "0x930ac9ef6d0e177d65f62be4e0daf6d2d55a5ad53a16dcf61a526a59085aca2d",
+   "hook": "0x099084C58bE77b1626F7E17B9e1ddb8542147fff",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631522",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631522",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "10904002759595417856631522",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xee4e233164e0682ebC0606813c1Cc7436ee3639A and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xee4e233164e0682ebC0606813c1Cc7436ee3639A",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0x930ac9ef6d0e177d65f62be4e0daf6d2d55a5ad53a16dcf61a526a59085aca2d:today:26347887",
+   "poolId": "0x930ac9ef6d0e177d65f62be4e0daf6d2d55a5ad53a16dcf61a526a59085aca2d",
+   "hook": "0x099084C58bE77b1626F7E17B9e1ddb8542147fff",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x099084C58bE77b1626F7E17B9e1ddb8542147fff",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "15",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "-15",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xc767a73D3Efb9ca2ce1E2A7D4bd19B5389deADb9",
+       "amount": "15",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xb2e6cd10836f0ba185ba664c4ac9c5051de8182a0df0aad36888b7beb34d29a9:after-admin-upgrade:26347887",
+   "poolId": "0xb2e6cd10836f0ba185ba664c4ac9c5051de8182a0df0aad36888b7beb34d29a9",
+   "hook": "0x824B137974076A4002f5a7F263A4765842a7ffff",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "8272750748328035429356379",
+     "amountOut": "0",
+     "takeAmountIn": "8272750748328035429356379",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "-8272750748328035429356379",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "8272750748328035429356379",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "-8272750748328035429356379",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "8272750748328035429356379",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0xa9d4572DBF08b6e860181028302a80BFeACed4e7 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0xa9d4572DBF08b6e860181028302a80BFeACed4e7",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0xb2e6cd10836f0ba185ba664c4ac9c5051de8182a0df0aad36888b7beb34d29a9:today:26347887",
+   "poolId": "0xb2e6cd10836f0ba185ba664c4ac9c5051de8182a0df0aad36888b7beb34d29a9",
+   "hook": "0x824B137974076A4002f5a7F263A4765842a7ffff",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 229.52,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+     "amountIn": "16666666666666666",
+     "amountOut": "8013496400892356475318755",
+     "takeAmountIn": "329261211307094",
+     "takeBps": 197.55,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-329261211307094",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x824B137974076A4002f5a7F263A4765842a7ffff",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "29261211307094",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x39b84A0eFF077D274c91Dd4227e1944008100e25",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "250000000000000",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x08c8553E544F05245321dBBBEEc82fa2a5F6EcDB",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "50000000000000",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "-8039878988025424888171348",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "26382587133068412852593",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "8013496400892356475318755",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "1962772650522686563677439",
+     "amountOut": "3855284760230658",
+     "takeAmountIn": "45049598404910499852601",
+     "takeBps": 229.52,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-90759006637978",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x824B137974076A4002f5a7F263A4765842a7ffff",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "19730218834343",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x39b84A0eFF077D274c91Dd4227e1944008100e25",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "59190656503029",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x08c8553E544F05245321dBBBEEc82fa2a5F6EcDB",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "11838131300606",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "-1962772650522686563677439",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xb113829E0E97AE0a62C78764C498E13439ea3f30",
+       "amount": "1962772650522686563677439",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-3855284760230658",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "3855284760230658",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xcb2914e32874089ad1f0285967ce5f137479bfd3f2cfc4717ea726d52b41bd31:after-admin-upgrade:26347887",
+   "poolId": "0xcb2914e32874089ad1f0285967ce5f137479bfd3f2cfc4717ea726d52b41bd31",
+   "hook": "0x4439607e18561374F67135CB438C2FedbE94bFfF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "not-run",
+   "measuredTakeBps": null,
+   "lpFeeBps": null,
+   "directions": [],
+   "probes": [
+    {
+     "method": "no-upgrade-authority-found",
+     "caller": "0x0000000000000000000000000000000000000000",
+     "executed": false
+    }
+   ],
+   "notes": [
+    "upgrade not demonstrated on the fork: no upgrade authority found (no admin slot, owner() or role admin)"
+   ]
+  },
+  {
+   "simId": "0xcb2914e32874089ad1f0285967ce5f137479bfd3f2cfc4717ea726d52b41bd31:today:26347887",
+   "poolId": "0xcb2914e32874089ad1f0285967ce5f137479bfd3f2cfc4717ea726d52b41bd31",
+   "hook": "0x4439607e18561374F67135CB438C2FedbE94bFfF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 499.99,
+   "lpFeeBps": 1,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x0D992116e3Fa195f0D97F01775342CfB96a39dbD",
+     "amountIn": "16666666666666666",
+     "amountOut": "4199419788435384121474066",
+     "takeAmountIn": "833333333333333",
+     "takeBps": 499.99,
+     "lpFeeBps": 1,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0D992116e3Fa195f0D97F01775342CfB96a39dbD",
+       "amount": "-4199419788435384121474066",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0D992116e3Fa195f0D97F01775342CfB96a39dbD",
+       "amount": "4199419788435384121474066",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "15833333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x4439607e18561374F67135CB438C2FedbE94bFfF",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "500000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x935FdED9DdAce09E8ca6151C78D36087e7AFb619",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "333333333333333",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "swap-failed",
+     "error": "0x4e487b710000000000000000000000000000000000000000000000000000000000000011",
+     "tokenIn": "0x0D992116e3Fa195f0D97F01775342CfB96a39dbD",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "0",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": null,
+     "lpFeeBps": null,
+     "flows": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xd3790305e6532a055672e21444051588db44f58cfffd96d7319a1288314dfa37:after-admin-upgrade:26347887",
+   "poolId": "0xd3790305e6532a055672e21444051588db44f58cfffd96d7319a1288314dfa37",
+   "hook": "0x3d10A53B14dd315Cb30272a8b5e8F8E6946D20CC",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "not-run",
+   "measuredTakeBps": null,
+   "lpFeeBps": null,
+   "directions": [],
+   "probes": [
+    {
+     "method": "ProxyAdmin.owner-renounced",
+     "caller": "0x0000000000000000000000000000000000000000",
+     "executed": false
+    },
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x00e4d58C58331b776b1D5BD8f55824DaA07162BB",
+     "executed": false,
+     "revertData": "0x118cdaa700000000000000000000000000e4d58c58331b776b1d5bd8f55824daa07162bb"
+    },
+    {
+     "method": "ProxyAdmin.upgrade",
+     "caller": "0x00e4d58C58331b776b1D5BD8f55824DaA07162BB",
+     "executed": false
+    }
+   ],
+   "notes": [
+    "upgrade not demonstrated on the fork: the ProxyAdmin's ownership is renounced (owner() is the zero address), so no one can upgrade; ProxyAdmin.upgradeAndCall as 0x00e4d58C58331b776b1D5BD8f55824DaA07162BB: reverted OwnableUnauthorizedAccount; ProxyAdmin.upgrade as 0x00e4d58C58331b776b1D5BD8f55824DaA07162BB: reverted without data or did not change the implementation"
+   ]
+  },
+  {
+   "simId": "0xd3790305e6532a055672e21444051588db44f58cfffd96d7319a1288314dfa37:today:26347887",
+   "poolId": "0xd3790305e6532a055672e21444051588db44f58cfffd96d7319a1288314dfa37",
+   "hook": "0x3d10A53B14dd315Cb30272a8b5e8F8E6946D20CC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 2131.09,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+     "amountIn": "16666666666666666",
+     "amountOut": "358906972090639411027640",
+     "takeAmountIn": "3551826575712322",
+     "takeBps": 2131.09,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "-453165368801312387661161",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "4531653688013123876611",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x5258731A9B599A9E2d29245D90CCa3cC7433957B",
+       "role": "other",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "89726743022659852756910",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "358906972090639411027640",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16350000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x4954F0F8C578c3f82E4d279c46b0b9d653cE3efe",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x5B4Fc489AeBA36489F047345207694e87cB24142",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "150000000000000",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "462247851447155875573688",
+     "amountOut": "13191193836012637",
+     "takeAmountIn": "91464015130797112094936",
+     "takeBps": 1978.67,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "457625372932684316817952",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "4622478514471558755736",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xf1C11bd495a1c50532a972168fcA33Fc1C11ef35",
+       "amount": "-462247851447155875573688",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16488992295015796",
+       "kind": "native"
+      },
+      {
+       "address": "0x5258731A9B599A9E2d29245D90CCa3cC7433957B",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "3147798459003159",
+       "kind": "native"
+      },
+      {
+       "address": "0x5B4Fc489AeBA36489F047345207694e87cB24142",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "150000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "13191193836012637",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xddf0d866aead57acd0f1e78094eaf2fe480f63452f64a70cad02ec238ece81bb:after-admin-upgrade:26347887",
+   "poolId": "0xddf0d866aead57acd0f1e78094eaf2fe480f63452f64a70cad02ec238ece81bb",
+   "hook": "0x8301a6b5Ef08596E7455a6595502512298b31fCC",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "not-run",
+   "measuredTakeBps": null,
+   "lpFeeBps": null,
+   "directions": [],
+   "probes": [
+    {
+     "method": "proxy.upgradeToAndCall",
+     "caller": "0xd95A92469ab160385bc62161962a6A421fA86dec",
+     "executed": false,
+     "revertData": "0x0e5daa94"
+    },
+    {
+     "method": "proxy.upgradeTo",
+     "caller": "0xd95A92469ab160385bc62161962a6A421fA86dec",
+     "executed": false
+    }
+   ],
+   "notes": [
+    "upgrade not demonstrated on the fork: proxy.upgradeToAndCall as 0xd95A92469ab160385bc62161962a6A421fA86dec: reverted UpgradesDisabled; proxy.upgradeTo as 0xd95A92469ab160385bc62161962a6A421fA86dec: reverted without data or did not change the implementation"
+   ]
+  },
+  {
+   "simId": "0xddf0d866aead57acd0f1e78094eaf2fe480f63452f64a70cad02ec238ece81bb:today:26347887",
+   "poolId": "0xddf0d866aead57acd0f1e78094eaf2fe480f63452f64a70cad02ec238ece81bb",
+   "hook": "0x8301a6b5Ef08596E7455a6595502512298b31fCC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 791.57,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x114C7f70BE175b1C5A1740eaBb8D33bb6Dc8B675",
+     "amountIn": "16666666666666666",
+     "amountOut": "1672517973116188898914",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x114C7f70BE175b1C5A1740eaBb8D33bb6Dc8B675",
+       "amount": "-1672517973116188898914",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x114C7f70BE175b1C5A1740eaBb8D33bb6Dc8B675",
+       "amount": "1672517973116188898914",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x114C7f70BE175b1C5A1740eaBb8D33bb6Dc8B675",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "1690317587322823321625",
+     "amountOut": "15171868162597381",
+     "takeAmountIn": "133801437849295099640",
+     "takeBps": 791.57,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x114C7f70BE175b1C5A1740eaBb8D33bb6Dc8B675",
+       "amount": "-1690317587322823321625",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x114C7f70BE175b1C5A1740eaBb8D33bb6Dc8B675",
+       "amount": "1690317587322823321625",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16491161046301501",
+       "kind": "native"
+      },
+      {
+       "address": "0x970BDeff4743F938004EEdebb023D211eD0570c1",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "26385857674084",
+       "kind": "native"
+      },
+      {
+       "address": "0xC4d1cf0e0cE8421E89c203ACc237894704058ebf",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "211086861392659",
+       "kind": "native"
+      },
+      {
+       "address": "0x04D414559CA346e002Ab39Ea2884142e44cABE57",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "211086861392659",
+       "kind": "native"
+      },
+      {
+       "address": "0x539125b2Efc27De68b18E3110a88757965bb35d5",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "659646441852059",
+       "kind": "native"
+      },
+      {
+       "address": "0x003102BBF2da99E7EB3fcA49e6912d438dF45383",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16886948911417",
+       "kind": "native"
+      },
+      {
+       "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "194199912481242",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "15171868162597381",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xe0636702d91512a29439b647361742ad82f2fcfb3bd05fdf2b9ea699a187554d:after-admin-upgrade:26347887",
+   "poolId": "0xe0636702d91512a29439b647361742ad82f2fcfb3bd05fdf2b9ea699a187554d",
+   "hook": "0xC1218E2B85BCbe8993b218BF32bF6b59573EA0cc",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "161087684211209859954032",
+     "amountOut": "0",
+     "takeAmountIn": "161087684211209859954032",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "-161087684211209859954032",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "161087684211209859954032",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "-161087684211209859954032",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "161087684211209859954032",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x6eA69c3EC2Bc4489b50B2AaBa316b8e5B0f53190 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x6eA69c3EC2Bc4489b50B2AaBa316b8e5B0f53190",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0xe0636702d91512a29439b647361742ad82f2fcfb3bd05fdf2b9ea699a187554d:today:26347887",
+   "poolId": "0xe0636702d91512a29439b647361742ad82f2fcfb3bd05fdf2b9ea699a187554d",
+   "hook": "0xC1218E2B85BCbe8993b218BF32bF6b59573EA0cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+     "amountIn": "16666666666666666",
+     "amountOut": "147544360996684668007224",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xC1218E2B85BCbe8993b218BF32bF6b59573EA0cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "-147544360996684668007224",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "147544360996684668007224",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "30948739668911008535215",
+     "amountOut": "3121054831961630",
+     "takeAmountIn": "304705148592056265148",
+     "takeBps": 98.45,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-31525806383450",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xC1218E2B85BCbe8993b218BF32bF6b59573EA0cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "31525806383450",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "-30948739668911008535215",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x9c08f0572CfFFD96CaE2A1Ad2a58FffDcd942295",
+       "amount": "30948739668911008535215",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-3121054831961630",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "3121054831961630",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xe36a8bced6e9da1b4a6f7627d10a6e5a73c3a9bd6cc39fdfb67e4bd5a5b9815e:after-admin-upgrade:26347887",
+   "poolId": "0xe36a8bced6e9da1b4a6f7627d10a6e5a73c3a9bd6cc39fdfb67e4bd5a5b9815e",
+   "hook": "0x1ac2c2bA4E2ad08993e84F400F85832b194E3fff",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631522",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631522",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "10904002759595417856631522",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x1a3906d3144d74c5A5105B5f71E67b4EA83511FA and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x1a3906d3144d74c5A5105B5f71E67b4EA83511FA",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0xe36a8bced6e9da1b4a6f7627d10a6e5a73c3a9bd6cc39fdfb67e4bd5a5b9815e:today:26347887",
+   "poolId": "0xe36a8bced6e9da1b4a6f7627d10a6e5a73c3a9bd6cc39fdfb67e4bd5a5b9815e",
+   "hook": "0x1ac2c2bA4E2ad08993e84F400F85832b194E3fff",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+     "amountIn": "16666666666666666",
+     "amountOut": "10679676027294986637474778",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x1ac2c2bA4E2ad08993e84F400F85832b194E3fff",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "-10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "10679676027294986637474778",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "5",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "-5",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xa4a1C8B63955Bc502371b9D4eD8d95aC1e2442BA",
+       "amount": "5",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xf6f0900b9c3569de90cd730093dd1f9d78134e8fa22df3335c510f9bbb57b7fb:after-admin-upgrade:26347887",
+   "poolId": "0xf6f0900b9c3569de90cd730093dd1f9d78134e8fa22df3335c510f9bbb57b7fb",
+   "hook": "0xf8EaFA073dDE4aBFf429a2f85c1FdE2671397fFF",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10904002759595417856631522",
+     "amountOut": "0",
+     "takeAmountIn": "10904002759595417856631522",
+     "takeBps": 10000,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+       "amount": "10904002759595417856631522",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+       "amount": "-10904002759595417856631522",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+       "amount": "10904002759595417856631522",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x04E644bc4Da2591765c7B94B53999A89C205AC0b and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x04E644bc4Da2591765c7B94B53999A89C205AC0b",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0xf6f0900b9c3569de90cd730093dd1f9d78134e8fa22df3335c510f9bbb57b7fb:today:26347887",
+   "poolId": "0xf6f0900b9c3569de90cd730093dd1f9d78134e8fa22df3335c510f9bbb57b7fb",
+   "hook": "0xf8EaFA073dDE4aBFf429a2f85c1FdE2671397fFF",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 0,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "hook-reverted",
+     "error": "0x90bfb865000000000000000000000000f8eafa073dde4abff429a2f85c1fde2671397fffb47b2fb1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080",
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+     "amountIn": "0",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": null,
+     "lpFeeBps": null,
+     "flows": []
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "2",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+       "amount": "-2",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x402E220FB0c4082C52AcdC6a325b1794B704384f",
+       "amount": "2",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xfa5b6379af84fab36cbf0b61e020ce1af96fa9b28b8e40e4abc61fc463c744b1:after-admin-upgrade:26347887",
+   "poolId": "0xfa5b6379af84fab36cbf0b61e020ce1af96fa9b28b8e40e4abc61fc463c744b1",
+   "hook": "0xaD34581CC3883be5Cdc4ea4d020Aa2D4C59C20CC",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+     "amountIn": "16666666666666666",
+     "amountOut": "0",
+     "takeAmountIn": "16666666666666666",
+     "takeBps": 10000,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "2113270718060843343603481",
+     "amountOut": "0",
+     "takeAmountIn": "2113270718060843343603481",
+     "takeBps": 10000,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "-2113270718060843343603481",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x57fc6ec5fB354Be551d454f29016b075499BD83b",
+       "role": "other",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "2113270718060843343603481",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "-2113270718060843343603481",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "2113270718060843343603481",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "fork only: impersonated 0x7281f479558dd2E7a536b0EeA162D08A1862d320 and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address"
+   ],
+   "label": "authority upgrade (ProxyAdmin.upgradeAndCall)",
+   "probes": [
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x7281f479558dd2E7a536b0EeA162D08A1862d320",
+     "executed": true
+    }
+   ]
+  },
+  {
+   "simId": "0xfa5b6379af84fab36cbf0b61e020ce1af96fa9b28b8e40e4abc61fc463c744b1:today:26347887",
+   "poolId": "0xfa5b6379af84fab36cbf0b61e020ce1af96fa9b28b8e40e4abc61fc463c744b1",
+   "hook": "0xaD34581CC3883be5Cdc4ea4d020Aa2D4C59C20CC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 199.99,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+     "amountIn": "16666666666666666",
+     "amountOut": "2044475023951178177047315",
+     "takeAmountIn": "333333333333333",
+     "takeBps": 199.99,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xaD34581CC3883be5Cdc4ea4d020Aa2D4C59C20CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "-2044475023951178177047315",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "2044475023951178177047315",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "354767884344914269982536",
+     "amountOut": "2713235209123820",
+     "takeAmountIn": "7020980226921995109157",
+     "takeBps": 197.9,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-55372147124975",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xaD34581CC3883be5Cdc4ea4d020Aa2D4C59C20CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "55372147124975",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "-354767884344914269982536",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x93d551D3f01D877a1C2B7462592A53443867212E",
+       "amount": "354767884344914269982536",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-2713235209123820",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "2713235209123820",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7:after-admin-upgrade:26347887",
+   "poolId": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7",
+   "hook": "0x37Bfb8AC7C960E558657871D41Ca70E07e7DbfFf",
+   "scenario": "after-admin-upgrade",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "not-run",
+   "measuredTakeBps": null,
+   "lpFeeBps": null,
+   "directions": [],
+   "probes": [
+    {
+     "method": "ProxyAdmin.owner-renounced",
+     "caller": "0x0000000000000000000000000000000000000000",
+     "executed": false
+    },
+    {
+     "method": "ProxyAdmin.upgradeAndCall",
+     "caller": "0x1f22E4B065b2f15Fed5BE556DC0fA636048d29bc",
+     "executed": false,
+     "revertData": "0x118cdaa70000000000000000000000001f22e4b065b2f15fed5be556dc0fa636048d29bc"
+    },
+    {
+     "method": "ProxyAdmin.upgrade",
+     "caller": "0x1f22E4B065b2f15Fed5BE556DC0fA636048d29bc",
+     "executed": false
+    }
+   ],
+   "notes": [
+    "upgrade not demonstrated on the fork: the ProxyAdmin's ownership is renounced (owner() is the zero address), so no one can upgrade; ProxyAdmin.upgradeAndCall as 0x1f22E4B065b2f15Fed5BE556DC0fA636048d29bc: reverted OwnableUnauthorizedAccount; ProxyAdmin.upgrade as 0x1f22E4B065b2f15Fed5BE556DC0fA636048d29bc: reverted without data or did not change the implementation"
+   ]
+  },
+  {
+   "simId": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7:today:26347887",
+   "poolId": "0xfaa42866f7667e3a1a10d783f3b629171febd45f056336b8df766d74afc0f0f7",
+   "hook": "0x37Bfb8AC7C960E558657871D41Ca70E07e7DbfFf",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793900906,
+   "status": "ok",
+   "measuredTakeBps": 229.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
+     "amountIn": "16666666666666666",
+     "amountOut": "19860451586202636500287",
+     "takeAmountIn": "383333333333333",
+     "takeBps": 229.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-383333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0f4a7E25598eB4593384F945ADFd9623f20E7C6B",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "49999999999999",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x49A91293a8dFf24d5c54b798C45376301D29b9f3",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "200000000000003",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x37Bfb8AC7C960E558657871D41Ca70E07e7DbfFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "24999999999999",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x4e5916428452891E1deb59d162c20266ED08CAD4",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "58333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xF1749E78e76CfE1119206833aE93beD2dede5353",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "49999999999999",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
+       "amount": "-19860451586202636500287",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
+       "amount": "19860451586202636500287",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "20336025955822833604274",
+     "amountOut": "16276751910712415",
+     "takeAmountIn": "467539549722800524001",
+     "takeBps": 229.9,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-383178397079207",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0f4a7E25598eB4593384F945ADFd9623f20E7C6B",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "49979790923374",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x49A91293a8dFf24d5c54b798C45376301D29b9f3",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "199919163693502",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x37Bfb8AC7C960E558657871D41Ca70E07e7DbfFf",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "24989895461687",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x4e5916428452891E1deb59d162c20266ED08CAD4",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "58309756077270",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xF1749E78e76CfE1119206833aE93beD2dede5353",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "49979790923374",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
+       "amount": "-20336025955822833604274",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x1b54E762aa34CF6E28E9C082F2848e28E45DA6b8",
+       "amount": "20336025955822833604274",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16276751910712415",
+       "kind": "native"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16276751910712415",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
   {
    "simId": "0x27e3bf196d60af70968fde2fbee3e37cd7178355e7d23db97d94f4aae0bed1cc:after-admin-upgrade:26348110",
    "poolId": "0x27e3bf196d60af70968fde2fbee3e37cd7178355e7d23db97d94f4aae0bed1cc",

@@ -4,8 +4,18 @@
 //   SWAP|poolId|scenario|zeroForOne|status|tokenIn|tokenOut|amountIn|amountOut|takeValueIn|takeBpsX100|lpFeePips|swapper|router|revertData
 //   FLOW|poolId|scenario|zeroForOne|account|token|kind|amount
 //   UPGRADE|fromImplementation|toImplementation
+//   PROBE|poolId|hook|method|caller|executed|revertData                (real-hook upgrade probes)
 
-import { POOL_MANAGER, type DirectionResult, type FlowRole, type SimResultRecord, type SimStatus, type ValueFlow } from "@hooktax/core";
+import {
+  POOL_MANAGER,
+  probeOutcome,
+  type DirectionResult,
+  type FlowRole,
+  type ProbeAttempt,
+  type SimResultRecord,
+  type SimStatus,
+  type ValueFlow,
+} from "@hooktax/core";
 
 export interface ParsedSwap {
   poolId: string;
@@ -30,12 +40,13 @@ export interface ParsedRun {
   pools: Array<{ poolId: string; sqrtPriceX96: string }>;
   swaps: ParsedSwap[];
   upgrades: Array<{ from: string; to: string }>;
+  probes: Array<{ poolId: string; hook: string; method: string; caller: string; executed: boolean; revertData: string }>;
 }
 
 const KINDS = ["erc20", "native", "erc6909"] as const;
 
 export function parseLines(text: string): ParsedRun {
-  const run: ParsedRun = { pools: [], swaps: [], upgrades: [] };
+  const run: ParsedRun = { pools: [], swaps: [], upgrades: [], probes: [] };
   const key = (p: string, s: string, z: string) => `${p.toLowerCase()}|${s}|${z}`;
   const swapsByKey = new Map<string, ParsedSwap>();
   for (const raw of text.split("\n")) {
@@ -51,6 +62,9 @@ export function parseLines(text: string): ParsedRun {
         break;
       case "UPGRADE":
         run.upgrades.push({ from: f[1]!, to: f[2]! });
+        break;
+      case "PROBE":
+        run.probes.push({ poolId: f[1]!.toLowerCase(), hook: f[2]!, method: f[3]!, caller: f[4]!, executed: f[5] === "true", revertData: f[6] ?? "0x" });
         break;
       case "SWAP": {
         const s: ParsedSwap = {
@@ -201,4 +215,65 @@ export function headlineTake(directions: readonly DirectionResult[]): {
     lpFeeBps: okDirs.length ? Math.max(...okDirs.map((d) => d.lpFeeBps ?? 0)) : null,
     notes,
   };
+}
+
+/**
+ * Real-hook upgrade probes (test/ProbeUpgrade.t.sol): "today" records, plus one
+ * "after-admin-upgrade" record per probed pool. When an upgrade executed it is a measured result;
+ * when none did it is status "not-run" with no take (never a zero), so the card says
+ * "not demonstrated (tried: ...)". Every attempt is kept in `probes`.
+ */
+export function toProbeRecords(
+  run: ParsedRun,
+  opts: { forkBlock: number; measuredAt: number; hookByPool: ReadonlyMap<string, string>; ownerByHook: ReadonlyMap<string, string | null> },
+): SimResultRecord[] {
+  const context = (poolId: string): PoolContext => {
+    const hook = opts.hookByPool.get(poolId.toLowerCase()) ?? "";
+    return { hook, hookOwner: opts.ownerByHook.get(hook.toLowerCase()) ?? null };
+  };
+  const probesByPool = new Map<string, ProbeAttempt[]>();
+  for (const p of run.probes) {
+    const list = probesByPool.get(p.poolId) ?? [];
+    list.push({ method: p.method, caller: p.caller, executed: p.executed, ...(p.revertData && p.revertData !== "0x" ? { revertData: p.revertData } : {}) });
+    probesByPool.set(p.poolId, list);
+  }
+  const measured = toSimRecords(run, { forkBlock: opts.forkBlock, measuredAt: opts.measuredAt, isDemo: false, context });
+  const out: SimResultRecord[] = [];
+  for (const r of measured) {
+    if (r.scenario !== "after-admin-upgrade") {
+      out.push(r);
+      continue;
+    }
+    const probes = probesByPool.get(r.poolId) ?? [];
+    const used = probes.find((p) => p.executed);
+    out.push({
+      ...r,
+      ...(used ? { label: `authority upgrade (${used.method})` } : {}),
+      probes,
+      notes: [
+        ...(r.notes ?? []),
+        `fork only: impersonated ${used?.caller ?? "the upgrade authority"} and pointed the proxy at TakeAllImplementation, which takes 100% through the hook's own RETURNS_DELTA bits, minted as PoolManager claims to a fresh address`,
+      ],
+    });
+  }
+  const withUpgrade = new Set(out.filter((r) => r.scenario === "after-admin-upgrade").map((r) => r.poolId));
+  for (const [poolId, probes] of probesByPool) {
+    if (withUpgrade.has(poolId)) continue;
+    out.push({
+      simId: `${poolId}:after-admin-upgrade:${opts.forkBlock}`,
+      poolId,
+      hook: context(poolId).hook,
+      scenario: "after-admin-upgrade",
+      isDemo: false,
+      forkBlock: opts.forkBlock,
+      measuredAt: opts.measuredAt,
+      status: "not-run",
+      measuredTakeBps: null,
+      lpFeeBps: null,
+      directions: [],
+      probes,
+      notes: [`upgrade not demonstrated on the fork: ${probes.map(probeOutcome).join("; ")}`],
+    });
+  }
+  return out;
 }

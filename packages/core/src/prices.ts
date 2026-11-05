@@ -3,6 +3,7 @@
 // to compute a take: TakeMeter values flows at the pool's own on-chain price.
 
 import { NATIVE_CURRENCY } from "./constants";
+import type { PoolRecord } from "./types";
 
 export const APPROX_PRICES_USD: Readonly<Record<string, number>> = {
   [NATIVE_CURRENCY]: 3000, // ETH
@@ -13,3 +14,23 @@ export const APPROX_PRICES_USD: Readonly<Record<string, number>> = {
   "0x6b175474e89094c44da98b954eedeac495271d0f": 1, // DAI
   "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 95000, // WBTC
 };
+
+const Q96 = 2 ** 96;
+
+/**
+ * Approximate USD depth of a pool at its current price: the virtual reserve of the priced side
+ * (concentrated liquidity L at the current tick: x = L / sqrtP, y = L * sqrtP), valued with
+ * APPROX_PRICES_USD. Ranking only, never shown as a fact. 0 if no side is priced or no state.
+ */
+export function depthUsd(p: Pick<PoolRecord, "state" | "currency0" | "currency1" | "decimals0" | "decimals1">): number {
+  if (!p.state) return 0;
+  const L = Number(BigInt(p.state.liquidity));
+  const sqrtP = Number(BigInt(p.state.sqrtPriceX96)) / Q96;
+  if (!(L > 0) || !(sqrtP > 0)) return 0;
+  const side = (token: string, decimals: number | null, rawAmount: number) => {
+    const price = APPROX_PRICES_USD[token.toLowerCase()];
+    return price ? (rawAmount / 10 ** (decimals ?? 18)) * price : 0;
+  };
+  const usd = Math.max(side(p.currency0, p.decimals0, L / sqrtP), side(p.currency1, p.decimals1, L * sqrtP));
+  return Number.isFinite(usd) ? usd : 0;
+}
