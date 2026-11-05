@@ -62,13 +62,20 @@ export async function runIndexer(opts: IndexerOptions): Promise<IndexerResult> {
   log(`decoded ${decoded.length} pools: ${hooked.length} with a hook, ${groups.length} unique hooks`);
 
   const snapshot = BigInt(toBlock);
+  let t = Date.now();
+  const lap = () => `${((Date.now() - t) / 1000).toFixed(1)}s`;
   log(`reading hook facts at block ${toBlock}`);
   const facts = await readHookFacts(client, groups.map((g) => g.hook), snapshot, log);
+  log(`  hook facts took ${lap()}`);
+  t = Date.now();
   log(`reading pool state for ${hooked.length} hooked pools`);
   const states = await readPoolStates(client, hooked.map((p) => p.poolId), snapshot, log);
+  log(`  pool states took ${lap()}`);
+  t = Date.now();
   const tokenList = [...new Set(hooked.flatMap((p) => [p.currency0, p.currency1]))];
   log(`reading token metadata for ${tokenList.length} currencies`);
   const tokens = await readTokenMeta(client, tokenList, snapshot, log);
+  log(`  token metadata took ${lap()}`);
 
   const hooks = sortHooks(groups.map((g) => buildHookRecord(g, facts.get(g.hook)!)));
   const pools = sortPools(hooked.map((p) => buildPoolRecord(p, states.get(p.poolId) ?? null, tokens)));

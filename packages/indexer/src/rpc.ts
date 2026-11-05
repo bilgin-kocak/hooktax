@@ -32,9 +32,12 @@ export function rpcHost(url: string): string {
 }
 
 export function makeMainnetClient(urls: string[]): PublicClient {
+  // No JSON-RPC batching: Tenderly's public gateway rejects batches of ~20 calls ("Request exceeds
+  // defined limit"), and the failed batch is then retried call by call, which is far slower than
+  // plain concurrent requests (measured 2026-11-05: 20 parallel eth_calls in ~70 ms).
   const transports = urls.map((url) =>
     http(url, {
-      batch: { batchSize: 25, wait: 20 },
+      batch: false,
       retryCount: 4,
       retryDelay: 500,
       timeout: 60_000,
