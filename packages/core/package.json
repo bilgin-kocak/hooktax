@@ -1,0 +1,20 @@
+{
+  "name": "@hooktax/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pure HookTax logic shared by the indexer, Arkiv writer, CLI and web app: constants, permission bits, capability rules, proxy classification.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}
