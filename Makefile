@@ -6,7 +6,7 @@ SHELL := /bin/bash
 export PATH := $(HOME)/.foundry/bin:$(PATH)
 
 .DEFAULT_GOAL := help
-.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure sim-build check atlas web
+.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure sim-build check atlas web cre-build cre-sim
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
@@ -64,3 +64,9 @@ atlas: ## M6: one-line summary of the imported HookAtlas dataset
 
 web: ## M2: run the HookAtlas web app (reads Arkiv directly) in dev mode
 	pnpm --filter @hooktax/web run dev
+
+cre-build: ## M3: compile the CRE workflow to WASM (no account needed)
+	cd cre && PATH="$(HOME)/.cre/bin:$(PATH)" cre workflow build hooktax-refresh --target staging-settings
+
+cre-sim: ## M3: simulate the CRE workflow (needs `cre login` or CRE_API_KEY). Pass TX=0x.. EVENT=n
+	cd cre && PATH="$(HOME)/.cre/bin:$(PATH)" cre workflow simulate hooktax-refresh --target staging-settings --non-interactive --trigger-index 0 --evm-tx-hash $(TX) --evm-event-index $(EVENT)
