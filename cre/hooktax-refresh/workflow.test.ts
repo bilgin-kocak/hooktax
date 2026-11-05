@@ -2,7 +2,7 @@ import { describe, expect } from "bun:test";
 import { hexToBytes } from "viem";
 import { HttpActionsMock, newTestRuntime, test } from "@chainlink/cre-sdk/test";
 import fixtures from "./fixtures.initialize-logs.json";
-import { INITIALIZE_TOPIC0, decodeInitialize, initWorkflow, onInitialize, permissionBits } from "./workflow";
+import { INITIALIZE_TOPIC0, configSchema, decodeInitialize, initWorkflow, onInitialize, permissionBits } from "./workflow";
 
 const config = {
   chainSelectorName: "ethereum-mainnet",
@@ -80,5 +80,21 @@ describe("initWorkflow", () => {
     const handlers = initWorkflow(config);
     expect(handlers).toHaveLength(1);
     expect(handlers[0]!.fn).toBe(onInitialize);
+  });
+});
+
+describe("configSchema", () => {
+  const base = { chainSelectorName: "ethereum-mainnet", poolManager: "0x000000000004444c5dc75cB358380D2e3dE08A90" };
+  // Must not depend on the global URL: inside the CRE WASM runtime it is a polyfill that rejected
+  // "http://localhost:8787/refresh" (zod .url()), which failed the first `cre workflow simulate`.
+  test("accepts the local and a public refresh URL", () => {
+    for (const refreshUrl of ["http://localhost:8787/refresh", "https://api.example.org/refresh"]) {
+      expect(configSchema.safeParse({ ...base, refreshUrl }).success).toBe(true);
+    }
+  });
+  test("rejects a non-http refresh URL", () => {
+    for (const refreshUrl of ["localhost:8787/refresh", "ftp://x/refresh", "", "http:// spaced"]) {
+      expect(configSchema.safeParse({ ...base, refreshUrl }).success).toBe(false);
+    }
   });
 });
