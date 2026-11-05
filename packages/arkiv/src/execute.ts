@@ -148,11 +148,28 @@ async function nextFittingBatch(
   start: number,
   opts: ExecuteOptions,
   blockGasLimit: bigint,
+  startSize: number,
 ): Promise<{ batch: Op[]; gas: bigint; estimate: Estimate }> {
-  let n = Math.min(opts.maxOps, ops.length - start);
+  let n = Math.min(startSize, ops.length - start);
+  let rateLimitRetries = 0;
   while (n >= 1) {
     const batch = ops.slice(start, start + n);
-    const estimate = await estimateBatch(writer, batch, opts.accessKey);
+    let estimate: Estimate;
+    try {
+      estimate = await estimateBatch(writer, batch, opts.accessKey);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      // A rate limit is not about size: back off and retry the same batch.
+      if (/\b429\b|rate.?limit|too many requests/i.test(msg) && rateLimitRetries < 6) {
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** rateLimitRetries++));
+        continue;
+      }
+      // The node can reject estimating a large batch outright (observed on Rabdi: 20 ops errors,
+      // 10 ops estimates fine). Treat an estimate error like "too big": halve, down to one op.
+      if (n === 1) throw err;
+      n = Math.max(1, Math.floor(n / 2));
+      continue;
+    }
     const gas = [gasFloor(batch.length), 2n * estimate.gas].reduce((a, b) => (a > b ? a : b));
     if (gas <= blockGasLimit / 2n && estimate.calldataBytes <= opts.maxCalldataBytes) return { batch, gas, estimate };
     if (n === 1) throw new Error(`a single operation does not fit (gas ${gas}, calldata ${estimate.calldataBytes} bytes)`);
@@ -170,6 +187,8 @@ export async function executeOps(
   const writer = wallet.account.address;
   const result: ExecuteResult = { transactions: 0, ops: 0, gasUsedEstimate: 0n, txHashes: [] };
   let i = 0;
+  // Start each batch at the size that last fit, so a learned limit isn't re-probed every time.
+  let sizeHint = opts.maxOps;
   while (i < ops.length) {
     const [latestNonce, pendingNonce, block, gasPrice] = await Promise.all([
       publicClient.getTransactionCount({ address: writer, blockTag: "latest" }),
@@ -180,7 +199,8 @@ export async function executeOps(
     if (pendingNonce !== latestNonce) {
       throw new Error(`writer ${writer} has a pending transaction (nonce ${latestNonce}..${pendingNonce}); reconcile before writing`);
     }
-    const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, opts, block.gasLimit);
+    const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, opts, block.gasLimit, sizeHint);
+    sizeHint = batch.length;
     const ids = batch.map((o) => `${o.kind}:${o.id}`);
     journal(opts.journalFile, { status: "submitting", nonce: latestNonce, gas, gasPrice, estimate: estimate.gas, calldataBytes: estimate.calldataBytes, ids });
     let res;
