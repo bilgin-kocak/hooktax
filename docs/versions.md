@@ -17,6 +17,15 @@ Checked on **2026-11-05** unless noted.
 | Go | 1.24.7 | fallback language for the CRE workflow (M3) |
 | GNU Make | 4.3 | |
 
+**Second machine (macOS, 2026-11-05).** The repo was re-verified on a clean macOS checkout with
+Node 22.23.3, pnpm 10.28.0 and **Foundry 1.8.3** (newer than the pinned 1.5.1): `make install`,
+`make test`, `make demo` and `make probe` all pass. Bun **1.4.4** and the `cre` CLI **v1.39.0** were
+installed with their official installers, pinned to those versions (`bun.sh/install` with
+`bun-v1.4.4`; `cre.chain.link/install.sh v1.39.0`, which downloads from
+`github.com/smartcontractkit/cre-cli` releases and verifies the macOS code signature).
+`make cre-build` reproduced the WASM binary hash recorded in
+[`cre-simulation.md`](cre-simulation.md) byte for byte.
+
 **Foundry install note.** `foundryup` could not run in the dev container: GitHub answered HTTP 403 to
 the unauthenticated attestation download (`github.com/foundry-rs/foundryup/attestations/...`).
 The proxy logged no denial, so the 403 came from GitHub itself. We installed the official release
@@ -37,10 +46,10 @@ Exact versions with no `^` ranges, and `pnpm-lock.yaml` is committed. `pnpm-work
 | tsx | 4.23.15 | all (run TS) | M0 | latest |
 | vitest | 4.1.12 | all (tests) | M0 | `V4` dist-tag. 5.x shipped 2026-11-02, too new for a 36h build |
 | @types/node | 22.20.5 | all | M0 | matches Node 22 |
-| viem | _pinned in M1_ | indexer | M1 | latest seen: 2.57.16 (2026-11-03) |
-| @arkiv-network/sdk | _pinned in M2_ | arkiv, web | M2 | latest seen: 1.0.1 (2026-11-02) |
-| vite / react | _pinned in M2_ | web | M2 | plan: Vite 7.3.x (8.3.6 shipped on 2026-11-05) |
-| @chainlink/cre-sdk + `cre` CLI | _pinned in M3_ | cre | M3 | SDK latest seen: 1.23.0 (2026-09-29) |
+| viem | 2.57.16 | indexer, arkiv, sim, api, web | M1 | latest seen 2026-11-03 |
+| @arkiv-network/sdk | 1.0.1 | arkiv, web | M2 | latest seen 2026-11-02 |
+| vite / react | 7.3.7 / 19.3.1 | web | M2 | Vite 7.3.x over 8.3.6 (shipped 2026-11-05, too new) |
+| @chainlink/cre-sdk + `cre` CLI | 1.23.0 / v1.39.0 | cre | M3 | SDK latest seen 2026-09-29 |
 
 ## Solidity dependencies (installed in M4/M5)
 

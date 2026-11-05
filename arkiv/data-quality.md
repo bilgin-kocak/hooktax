@@ -63,8 +63,17 @@ UI's page buttons.
 - **Not all 47,130 hooked pools are mirrored** — only the 24,535 with live liquidity, because a
   swap can only be measured where there is liquidity, and a full mirror costs ~20.8 tGLM (see
   [`reach.md`](reach.md)). The full dataset is in the committed `data/*.json`.
-- **Fork measurements cover a sample** (20 pools so far), highest-pool-count hooks first; the rest
-  carry their capability flags (from bits + proxy) but no measured take yet. Pools with no priced
-  token are skipped for measurement (can't size a meaningful swap).
+- **Fork measurements cover a sample**: 20 pools of the highest-pool-count hooks (`make measure`)
+  plus 24 pools of the worst-case-100% hooks (`make probe`); the rest carry their capability flags
+  (from bits + proxy) but no measured take yet. Pools with no priced token are skipped for
+  measurement (can't size a meaningful swap).
+- **"Upgradeable" can overstate.** The upgrade probes found two hooks behind an OpenZeppelin 5.0.0
+  ProxyAdmin whose ownership is renounced, and one whose implementation reverts
+  `UpgradesDisabled()`. The indexer classifies by proxy slots, so these still show
+  `isUpgradeable = true`; their SimResult explains why the worst case was not demonstrated. A
+  follow-up is to check the ProxyAdmin's `owner()` in the indexer.
 - **Unverified bytecode** limits what admin probes can be tried on upgradeable hooks; a power we
   could not exercise on the fork is reported as "not demonstrated", never as "absent".
+- **A >100% take is not a take.** One committed result (pool `0x6fc55403…`) predated the guard
+  and claimed 92,648%; it was re-derived to "not determined" and its Arkiv entity replaced (see
+  [`docs/measurement.md`](../docs/measurement.md)).
