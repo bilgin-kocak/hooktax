@@ -1,0 +1,6 @@
+[submodule "packages/sim/lib/forge-std"]
+	path = packages/sim/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "packages/sim/lib/v4-periphery"]
+	path = packages/sim/lib/v4-periphery
+	url = https://github.com/Uniswap/v4-periphery

@@ -1,0 +1,25 @@
+{
+  "name": "@hooktax/sim",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fork simulations: measured take on real hooked pools (M4) and the SneakyFeeHook worst-case demo (M5). Local fork only.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "demo": "tsx runner/demo.ts",
+    "measure": "tsx runner/measure.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@hooktax/core": "workspace:*",
+    "@hooktax/indexer": "workspace:*",
+    "viem": "2.57.16"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}
