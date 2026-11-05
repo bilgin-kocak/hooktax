@@ -1,0 +1,38 @@
+# Mirror HookAtlas to Arkiv (Rabdi testnet) from GitHub's runners instead of a laptop.
+# Manual only. Needs the repo secret ARKIV_PRIVATE_KEY (testnet-only writer key); optional
+# ARKIV_ACCESS_KEY. The plan is derived from what the writer already owns on Arkiv, so a run
+# continues where any earlier run (local or here) stopped. Only ONE writer may run at a time:
+# stop any local `make arkiv-sync` before starting this.
+name: Arkiv sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      reserve:
+        description: "tGLM to keep in the writer (the run stops cleanly before going below it)"
+        default: "0.2"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: arkiv-writer
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Sync (riskiest first, stops at the reserve)
+        env:
+          ARKIV_PRIVATE_KEY: ${{ secrets.ARKIV_PRIVATE_KEY }}
+          ARKIV_ACCESS_KEY: ${{ secrets.ARKIV_ACCESS_KEY }}
+        run: pnpm --filter @hooktax/arkiv run sync --write --reserve "${{ inputs.reserve }}"
