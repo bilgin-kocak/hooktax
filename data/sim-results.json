@@ -1,0 +1,2656 @@
+{
+ "meta": {
+  "schemaVersion": 1,
+  "forkBlock": 26348110,
+  "generatedAt": "2026-11-05T11:15:53.728Z",
+  "source": "packages/sim fork simulations (local mainnet fork; nothing broadcast)",
+  "count": 22
+ },
+ "results": [
+  {
+   "simId": "0x0bba3ef6c00e82539d742ebd5d4625c676f15f0aec243709b26a7921abfadf86:today:26347887",
+   "poolId": "0x0bba3ef6c00e82539d742ebd5d4625c676f15f0aec243709b26a7921abfadf86",
+   "hook": "0x676E38B66A7547FF685549E4Ad88134aC62200cC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x00763Db966274fb193cC10d504202DE2fca7C27b",
+     "amountIn": "16666666666666666",
+     "amountOut": "10003437457326736836989303",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x00763Db966274fb193cC10d504202DE2fca7C27b",
+       "amount": "-10003437457326736836989303",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xF0701B4a2628443B3E06E7C94A341eabDA973fDf",
+       "role": "swapper",
+       "token": "0x00763Db966274fb193cC10d504202DE2fca7C27b",
+       "amount": "10003437457326736836989303",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xF0701B4a2628443B3E06E7C94A341eabDA973fDf",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16500000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x676E38B66A7547FF685549E4Ad88134aC62200cC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x00763Db966274fb193cC10d504202DE2fca7C27b",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10234853078584897751325685",
+     "amountOut": "16707964114029785",
+     "takeAmountIn": "101015056269696470508429",
+     "takeBps": 98.69,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x6945289B4DFD047191422c4A85B84eCC8455Ef4A",
+       "role": "swapper",
+       "token": "0x00763Db966274fb193cC10d504202DE2fca7C27b",
+       "amount": "-10234853078584897751325685",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x00763Db966274fb193cC10d504202DE2fca7C27b",
+       "amount": "10234853078584897751325685",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16876731428312914",
+       "kind": "native"
+      },
+      {
+       "address": "0x676E38B66A7547FF685549E4Ad88134aC62200cC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "168767314283129",
+       "kind": "native"
+      },
+      {
+       "address": "0x6945289B4DFD047191422c4A85B84eCC8455Ef4A",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16707964114029785",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x129221b4dee2bcbc6dd2718ae05d72326482225f0bc006f6326dedcb466ef95c:today:26347887",
+   "poolId": "0x129221b4dee2bcbc6dd2718ae05d72326482225f0bc006f6326dedcb466ef95c",
+   "hook": "0xCb69D5aBe0589AF4c57b0dCCA292980D5E52C0c0",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 0,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x7209A72Ed52Cc1886750B53997470633AAf481BB",
+     "amountIn": "16666666666666666",
+     "amountOut": "3462648841518518970322538",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x7209A72Ed52Cc1886750B53997470633AAf481BB",
+       "amount": "-3462648841518518970322538",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x1c7500d5f908d5a01DB1b523cB6AB78431498e0f",
+       "role": "swapper",
+       "token": "0x7209A72Ed52Cc1886750B53997470633AAf481BB",
+       "amount": "3462648841518518970322538",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x1c7500d5f908d5a01DB1b523cB6AB78431498e0f",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x7209A72Ed52Cc1886750B53997470633AAf481BB",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "3512100596996487025827169",
+     "amountOut": "16568005384351297",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x41bA9C577B456e50CAd3b8005c3FF47F4AC11BA6",
+       "role": "swapper",
+       "token": "0x7209A72Ed52Cc1886750B53997470633AAf481BB",
+       "amount": "-3512100596996487025827169",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x7209A72Ed52Cc1886750B53997470633AAf481BB",
+       "amount": "3512100596996487025827169",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16568005384351297",
+       "kind": "native"
+      },
+      {
+       "address": "0x41bA9C577B456e50CAd3b8005c3FF47F4AC11BA6",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16568005384351297",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x1d1243f3b3789f31ae3a36a1172c8f11aacfc1fcee4b18618fced8d90d0847a4:today:26347887",
+   "poolId": "0x1d1243f3b3789f31ae3a36a1172c8f11aacfc1fcee4b18618fced8d90d0847a4",
+   "hook": "0x96b893683AfbFec071E90f78d00dE4bb932Fe0Cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+     "amountIn": "16666666666666666",
+     "amountOut": "23005593526928338421602243",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+       "amount": "-23005593526928338421602243",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x6d1Aeb284F6974C4DB1bE98741CB848E4911fb44",
+       "role": "swapper",
+       "token": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+       "amount": "23005593526928338421602243",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x6d1Aeb284F6974C4DB1bE98741CB848E4911fb44",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16500000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "hook-owner",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "99999999999999",
+       "kind": "native"
+      },
+      {
+       "address": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "66666666666667",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "23019864834454311394498211",
+     "amountOut": "16344900000000000",
+     "takeAmountIn": "224899506574577651695266",
+     "takeBps": 97.69,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x655764C5F21B022Ac0f58fa28E008A0c81Fed1cd",
+       "role": "swapper",
+       "token": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+       "amount": "-23019864834454311394498211",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+       "amount": "23019864834454311394498211",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16510000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "hook-owner",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "99060000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x69349eCfB9f4225ef0A76b1b7037F30895C995E4",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "66040000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0x655764C5F21B022Ac0f58fa28E008A0c81Fed1cd",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16344900000000000",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x2172f9043a4ddaa418d12718763964f6c87d52f89f12a18c437a701df7b81ce6:today:26347887",
+   "poolId": "0x2172f9043a4ddaa418d12718763964f6c87d52f89f12a18c437a701df7b81ce6",
+   "hook": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 548.82,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xa2AD623fdE8421aD5c9f88C8e2D8D64067bfEAef",
+     "amountIn": "16666666666666666",
+     "amountOut": "12663668905916419683342707",
+     "takeAmountIn": "914713411286310",
+     "takeBps": 548.82,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-1141376212643890",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "1141376212643890",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xa2AD623fdE8421aD5c9f88C8e2D8D64067bfEAef",
+       "amount": "-12663668905916419683342707",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xa9a806625b93948b38DFB2b8aB71f05E33cCE670",
+       "role": "swapper",
+       "token": "0xa2AD623fdE8421aD5c9f88C8e2D8D64067bfEAef",
+       "amount": "12663668905916419683342707",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xa9a806625b93948b38DFB2b8aB71f05E33cCE670",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "15358623787356110",
+       "kind": "native"
+      },
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "393329468024246",
+       "kind": "native"
+      },
+      {
+       "address": "0xFE4a23bBE27bE16955f4d8599C73bac88ef647D1",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "914713411286310",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xa2AD623fdE8421aD5c9f88C8e2D8D64067bfEAef",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "12977426851554328759154319",
+     "amountOut": "16733782438304714",
+     "takeAmountIn": "127870478348698586616045",
+     "takeBps": 98.53,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "2361438770755",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-2361438770755",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xDDF25C8e476C09Bb028cE9bA3f84AAf0864f9fEb",
+       "role": "swapper",
+       "token": "0xa2AD623fdE8421aD5c9f88C8e2D8D64067bfEAef",
+       "amount": "-12977426851554328759154319",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xa2AD623fdE8421aD5c9f88C8e2D8D64067bfEAef",
+       "amount": "12977426851554328759154319",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16900449104971380",
+       "kind": "native"
+      },
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "33333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0xFE4a23bBE27bE16955f4d8599C73bac88ef647D1",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "133333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0xDDF25C8e476C09Bb028cE9bA3f84AAf0864f9fEb",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16733782438304714",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x26929b7d0e24d74752e583e7de27c696b74454574e50775653c9a33e79c7e516:today:26347887",
+   "poolId": "0x26929b7d0e24d74752e583e7de27c696b74454574e50775653c9a33e79c7e516",
+   "hook": "0x627FA6F76FA96b10BAe1B6Fba280A3c9264500Cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x8D0443D2e2D5C7adDd1CDE779F58b995A8791110",
+     "amountIn": "16666666666666666",
+     "amountOut": "3365035774784527871935947",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x8D0443D2e2D5C7adDd1CDE779F58b995A8791110",
+       "amount": "-3365035774784527871935947",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x37d0d08bd27Ef290863c3CEbAD52Bc2207472Ea8",
+       "role": "swapper",
+       "token": "0x8D0443D2e2D5C7adDd1CDE779F58b995A8791110",
+       "amount": "3365035774784527871935947",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x37d0d08bd27Ef290863c3CEbAD52Bc2207472Ea8",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16500000000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0xc18030d76573784fff4E6365309E1acD967506ff",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x2F56CB340FeA590a2A801081118bF3143309329D",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83333333333333",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x8D0443D2e2D5C7adDd1CDE779F58b995A8791110",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "3412929969346157396952920",
+     "amountOut": "16566533725687944",
+     "takeAmountIn": "33988289595503607579970",
+     "takeBps": 99.58,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x9b9240cC2183c5E538623395Eb76F9c167d5E7Ca",
+       "role": "swapper",
+       "token": "0x8D0443D2e2D5C7adDd1CDE779F58b995A8791110",
+       "amount": "-3412929969346157396952920",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x8D0443D2e2D5C7adDd1CDE779F58b995A8791110",
+       "amount": "3412929969346157396952920",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16733872450189842",
+       "kind": "native"
+      },
+      {
+       "address": "0xc18030d76573784fff4E6365309E1acD967506ff",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83669362250949",
+       "kind": "native"
+      },
+      {
+       "address": "0x2F56CB340FeA590a2A801081118bF3143309329D",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83669362250949",
+       "kind": "native"
+      },
+      {
+       "address": "0x9b9240cC2183c5E538623395Eb76F9c167d5E7Ca",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16566533725687944",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x34fdf6bb1cacaef81a42572c964b6b0a783fa95a8c49a4c3c75f74fd031f8054:today:26347887",
+   "poolId": "0x34fdf6bb1cacaef81a42572c964b6b0a783fa95a8c49a4c3c75f74fd031f8054",
+   "hook": "0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 119.01,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "tokenOut": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+     "amountIn": "16666666666666666",
+     "amountOut": "162138374752357669480869466",
+     "takeAmountIn": "40291512761901",
+     "takeBps": 24.17,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc",
+       "role": "hook",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "33069986296179",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-33069986296179",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "16665076172870419",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x6C8599779B03B00AAaE63C6378830919Abb75473",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "199600798403",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+       "amount": "-162193925892930537521356432",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441",
+       "role": "other",
+       "token": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+       "amount": "55551140572868040486966",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "1390892997844",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xa09a53830b3168B3d43213693c717cA0d8fB3AC7",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-16666666666666666",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xa09a53830b3168B3d43213693c717cA0d8fB3AC7",
+       "role": "swapper",
+       "token": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+       "amount": "162138374752357669480869466",
+       "kind": "erc20"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+     "tokenOut": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "amountIn": "164419636188580540397060194",
+     "amountOut": "16498768903398307",
+     "takeAmountIn": "1956805555536487388928894",
+     "takeBps": 119.01,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc",
+       "role": "hook",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-205916361237",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "205916361237",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-16648574683299544",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x6C8599779B03B00AAaE63C6378830919Abb75473",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "33369188291389",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+       "amount": "163935016623201288559870589",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "116436591609848",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441",
+       "role": "other",
+       "token": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+       "amount": "484619565379251837189605",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x9964eb36F5F69a58F8b8A1b124C510BCc29669ab",
+       "role": "swapper",
+       "token": "0xf948170f422c63E4d44F72A2fcBA0679Ea844e17",
+       "amount": "-164419636188580540397060194",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x9964eb36F5F69a58F8b8A1b124C510BCc29669ab",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "16498768903398307",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x4349bfb2e3d710f6ce34e5e5cb5dc221ebaeee5676aa4de32d9e8ad31b2cf0d3:today:26347887",
+   "poolId": "0x4349bfb2e3d710f6ce34e5e5cb5dc221ebaeee5676aa4de32d9e8ad31b2cf0d3",
+   "hook": "0x322dcEc4958C14e021A9F1cD49DF11b9457968cC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 199.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x58e724f7cD7F9c752A6bC0DAab82c603201f035e",
+     "tokenOut": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "amountIn": "6064716938018342931221770",
+     "amountOut": "16205444972320219",
+     "takeAmountIn": "120344616259291282914815",
+     "takeBps": 198.43,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-330723366782045",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x322dcEc4958C14e021A9F1cD49DF11b9457968cC",
+       "role": "hook",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "330723366782045",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0x58e724f7cD7F9c752A6bC0DAab82c603201f035e",
+       "amount": "-6064716938018342931221770",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x58e724f7cD7F9c752A6bC0DAab82c603201f035e",
+       "amount": "6064716938018342931221770",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-16205444972320219",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "16205444972320219",
+       "kind": "erc20"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "tokenOut": "0x58e724f7cD7F9c752A6bC0DAab82c603201f035e",
+     "amountIn": "16666666666666666",
+     "amountOut": "5990901634893028361968735",
+     "takeAmountIn": "333333333333333",
+     "takeBps": 199.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x322dcEc4958C14e021A9F1cD49DF11b9457968cC",
+       "role": "hook",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "333333333333333",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xcE3f8271FF496f256F7bD6b981eF6962509017DF",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-16666666666666666",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "16666666666666666",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x58e724f7cD7F9c752A6bC0DAab82c603201f035e",
+       "amount": "-5990901634893028361968735",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xcE3f8271FF496f256F7bD6b981eF6962509017DF",
+       "role": "swapper",
+       "token": "0x58e724f7cD7F9c752A6bC0DAab82c603201f035e",
+       "amount": "5990901634893028361968735",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x5961b35ae7d58600b4ce9a6d31c948adc2645c75010fcf6986a57d9ce13ef31d:today:26347887",
+   "poolId": "0x5961b35ae7d58600b4ce9a6d31c948adc2645c75010fcf6986a57d9ce13ef31d",
+   "hook": "0xba806A6135c5CD93EcCe1258C28f57A8D291E0CC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 124.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+     "amountIn": "16666666666666666",
+     "amountOut": "16123459288393644453439548",
+     "takeAmountIn": "208333333333333",
+     "takeBps": 124.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+       "amount": "-16123459288393644453439548",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2F57E464864dcd39A0CED49eB9618f1b632552F1",
+       "role": "swapper",
+       "token": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+       "amount": "16123459288393644453439548",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2F57E464864dcd39A0CED49eB9618f1b632552F1",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16458333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "hook-owner",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "133333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "75000000000000",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "16123459288403601528154203",
+     "amountOut": "16252604166676542",
+     "takeAmountIn": "198293666862234275862126",
+     "takeBps": 122.98,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x9Dc0aC01b0EF613F9625266141153E381E0871bE",
+       "role": "swapper",
+       "token": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+       "amount": "-16123459288403601528154203",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+       "amount": "16123459288403601528154203",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16458333333343333",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "hook-owner",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "131666666666746",
+       "kind": "native"
+      },
+      {
+       "address": "0xb8D0Ae6945d4Bc642e5488F29Da8FC05596Ec502",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "74062500000045",
+       "kind": "native"
+      },
+      {
+       "address": "0x9Dc0aC01b0EF613F9625266141153E381E0871bE",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16252604166676542",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x5d39a17d2cf3dbcf31859e0c15dffea9eae1f2ee28008a4d2c330699d22189de:today:26347887",
+   "poolId": "0x5d39a17d2cf3dbcf31859e0c15dffea9eae1f2ee28008a4d2c330699d22189de",
+   "hook": "0x8A22e2A5768C72751F2Da3E3b904365203b100cC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 124.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xd832Fe793DfbB6ec2bc94d4Ef1893859f7F5637C",
+     "amountIn": "16666666666666666",
+     "amountOut": "16123438068701299283594822",
+     "takeAmountIn": "208333333333333",
+     "takeBps": 124.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xd832Fe793DfbB6ec2bc94d4Ef1893859f7F5637C",
+       "amount": "-16123438068701299283594822",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x8497197f805b99d4037728b95F0267b2A055d4d6",
+       "role": "swapper",
+       "token": "0xd832Fe793DfbB6ec2bc94d4Ef1893859f7F5637C",
+       "amount": "16123438068701299283594822",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x8497197f805b99d4037728b95F0267b2A055d4d6",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16458333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x8A22e2A5768C72751F2Da3E3b904365203b100cC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "208333333333333",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xd832Fe793DfbB6ec2bc94d4Ef1893859f7F5637C",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "16124101454794150850607734",
+     "amountOut": "16253262085001162",
+     "takeAmountIn": "198301435088370553830968",
+     "takeBps": 122.98,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x1f0f988808753e6f4171571622eCAA90A780652f",
+       "role": "swapper",
+       "token": "0xd832Fe793DfbB6ec2bc94d4Ef1893859f7F5637C",
+       "amount": "-16124101454794150850607734",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xd832Fe793DfbB6ec2bc94d4Ef1893859f7F5637C",
+       "amount": "16124101454794150850607734",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16458999579748012",
+       "kind": "native"
+      },
+      {
+       "address": "0x8A22e2A5768C72751F2Da3E3b904365203b100cC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "205737494746850",
+       "kind": "native"
+      },
+      {
+       "address": "0x1f0f988808753e6f4171571622eCAA90A780652f",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16253262085001162",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x6f5bf5f01d4d1e41d28d0447f8c40f50e66a110077ace434e924a7dbeb8755f8:today:26347887",
+   "poolId": "0x6f5bf5f01d4d1e41d28d0447f8c40f50e66a110077ace434e924a7dbeb8755f8",
+   "hook": "0x35Fe236EA82F7cF525c9719d7df8F49F94D720CC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 197.54,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xFA5D9694D9f8fa47b8A6c15Df4510b76cb844e2c",
+     "amountIn": "16666666666666666",
+     "amountOut": "12017987063705233720661456",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x35Fe236EA82F7cF525c9719d7df8F49F94D720CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xFA5D9694D9f8fa47b8A6c15Df4510b76cb844e2c",
+       "amount": "-12017987063705233720661456",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x61C6d9F87C4067bB8Ff4985460d824e6E4DccED5",
+       "role": "swapper",
+       "token": "0xFA5D9694D9f8fa47b8A6c15Df4510b76cb844e2c",
+       "amount": "12017987063705233720661456",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x61C6d9F87C4067bB8Ff4985460d824e6E4DccED5",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xFA5D9694D9f8fa47b8A6c15Df4510b76cb844e2c",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "12287089405087772175537359",
+     "amountOut": "16527623785443384",
+     "takeAmountIn": "242722281536912457023189",
+     "takeBps": 197.54,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-337298444600885",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x35Fe236EA82F7cF525c9719d7df8F49F94D720CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "337298444600885",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xE66Ab068a7A9b4e4CFf59d41b5B20A29A5f096F1",
+       "role": "swapper",
+       "token": "0xFA5D9694D9f8fa47b8A6c15Df4510b76cb844e2c",
+       "amount": "-12287089405087772175537359",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xFA5D9694D9f8fa47b8A6c15Df4510b76cb844e2c",
+       "amount": "12287089405087772175537359",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16527623785443384",
+       "kind": "native"
+      },
+      {
+       "address": "0xE66Ab068a7A9b4e4CFf59d41b5B20A29A5f096F1",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16527623785443384",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x8d1c89b0691d099a3f3952e285dd8587c0b5e692c285cdf6601d8bfef68bce6f:today:26347887",
+   "poolId": "0x8d1c89b0691d099a3f3952e285dd8587c0b5e692c285cdf6601d8bfef68bce6f",
+   "hook": "0xA2dcd7bF7fF3C014A855Bf00799ccF07E6C800cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 124.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x809d54dF01D0E366a0Bfaa6947d5cF9A3Ea88aEB",
+     "amountIn": "16666666666666666",
+     "amountOut": "16123459288393962949916852",
+     "takeAmountIn": "208333333333333",
+     "takeBps": 124.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x809d54dF01D0E366a0Bfaa6947d5cF9A3Ea88aEB",
+       "amount": "-16123459288393962949916852",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2bA490BbF426a0D0015ccA22E11cf3e5a21a3640",
+       "role": "swapper",
+       "token": "0x809d54dF01D0E366a0Bfaa6947d5cF9A3Ea88aEB",
+       "amount": "16123459288393962949916852",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2bA490BbF426a0D0015ccA22E11cf3e5a21a3640",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16458333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0xA2dcd7bF7fF3C014A855Bf00799ccF07E6C800cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "208333333333333",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x809d54dF01D0E366a0Bfaa6947d5cF9A3Ea88aEB",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "16123459288393962949916856",
+     "amountOut": "16252604166666667",
+     "takeAmountIn": "198293666862117678821871",
+     "takeBps": 122.98,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xAc3615A2f6D68490087b236051BB9204aDeb9206",
+       "role": "swapper",
+       "token": "0x809d54dF01D0E366a0Bfaa6947d5cF9A3Ea88aEB",
+       "amount": "-16123459288393962949916856",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x809d54dF01D0E366a0Bfaa6947d5cF9A3Ea88aEB",
+       "amount": "16123459288393962949916856",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16458333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0xA2dcd7bF7fF3C014A855Bf00799ccF07E6C800cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "205729166666666",
+       "kind": "native"
+      },
+      {
+       "address": "0xAc3615A2f6D68490087b236051BB9204aDeb9206",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16252604166666667",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x970502ec7b41436e3d2de6d72655d615ca28b80131a8bda759e1a2632d4e1a7c:today:26347887",
+   "poolId": "0x970502ec7b41436e3d2de6d72655d615ca28b80131a8bda759e1a2632d4e1a7c",
+   "hook": "0x1b153a4ed40929dc2e699b6020296843aD98aAcc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 300,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xC84803D1905259500244aE1e5A6A29A497495417",
+     "amountIn": "16666666666666666",
+     "amountOut": "9832794761321111540509134",
+     "takeAmountIn": "500000000000002",
+     "takeBps": 300,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-500000000000002",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x1b153a4ed40929dc2e699b6020296843aD98aAcc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "500000000000002",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC84803D1905259500244aE1e5A6A29A497495417",
+       "amount": "-9832794761321111540509134",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x184202EA9f124993ddf4815B2F4786091d226d0a",
+       "role": "swapper",
+       "token": "0xC84803D1905259500244aE1e5A6A29A497495417",
+       "amount": "9832794761321111540509134",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x184202EA9f124993ddf4815B2F4786091d226d0a",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC84803D1905259500244aE1e5A6A29A497495417",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "10276998417557870140110218",
+     "amountOut": "16380009933851517",
+     "takeAmountIn": "303919889064694452438522",
+     "takeBps": 295.72,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-506598245376852",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x1b153a4ed40929dc2e699b6020296843aD98aAcc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "506598245376852",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0xAA5675cFd3340f061f2F7F00AEA48B078751Ac5C",
+       "role": "swapper",
+       "token": "0xC84803D1905259500244aE1e5A6A29A497495417",
+       "amount": "-10276998417557870140110218",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC84803D1905259500244aE1e5A6A29A497495417",
+       "amount": "10276998417557870140110218",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16380009933851517",
+       "kind": "native"
+      },
+      {
+       "address": "0xAA5675cFd3340f061f2F7F00AEA48B078751Ac5C",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16380009933851517",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x9e034f086983bc2346b2455d3311b08e0ae55145be330576d3f74b590a920503:today:26347887",
+   "poolId": "0x9e034f086983bc2346b2455d3311b08e0ae55145be330576d3f74b590a920503",
+   "hook": "0x15e5E7206C661a1E881F5CD33A94eAF2328FA8cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 99.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x509718195c99d32d1E93D6371715870dA9FEE6EA",
+     "amountIn": "16666666666666666",
+     "amountOut": "13434743819626911",
+     "takeAmountIn": "166666666666666",
+     "takeBps": 99.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x15e5E7206C661a1E881F5CD33A94eAF2328FA8cc",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "166666666666666",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x509718195c99d32d1E93D6371715870dA9FEE6EA",
+       "amount": "-13434743819626911",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xFeF498DF2bAdf2fd813Ad7BDAa309223c12F9B13",
+       "role": "swapper",
+       "token": "0x509718195c99d32d1E93D6371715870dA9FEE6EA",
+       "amount": "13434743819626911",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xFeF498DF2bAdf2fd813Ad7BDAa309223c12F9B13",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "hook-reverted",
+     "error": "0x90bfb86500000000000000000000000015e5e7206c661a1e881f5cd33a94eaf2328fa8ccb47b2fb1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080",
+     "tokenIn": "0x509718195c99d32d1E93D6371715870dA9FEE6EA",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "0",
+     "amountOut": "0",
+     "takeAmountIn": "0",
+     "takeBps": null,
+     "lpFeeBps": null,
+     "flows": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xc388adcdb59eeb95d8123c884640e51e9ebf71cca26b2e2f817cd1c81386bdba:today:26347887",
+   "poolId": "0xc388adcdb59eeb95d8123c884640e51e9ebf71cca26b2e2f817cd1c81386bdba",
+   "hook": "0x07F17023db9CEc3f8C6bB53c6940e29DfFB0A0cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 124.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+     "amountIn": "16666666666666666",
+     "amountOut": "22949479340957224769534621",
+     "takeAmountIn": "208333333333333",
+     "takeBps": 124.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+       "amount": "-22949479340957224769534621",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x18E8c8c2AB066e295aB73A29E3565314443C5048",
+       "role": "swapper",
+       "token": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+       "amount": "22949479340957224769534621",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x18E8c8c2AB066e295aB73A29E3565314443C5048",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16458333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "hook-owner",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "133333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "75000000000000",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "22949479340957224769534622",
+     "amountOut": "16252604166666667",
+     "takeAmountIn": "280285009236701626274690",
+     "takeBps": 122.13,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xad2D6d719C03E567396E4073dd0bc9b875c5fcF0",
+       "role": "swapper",
+       "token": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+       "amount": "-22949479340957224769534622",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+       "amount": "22949479340957224769534622",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16458333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "hook-owner",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "131666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x6965DB0623C03982BF357a82D25F66b361f0d993",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "74062500000000",
+       "kind": "native"
+      },
+      {
+       "address": "0xad2D6d719C03E567396E4073dd0bc9b875c5fcF0",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16252604166666667",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xe0554ad14142ff0431eaac9302cc80f358436045e3a5def2ef843d18147a83c4:today:26347887",
+   "poolId": "0xe0554ad14142ff0431eaac9302cc80f358436045e3a5def2ef843d18147a83c4",
+   "hook": "0xB8D9477eB6eF5F0df5219Cf0c8130DD7e520e0CC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 499.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+     "amountIn": "16666666666666666",
+     "amountOut": "10876673569651167738667337",
+     "takeAmountIn": "833333333333333",
+     "takeBps": 499.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+       "amount": "-10876673569651167738667337",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x8Fe2E1ABFB510F8F11F00F24160Aa32E3F5eD218",
+       "role": "swapper",
+       "token": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+       "amount": "10876673569651167738667337",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x8Fe2E1ABFB510F8F11F00F24160Aa32E3F5eD218",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "15833333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0xB8D9477eB6eF5F0df5219Cf0c8130DD7e520e0CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "749999999999999",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "83333333333333",
+       "kind": "native"
+      },
+      {
+       "address": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "1",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "11600039401132461262184190",
+     "amountOut": "16028162580003987",
+     "takeAmountIn": "571961640169426154297675",
+     "takeBps": 493.06,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xe5D1754870CbAFB8905D19517C17dbA6E7Be235d",
+       "role": "swapper",
+       "token": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+       "amount": "-11600039401132461262184190",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+       "amount": "11600039401132461262184190",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16871750084214723",
+       "kind": "native"
+      },
+      {
+       "address": "0xB8D9477eB6eF5F0df5219Cf0c8130DD7e520e0CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "759228753789661",
+       "kind": "native"
+      },
+      {
+       "address": "0x81EE2B6BcfcF9a614036578e5E4f2B02e507da5a",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "84358750421073",
+       "kind": "native"
+      },
+      {
+       "address": "0x150fBa03CCD83489285f13BA5f6AcD0C1b67031f",
+       "role": "other",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "2",
+       "kind": "native"
+      },
+      {
+       "address": "0xe5D1754870CbAFB8905D19517C17dbA6E7Be235d",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16028162580003987",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xed11013366fb376e21594ec1d181a27339e292d7d5b9e38f9fa288f06ab2aa1b:today:26347887",
+   "poolId": "0xed11013366fb376e21594ec1d181a27339e292d7d5b9e38f9fa288f06ab2aa1b",
+   "hook": "0x014257c9bFb770A94065716188D60F881d1180c0",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 0,
+   "lpFeeBps": 100,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xf189362718867b28b8673eCFA96da90D2BFBFCBc",
+     "amountIn": "16666666666666666",
+     "amountOut": "5526596228279321418260241",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xf189362718867b28b8673eCFA96da90D2BFBFCBc",
+       "amount": "-5526596228279321418260241",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x12720CdcC23C793e01560E8aFF2397Fb27FE8cE5",
+       "role": "swapper",
+       "token": "0xf189362718867b28b8673eCFA96da90D2BFBFCBc",
+       "amount": "5526596228279321418260241",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x12720CdcC23C793e01560E8aFF2397Fb27FE8cE5",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xf189362718867b28b8673eCFA96da90D2BFBFCBc",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "5613505927922483609826082",
+     "amountOut": "16591368008453578",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 100,
+     "flows": [
+      {
+       "address": "0x8BBda002455A47Df9fACf534EC7584b307a3481e",
+       "role": "swapper",
+       "token": "0xf189362718867b28b8673eCFA96da90D2BFBFCBc",
+       "amount": "-5613505927922483609826082",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xf189362718867b28b8673eCFA96da90D2BFBFCBc",
+       "amount": "5613505927922483609826082",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16591368008453578",
+       "kind": "native"
+      },
+      {
+       "address": "0x8BBda002455A47Df9fACf534EC7584b307a3481e",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16591368008453578",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xf683825b8b04cc2f931345f98e4b18fc2c60345a50ebac6382e55b5f982b4821:today:26347887",
+   "poolId": "0xf683825b8b04cc2f931345f98e4b18fc2c60345a50ebac6382e55b5f982b4821",
+   "hook": "0x0d62529346ac2c61f5c0582210D01214687bc0CC",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 149.99,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xF209B3D7cF01B726f01F5980D614a764DBF435c9",
+     "amountIn": "16666666666666666",
+     "amountOut": "3224720804473909513216478",
+     "takeAmountIn": "249999999999999",
+     "takeBps": 149.99,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xF209B3D7cF01B726f01F5980D614a764DBF435c9",
+       "amount": "-3224720804473909513216478",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2a85c65F2303bD6Eca05ede6206e040040b2bF4A",
+       "role": "swapper",
+       "token": "0xF209B3D7cF01B726f01F5980D614a764DBF435c9",
+       "amount": "3224720804473909513216478",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2a85c65F2303bD6Eca05ede6206e040040b2bF4A",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16416666666666667",
+       "kind": "native"
+      },
+      {
+       "address": "0x0d62529346ac2c61f5c0582210D01214687bc0CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "249999999999999",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xF209B3D7cF01B726f01F5980D614a764DBF435c9",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "3224720804473909513216481",
+     "amountOut": "16170416666666667",
+     "takeAmountIn": "48214829703106538837347",
+     "takeBps": 149.51,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xc51012AA061b8C0E58311164952D9701505109B7",
+       "role": "swapper",
+       "token": "0xF209B3D7cF01B726f01F5980D614a764DBF435c9",
+       "amount": "-3224720804473909513216481",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xF209B3D7cF01B726f01F5980D614a764DBF435c9",
+       "amount": "3224720804473909513216481",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16416666666666667",
+       "kind": "native"
+      },
+      {
+       "address": "0x0d62529346ac2c61f5c0582210D01214687bc0CC",
+       "role": "hook",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "246250000000000",
+       "kind": "native"
+      },
+      {
+       "address": "0xc51012AA061b8C0E58311164952D9701505109B7",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16170416666666667",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0xfab1c4c94886d20b2db9635955dda696234a55e655e889be0f4f93a1971c7211:today:26347887",
+   "poolId": "0xfab1c4c94886d20b2db9635955dda696234a55e655e889be0f4f93a1971c7211",
+   "hook": "0x784FF9a3ac5d88A30bfff6F7f2a270161FBE6000",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877343,
+   "status": "ok",
+   "measuredTakeBps": 0,
+   "lpFeeBps": 125,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0x0000000000000000000000000000000000000000",
+     "tokenOut": "0xaA6b95d6c320b7E6ca9c0Edc3EaDa82f6317Da80",
+     "amountIn": "16666666666666666",
+     "amountOut": "14326970237503142735765356",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 125,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xaA6b95d6c320b7E6ca9c0Edc3EaDa82f6317Da80",
+       "amount": "-14326970237503142735765356",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x7986673697E2b73c29Ac8e557Cd5EacCe9375774",
+       "role": "swapper",
+       "token": "0xaA6b95d6c320b7E6ca9c0Edc3EaDa82f6317Da80",
+       "amount": "14326970237503142735765356",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x7986673697E2b73c29Ac8e557Cd5EacCe9375774",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16666666666666666",
+       "kind": "native"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16666666666666666",
+       "kind": "native"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xaA6b95d6c320b7E6ca9c0Edc3EaDa82f6317Da80",
+     "tokenOut": "0x0000000000000000000000000000000000000000",
+     "amountIn": "14763669460670571935464686",
+     "amountOut": "16742901953643223",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 125,
+     "flows": [
+      {
+       "address": "0x1AF41d242Ea40902B98aA2a58dB72AfC9f4a966c",
+       "role": "swapper",
+       "token": "0xaA6b95d6c320b7E6ca9c0Edc3EaDa82f6317Da80",
+       "amount": "-14763669460670571935464686",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xaA6b95d6c320b7E6ca9c0Edc3EaDa82f6317Da80",
+       "amount": "14763669460670571935464686",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "-16742901953643223",
+       "kind": "native"
+      },
+      {
+       "address": "0x1AF41d242Ea40902B98aA2a58dB72AfC9f4a966c",
+       "role": "swapper",
+       "token": "0x0000000000000000000000000000000000000000",
+       "amount": "16742901953643223",
+       "kind": "native"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x6fc554037482ad70d83d5f56269a9371a54008a32ccfe1b1dabde1de1998ab3a:today:26347887",
+   "poolId": "0x6fc554037482ad70d83d5f56269a9371a54008a32ccfe1b1dabde1de1998ab3a",
+   "hook": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877077,
+   "status": "ok",
+   "measuredTakeBps": 9264865.5,
+   "lpFeeBps": 0,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+     "tokenOut": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+     "amountIn": "1000000000000000",
+     "amountOut": "102482996689953812365",
+     "takeAmountIn": "926486550520945941",
+     "takeBps": 9264865.5,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "-6151229034037949",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "6151229034037949",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "-5161229034037949",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "1232245806807589",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+       "role": "other",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "-921557567293715581",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xa9a806625b93948b38DFB2b8aB71f05E33cCE670",
+       "role": "swapper",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "-1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+       "amount": "-102482996689953812365",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xa9a806625b93948b38DFB2b8aB71f05E33cCE670",
+       "role": "swapper",
+       "token": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+       "amount": "102482996689953812365",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xE159BD1068d062fAe7C7715E332Bfb554F545483",
+       "role": "other",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "583345194513361832",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x3306c0C4b231e5d2e5A413AC6C0C59eD327B49b1",
+       "role": "other",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "343141356007584109",
+       "kind": "erc20"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+     "tokenOut": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+     "amountIn": "1000000000000000",
+     "amountOut": "9563538662",
+     "takeAmountIn": "828145342419465358",
+     "takeBps": 8281453.42,
+     "lpFeeBps": 0,
+     "flows": [
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "-9999903398600",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x0000000000000000000000000000000000000000",
+       "role": "other",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "9999903398600",
+       "kind": "erc6909"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "-10009563538662",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xCBa49142A75dA64A679F32a159F4316f11a7e0cc",
+       "role": "hook",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "2000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+       "role": "other",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "8000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xDDF25C8e476C09Bb028cE9bA3f84AAf0864f9fEb",
+       "role": "swapper",
+       "token": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+       "amount": "-1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xFE59A12C419950b36ca28B5a843b2A24dd977e89",
+       "amount": "1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xDDF25C8e476C09Bb028cE9bA3f84AAf0864f9fEb",
+       "role": "swapper",
+       "token": "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3",
+       "amount": "9563538662",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x888b07bd282f587d3c6b0fcb23e7fc55bbb33abe8910dd7492db815dc8dc5592:today:26347887",
+   "poolId": "0x888b07bd282f587d3c6b0fcb23e7fc55bbb33abe8910dd7492db815dc8dc5592",
+   "hook": "0x784FF9a3ac5d88A30bfff6F7f2a270161FBE6000",
+   "scenario": "today",
+   "isDemo": false,
+   "forkBlock": 26347887,
+   "measuredAt": 1793877077,
+   "status": "ok",
+   "measuredTakeBps": 0,
+   "lpFeeBps": 125,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xD34a99Bc0f67aE1bbd63C660e6d0b0dd03E263B7",
+     "tokenOut": "0xd782Bdea4EF02a0Bd391eb9089470c8080f0A68e",
+     "amountIn": "1000000000000000",
+     "amountOut": "164520959665926918283",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 125,
+     "flows": [
+      {
+       "address": "0x7986673697E2b73c29Ac8e557Cd5EacCe9375774",
+       "role": "swapper",
+       "token": "0xD34a99Bc0f67aE1bbd63C660e6d0b0dd03E263B7",
+       "amount": "-1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xD34a99Bc0f67aE1bbd63C660e6d0b0dd03E263B7",
+       "amount": "1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xd782Bdea4EF02a0Bd391eb9089470c8080f0A68e",
+       "amount": "-164520959665926918283",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x7986673697E2b73c29Ac8e557Cd5EacCe9375774",
+       "role": "swapper",
+       "token": "0xd782Bdea4EF02a0Bd391eb9089470c8080f0A68e",
+       "amount": "164520959665926918283",
+       "kind": "erc20"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xd782Bdea4EF02a0Bd391eb9089470c8080f0A68e",
+     "tokenOut": "0xD34a99Bc0f67aE1bbd63C660e6d0b0dd03E263B7",
+     "amountIn": "1000000000000000",
+     "amountOut": "5927248015",
+     "takeAmountIn": "0",
+     "takeBps": 0,
+     "lpFeeBps": 125,
+     "flows": [
+      {
+       "address": "0x1AF41d242Ea40902B98aA2a58dB72AfC9f4a966c",
+       "role": "swapper",
+       "token": "0xd782Bdea4EF02a0Bd391eb9089470c8080f0A68e",
+       "amount": "-1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xd782Bdea4EF02a0Bd391eb9089470c8080f0A68e",
+       "amount": "1000000000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xD34a99Bc0f67aE1bbd63C660e6d0b0dd03E263B7",
+       "amount": "-5927248015",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x1AF41d242Ea40902B98aA2a58dB72AfC9f4a966c",
+       "role": "swapper",
+       "token": "0xD34a99Bc0f67aE1bbd63C660e6d0b0dd03E263B7",
+       "amount": "5927248015",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "simId": "0x27e3bf196d60af70968fde2fbee3e37cd7178355e7d23db97d94f4aae0bed1cc:after-admin-upgrade:26348110",
+   "poolId": "0x27e3bf196d60af70968fde2fbee3e37cd7178355e7d23db97d94f4aae0bed1cc",
+   "hook": "0x9E34C7439F63D8aE7C63822E513BA6388D2E0088",
+   "scenario": "after-admin-upgrade",
+   "label": "after the owner upgrades the code (v2)",
+   "isDemo": true,
+   "forkBlock": 26348110,
+   "measuredAt": 1793876486,
+   "status": "ok",
+   "measuredTakeBps": 10000,
+   "lpFeeBps": 30,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+     "tokenOut": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "amountIn": "1000000000",
+     "amountOut": "0",
+     "takeAmountIn": "1000000000",
+     "takeBps": 10000,
+     "lpFeeBps": 30,
+     "flows": [
+      {
+       "address": "0xcd93975826D2d7dEA86e7EE9F890ef352326E373",
+       "role": "hook-owner",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "1000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x2a85c65F2303bD6Eca05ede6206e040040b2bF4A",
+       "role": "swapper",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "-1000000000",
+       "kind": "erc20"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "tokenOut": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+     "amountIn": "413708249527611897",
+     "amountOut": "0",
+     "takeAmountIn": "413708249527611897",
+     "takeBps": 10000,
+     "lpFeeBps": 30,
+     "flows": [
+      {
+       "address": "0xcd93975826D2d7dEA86e7EE9F890ef352326E373",
+       "role": "hook-owner",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "413708249527611897",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xc51012AA061b8C0E58311164952D9701505109B7",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-413708249527611897",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "Owner called upgradeToAndCall: implementation 0xF62849F9A0B5Bf2913b396098F7c7019b51A820a -> 0xc7183455a4C133Ae270771860664b6B7ec320bB1. Same address, same permission bits."
+   ]
+  },
+  {
+   "simId": "0x27e3bf196d60af70968fde2fbee3e37cd7178355e7d23db97d94f4aae0bed1cc:today:26348110",
+   "poolId": "0x27e3bf196d60af70968fde2fbee3e37cd7178355e7d23db97d94f4aae0bed1cc",
+   "hook": "0x9E34C7439F63D8aE7C63822E513BA6388D2E0088",
+   "scenario": "today",
+   "label": "today (v1)",
+   "isDemo": true,
+   "forkBlock": 26348110,
+   "measuredAt": 1793876486,
+   "status": "ok",
+   "measuredTakeBps": 30,
+   "lpFeeBps": 30,
+   "directions": [
+    {
+     "zeroForOne": true,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+     "tokenOut": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "amountIn": "1000000000",
+     "amountOut": "410399978228655740",
+     "takeAmountIn": "3000000",
+     "takeBps": 30,
+     "lpFeeBps": 30,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "997000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xcd93975826D2d7dEA86e7EE9F890ef352326E373",
+       "role": "hook-owner",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "3000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "-1000000000",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-410399978228655740",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "410399978228655740",
+       "kind": "erc20"
+      }
+     ]
+    },
+    {
+     "zeroForOne": false,
+     "status": "ok",
+     "error": null,
+     "tokenIn": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "tokenOut": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+     "amountIn": "413708249527611897",
+     "amountOut": "996014620",
+     "takeAmountIn": "1241124748582835",
+     "takeBps": 29.99,
+     "lpFeeBps": 30,
+     "flows": [
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "412467124779029062",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xcd93975826D2d7dEA86e7EE9F890ef352326E373",
+       "role": "hook-owner",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "1241124748582835",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xcE3f8271FF496f256F7bD6b981eF6962509017DF",
+       "role": "swapper",
+       "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       "amount": "-413708249527611897",
+       "kind": "erc20"
+      },
+      {
+       "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+       "role": "pool-manager",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "-996014620",
+       "kind": "erc20"
+      },
+      {
+       "address": "0xcE3f8271FF496f256F7bD6b981eF6962509017DF",
+       "role": "swapper",
+       "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+       "amount": "996014620",
+       "kind": "erc20"
+      }
+     ]
+    }
+   ],
+   "notes": [
+    "Planted demo hook on a local fork; not a mainnet hook."
+   ]
+  }
+ ]
+}

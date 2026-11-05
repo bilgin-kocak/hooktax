@@ -146,6 +146,19 @@ export function toSimRecords(
       };
     });
     const okDirs = directions.filter((d) => d.status === "ok");
+    // With both sides sized to ~$50, a take above 100% of input is not a plain swap cut: it means
+    // a third party (often the hook or owner also acting as LP/arbitrageur) netted more than the
+    // swapper paid in this tx. We keep its flows but do not let it set the headline take, and note it.
+    const CAP_BPS = 10_000;
+    const reliableDirs = okDirs.filter((d) => (d.takeBps ?? 0) <= CAP_BPS);
+    const extraNotes: string[] = [];
+    for (const d of okDirs) {
+      if ((d.takeBps ?? 0) > CAP_BPS) {
+        extraNotes.push(
+          `${d.zeroForOne ? "zeroForOne" : "oneForZero"}: measured take ${(d.takeBps! / 100).toFixed(1)}% exceeds 100% of input; attribution is unreliable for this swap (see flows), excluded from the headline take`,
+        );
+      }
+    }
     const status: SimStatus = okDirs.length > 0
       ? "ok"
       : [...directions].sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status))[0]?.status ?? "error";
@@ -159,10 +172,10 @@ export function toSimRecords(
       forkBlock: opts.forkBlock,
       measuredAt: opts.measuredAt,
       status,
-      measuredTakeBps: okDirs.length ? Math.max(...okDirs.map((d) => d.takeBps ?? 0)) : null,
+      measuredTakeBps: reliableDirs.length ? Math.max(...reliableDirs.map((d) => d.takeBps ?? 0)) : null,
       lpFeeBps: okDirs.length ? Math.max(...okDirs.map((d) => d.lpFeeBps ?? 0)) : null,
       directions,
-      notes: opts.notes?.(poolId, scenario) ?? [],
+      notes: [...(opts.notes?.(poolId, scenario) ?? []), ...extraNotes],
     });
   }
   return out;

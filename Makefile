@@ -6,7 +6,7 @@ SHELL := /bin/bash
 export PATH := $(HOME)/.foundry/bin:$(PATH)
 
 .DEFAULT_GOAL := help
-.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo sim-build sim-test
+.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure sim-build
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
@@ -52,3 +52,6 @@ sim-build: ## Build the Foundry fork-simulation project (packages/sim)
 
 demo: ## M5: SneakyFeeHook worst case on a local mainnet fork: 0.3% today, 100% after the owner upgrades
 	pnpm --filter @hooktax/sim run demo
+
+measure: ## M4: measured take on real hooked pools on a fork (ARGS="--limit 12" to size the batch)
+	pnpm --filter @hooktax/sim run measure $(ARGS)

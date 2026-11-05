@@ -72,7 +72,7 @@ contract MeasureReal is TakeMeter {
         );
     }
 
-    function _read(string memory file) private view returns (Row[] memory rows) {
+    function _read(string memory file) private returns (Row[] memory rows) {
         // Count lines, then parse. forge-std vm.readLine returns "" past EOF.
         uint256 n;
         while (bytes(vm.readLine(file)).length != 0) n++;
