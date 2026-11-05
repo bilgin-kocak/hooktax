@@ -1,0 +1,26 @@
+{
+  "name": "@hooktax/indexer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Builds the HookAtlas dataset (data/hooks.json, data/pools.json) from Uniswap v4 Initialize events on Ethereum mainnet.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "index": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@hooktax/core": "workspace:*",
+    "viem": "2.57.16"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}
