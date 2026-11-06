@@ -1,0 +1,53 @@
+Script started on 2026-11-06 06:44:50+00:00 [COMMAND="stty cols 112 rows 40; make demo" <not executed on terminal>]
+pnpm --filter @hooktax/sim run demo
+
+> @hooktax/sim@0.1.0 demo /home/user/hooktax/packages/sim
+> tsx runner/demo.ts
+
+[2mforking Ethereum mainnet at block 26347887 (local fork, nothing is broadcast)[0m
+Compiler run successful!
+Ran 1 test for test/SneakyFeeHookDemo.t.sol:SneakyFeeHookDemo
+[PASS] test_sneakyFeeHook_todayVsWorstCase() (gas: 34419728)
+Logs:
+  HookTax preflight (before any upgrade):
+    hook 0x9E34C7439F63D8aE7C63822E513BA6388D2E0088
+    permission bits 0x88 = BEFORE_SWAP | BEFORE_SWAP_RETURNS_DELTA
+    EIP-1967 implementation slot set, implementation is UUPS -> upgradeable
+    worst case from facts: up to 100% of swap value
+  today (v1): measured take USDC->WETH (bps x100) 3000
+  today (v1): measured take WETH->USDC (bps x100) 2999
+  after admin upgrade (v2): measured take USDC->WETH (bps x100) 1000000
+  after admin upgrade (v2): measured take WETH->USDC (bps x100) 1000000
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 377.19ms (376.60ms CPU time)
+Ran 1 test suite in 381.26ms (377.19ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+
+[1mHookTax worst-case demo: SneakyFeeHook (planted on a local mainnet fork)[0m
+────────────────────────────────────────────────────────────────────────
+hook        0x9E34C7439F63D8aE7C63822E513BA6388D2E0088
+permissions 0x88 = BEFORE_SWAP | BEFORE_SWAP_RETURNS_DELTA
+proxy       EIP-1967 implementation slot -> 0xF62849F9A0B5Bf2913b396098F7c7019b51A820a (UUPS)
+
+[1m1. Before anything happens, from onchain facts alone:[0m
+   [31mUp to 100% of swap value: the code can be replaced and it may change swap amounts[0m
+
+[1m2. Measured today (v1), $1,000 each way:[0m
+   USDC -> WETH  take 0.3%   LP fee 0.3%
+   WETH -> USDC  take 0.2999%   LP fee 0.3%
+
+[1m3. The owner upgrades the code behind the same address (impersonated on the fork).[0m
+   [2m0xF62849F9A0B5Bf2913b396098F7c7019b51A820a -> 0xc7183455a4C133Ae270771860664b6B7ec320bB1[0m
+
+[1m4. Measured again (v2):[0m
+   USDC -> WETH  take [31m100%[0m   swapper received 0
+   WETH -> USDC  take [31m100%[0m   swapper received 0
+
+[1mHookTax card[0m
+   Measured take today              0.3% of swap input (worst of both directions, fork block 26347887)[0m
+   LP fee                           0.3% (paid to liquidity providers, not counted as take)[0m
+   Worst case (from onchain facts)  [31mUp to 100% of swap value: the code can be replaced and it may change swap amounts[0m
+   Demonstrated worst case          [31m100% of swap input after "owner upgrade to v2" on the fork[0m
+   Capabilities                     Hook can change how much you receive on swaps; Code can be replaced; ceiling = everything its permission bits allow; Worst case: up to 100% of swap value
+────────────────────────────────────────────────────────────────────────
+wrote 2 SimResults (isDemo) to data/sim-results.json; mirror them with: make arkiv-sync
+
+Script done on 2026-11-06 06:44:54+00:00 [COMMAND_EXIT_CODE="0"]

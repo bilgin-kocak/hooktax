@@ -1,0 +1,2761 @@
+{
+ "fps": 30,
+ "duration": 185.035,
+ "scenes": {
+  "cold": [
+   0.0,
+   10.889
+  ],
+  "title": [
+   10.889,
+   20.377
+  ],
+  "chain": [
+   20.377,
+   47.386
+  ],
+  "measured": [
+   47.386,
+   69.197
+  ],
+  "worst": [
+   69.197,
+   97.999
+  ],
+  "real": [
+   97.999,
+   123.018
+  ],
+  "arkiv": [
+   123.018,
+   150.312
+  ],
+  "cre": [
+   150.312,
+   175.851
+  ],
+  "close": [
+   175.851,
+   185.035
+  ]
+ },
+ "chapters": {
+  "chain": "Uniswap v4",
+  "measured": "Uniswap v4",
+  "worst": "Uniswap v4",
+  "real": "Uniswap v4",
+  "arkiv": "Arkiv",
+  "cre": "Chainlink CRE"
+ },
+ "vo": {
+  "cold": {
+   "take": "vo1a",
+   "file": "audio/vo/cold.mp3",
+   "start": 0.6,
+   "duration": 9.639,
+   "gain_db": 6.0,
+   "words": [
+    {
+     "text": "Every",
+     "start": 0.76,
+     "end": 1.0
+    },
+    {
+     "text": "Uniswap",
+     "start": 1.16,
+     "end": 1.72
+    },
+    {
+     "text": "V4",
+     "start": 1.8,
+     "end": 2.2
+    },
+    {
+     "text": "pool",
+     "start": 2.36,
+     "end": 2.6
+    },
+    {
+     "text": "can",
+     "start": 2.76,
+     "end": 2.84
+    },
+    {
+     "text": "attach",
+     "start": 3.0,
+     "end": 3.16
+    },
+    {
+     "text": "a",
+     "start": 3.24,
+     "end": 3.32
+    },
+    {
+     "text": "hook:",
+     "start": 3.4,
+     "end": 4.12
+    },
+    {
+     "text": "code",
+     "start": 4.28,
+     "end": 4.44
+    },
+    {
+     "text": "that",
+     "start": 4.52,
+     "end": 4.6
+    },
+    {
+     "text": "runs",
+     "start": 4.68,
+     "end": 4.92
+    },
+    {
+     "text": "inside",
+     "start": 5.16,
+     "end": 5.4
+    },
+    {
+     "text": "your",
+     "start": 5.48,
+     "end": 5.56
+    },
+    {
+     "text": "swap.",
+     "start": 5.64,
+     "end": 6.44
+    },
+    {
+     "text": "Some",
+     "start": 6.56,
+     "end": 6.68
+    },
+    {
+     "text": "hooks",
+     "start": 6.84,
+     "end": 7.0
+    },
+    {
+     "text": "take",
+     "start": 7.08,
+     "end": 7.16
+    },
+    {
+     "text": "a",
+     "start": 7.24,
+     "end": 7.32
+    },
+    {
+     "text": "cut.",
+     "start": 7.48,
+     "end": 8.12
+    },
+    {
+     "text": "Some",
+     "start": 8.24,
+     "end": 8.36
+    },
+    {
+     "text": "could",
+     "start": 8.44,
+     "end": 8.52
+    },
+    {
+     "text": "start",
+     "start": 8.6,
+     "end": 8.84
+    },
+    {
+     "text": "taking",
+     "start": 9.0,
+     "end": 9.16
+    },
+    {
+     "text": "one",
+     "start": 9.24,
+     "end": 9.32
+    },
+    {
+     "text": "tomorrow.",
+     "start": 9.44,
+     "end": 10.2
+    }
+   ],
+   "phrases": [
+    {
+     "text": "Every Uniswap V4 pool can attach a hook:",
+     "start": 0.76,
+     "end": 4.12
+    },
+    {
+     "text": "code that runs inside your swap.",
+     "start": 4.28,
+     "end": 6.44
+    },
+    {
+     "text": "Some hooks take a cut.",
+     "start": 6.56,
+     "end": 8.12
+    },
+    {
+     "text": "Some could start taking one tomorrow.",
+     "start": 8.24,
+     "end": 10.2
+    }
+   ]
+  },
+  "title": {
+   "take": "vo2a",
+   "file": "audio/vo/title.mp3",
+   "start": 11.289,
+   "duration": 8.438,
+   "gain_db": 6.5,
+   "words": [
+    {
+     "text": "HookTax",
+     "start": 11.289,
+     "end": 11.769
+    },
+    {
+     "text": "answers",
+     "start": 11.849,
+     "end": 12.249
+    },
+    {
+     "text": "two",
+     "start": 12.409,
+     "end": 12.569
+    },
+    {
+     "text": "questions",
+     "start": 12.649,
+     "end": 13.129
+    },
+    {
+     "text": "about",
+     "start": 13.209,
+     "end": 13.529
+    },
+    {
+     "text": "any",
+     "start": 13.609,
+     "end": 13.849
+    },
+    {
+     "text": "V4",
+     "start": 13.929,
+     "end": 14.249
+    },
+    {
+     "text": "pool.",
+     "start": 14.329,
+     "end": 14.929
+    },
+    {
+     "text": "What",
+     "start": 15.209,
+     "end": 15.289
+    },
+    {
+     "text": "does",
+     "start": 15.369,
+     "end": 15.449
+    },
+    {
+     "text": "its",
+     "start": 15.529,
+     "end": 15.689
+    },
+    {
+     "text": "hook",
+     "start": 15.769,
+     "end": 15.929
+    },
+    {
+     "text": "take",
+     "start": 16.009,
+     "end": 16.249
+    },
+    {
+     "text": "from",
+     "start": 16.329,
+     "end": 16.409
+    },
+    {
+     "text": "me",
+     "start": 16.489,
+     "end": 16.569
+    },
+    {
+     "text": "today?",
+     "start": 16.809,
+     "end": 17.449
+    },
+    {
+     "text": "And",
+     "start": 17.609,
+     "end": 17.769
+    },
+    {
+     "text": "what",
+     "start": 18.169,
+     "end": 18.249
+    },
+    {
+     "text": "could",
+     "start": 18.329,
+     "end": 18.489
+    },
+    {
+     "text": "it",
+     "start": 18.529,
+     "end": 18.569
+    },
+    {
+     "text": "take",
+     "start": 18.649,
+     "end": 18.889
+    },
+    {
+     "text": "tomorrow?",
+     "start": 19.009,
+     "end": 19.769
+    }
+   ],
+   "phrases": [
+    {
+     "text": "HookTax answers two questions about any V4 pool.",
+     "start": 11.289,
+     "end": 14.929
+    },
+    {
+     "text": "What does its hook take from me today?",
+     "start": 15.209,
+     "end": 17.449
+    },
+    {
+     "text": "And what could it take tomorrow?",
+     "start": 17.609,
+     "end": 19.769
+    }
+   ]
+  },
+  "chain": {
+   "take": "vo3a",
+   "file": "audio/vo/chain.mp3",
+   "start": 20.877,
+   "duration": 25.809,
+   "gain_db": 5.8,
+   "words": [
+    {
+     "text": "We",
+     "start": 20.877,
+     "end": 20.997
+    },
+    {
+     "text": "read",
+     "start": 21.037,
+     "end": 21.297
+    },
+    {
+     "text": "every",
+     "start": 21.357,
+     "end": 21.693
+    },
+    {
+     "text": "Initialize",
+     "start": 21.757,
+     "end": 22.397
+    },
+    {
+     "text": "event",
+     "start": 22.597,
+     "end": 22.797
+    },
+    {
+     "text": "from",
+     "start": 22.877,
+     "end": 22.957
+    },
+    {
+     "text": "the",
+     "start": 22.997,
+     "end": 23.037
+    },
+    {
+     "text": "V4",
+     "start": 23.117,
+     "end": 23.597
+    },
+    {
+     "text": "PoolManager",
+     "start": 23.677,
+     "end": 24.397
+    },
+    {
+     "text": "on",
+     "start": 24.477,
+     "end": 24.557
+    },
+    {
+     "text": "Ethereum",
+     "start": 24.637,
+     "end": 25.117
+    },
+    {
+     "text": "mainnet:",
+     "start": 25.197,
+     "end": 25.997
+    },
+    {
+     "text": "nearly",
+     "start": 26.077,
+     "end": 26.397
+    },
+    {
+     "text": "187,000",
+     "start": 26.477,
+     "end": 26.957
+    },
+    {
+     "text": "pools,",
+     "start": 27.117,
+     "end": 29.117
+    },
+    {
+     "text": "more",
+     "start": 29.197,
+     "end": 29.277
+    },
+    {
+     "text": "than",
+     "start": 29.357,
+     "end": 29.597
+    },
+    {
+     "text": "47,000",
+     "start": 29.717,
+     "end": 30.157
+    },
+    {
+     "text": "with",
+     "start": 30.317,
+     "end": 30.797
+    },
+    {
+     "text": "a",
+     "start": 30.837,
+     "end": 30.877
+    },
+    {
+     "text": "hook,",
+     "start": 30.957,
+     "end": 31.517
+    },
+    {
+     "text": "and",
+     "start": 31.637,
+     "end": 31.757
+    },
+    {
+     "text": "11,242",
+     "start": 31.877,
+     "end": 33.837
+    },
+    {
+     "text": "unique",
+     "start": 34.077,
+     "end": 34.477
+    },
+    {
+     "text": "hooks.",
+     "start": 34.677,
+     "end": 35.197
+    },
+    {
+     "text": "A",
+     "start": 35.517,
+     "end": 35.597
+    },
+    {
+     "text": "hook's",
+     "start": 35.677,
+     "end": 35.917
+    },
+    {
+     "text": "permissions",
+     "start": 36.237,
+     "end": 36.557
+    },
+    {
+     "text": "are",
+     "start": 36.637,
+     "end": 36.717
+    },
+    {
+     "text": "written",
+     "start": 36.877,
+     "end": 37.037
+    },
+    {
+     "text": "into",
+     "start": 37.117,
+     "end": 37.357
+    },
+    {
+     "text": "its",
+     "start": 37.437,
+     "end": 37.517
+    },
+    {
+     "text": "address.",
+     "start": 37.797,
+     "end": 38.277
+    },
+    {
+     "text": "HookTax",
+     "start": 38.477,
+     "end": 38.957
+    },
+    {
+     "text": "decodes",
+     "start": 39.037,
+     "end": 39.517
+    },
+    {
+     "text": "them,",
+     "start": 39.597,
+     "end": 40.077
+    },
+    {
+     "text": "checks",
+     "start": 40.197,
+     "end": 40.317
+    },
+    {
+     "text": "the",
+     "start": 40.397,
+     "end": 40.437
+    },
+    {
+     "text": "proxy",
+     "start": 40.477,
+     "end": 40.797
+    },
+    {
+     "text": "slots",
+     "start": 40.877,
+     "end": 41.197
+    },
+    {
+     "text": "to",
+     "start": 41.277,
+     "end": 41.357
+    },
+    {
+     "text": "see",
+     "start": 41.437,
+     "end": 41.597
+    },
+    {
+     "text": "whether",
+     "start": 41.717,
+     "end": 41.837
+    },
+    {
+     "text": "the",
+     "start": 41.877,
+     "end": 41.917
+    },
+    {
+     "text": "code",
+     "start": 41.997,
+     "end": 42.237
+    },
+    {
+     "text": "can",
+     "start": 42.317,
+     "end": 42.397
+    },
+    {
+     "text": "be",
+     "start": 42.437,
+     "end": 42.477
+    },
+    {
+     "text": "replaced,",
+     "start": 42.557,
+     "end": 43.357
+    },
+    {
+     "text": "and",
+     "start": 43.437,
+     "end": 43.517
+    },
+    {
+     "text": "works",
+     "start": 43.677,
+     "end": 43.837
+    },
+    {
+     "text": "out",
+     "start": 43.917,
+     "end": 44.077
+    },
+    {
+     "text": "a",
+     "start": 44.117,
+     "end": 44.157
+    },
+    {
+     "text": "worst",
+     "start": 44.317,
+     "end": 44.637
+    },
+    {
+     "text": "case",
+     "start": 44.717,
+     "end": 44.957
+    },
+    {
+     "text": "from",
+     "start": 45.037,
+     "end": 45.197
+    },
+    {
+     "text": "those",
+     "start": 45.277,
+     "end": 45.517
+    },
+    {
+     "text": "facts",
+     "start": 45.597,
+     "end": 45.837
+    },
+    {
+     "text": "alone.",
+     "start": 45.917,
+     "end": 46.637
+    }
+   ],
+   "phrases": [
+    {
+     "text": "We read every Initialize event from",
+     "start": 20.877,
+     "end": 22.957
+    },
+    {
+     "text": "the V4 PoolManager on Ethereum mainnet:",
+     "start": 22.997,
+     "end": 25.997
+    },
+    {
+     "text": "nearly 187,000 pools,",
+     "start": 26.077,
+     "end": 29.117
+    },
+    {
+     "text": "more than 47,000 with a hook,",
+     "start": 29.197,
+     "end": 31.517
+    },
+    {
+     "text": "and 11,242 unique hooks.",
+     "start": 31.637,
+     "end": 35.197
+    },
+    {
+     "text": "A hook's permissions are written into its address.",
+     "start": 35.517,
+     "end": 38.277
+    },
+    {
+     "text": "HookTax decodes them,",
+     "start": 38.477,
+     "end": 40.077
+    },
+    {
+     "text": "checks the proxy slots to see whether",
+     "start": 40.197,
+     "end": 41.837
+    },
+    {
+     "text": "the code can be replaced,",
+     "start": 41.877,
+     "end": 43.357
+    },
+    {
+     "text": "and works out a worst case",
+     "start": 43.437,
+     "end": 44.957
+    },
+    {
+     "text": "from those facts alone.",
+     "start": 45.037,
+     "end": 46.637
+    }
+   ]
+  },
+  "measured": {
+   "take": "vo4a",
+   "file": "audio/vo/measured.mp3",
+   "start": 47.886,
+   "duration": 20.611,
+   "gain_db": 6.2,
+   "words": [
+    {
+     "text": "Then",
+     "start": 47.886,
+     "end": 48.236
+    },
+    {
+     "text": "we",
+     "start": 48.286,
+     "end": 48.526
+    },
+    {
+     "text": "measure.",
+     "start": 48.606,
+     "end": 49.286
+    },
+    {
+     "text": "On",
+     "start": 49.486,
+     "end": 49.566
+    },
+    {
+     "text": "a",
+     "start": 49.646,
+     "end": 49.686
+    },
+    {
+     "text": "mainnet",
+     "start": 49.726,
+     "end": 50.126
+    },
+    {
+     "text": "fork,",
+     "start": 50.206,
+     "end": 50.686
+    },
+    {
+     "text": "HookTax",
+     "start": 50.766,
+     "end": 51.166
+    },
+    {
+     "text": "swaps",
+     "start": 51.246,
+     "end": 51.566
+    },
+    {
+     "text": "about",
+     "start": 51.726,
+     "end": 51.886
+    },
+    {
+     "text": "$50",
+     "start": 51.966,
+     "end": 52.286
+    },
+    {
+     "text": "through",
+     "start": 52.366,
+     "end": 53.006
+    },
+    {
+     "text": "a",
+     "start": 53.046,
+     "end": 53.086
+    },
+    {
+     "text": "real",
+     "start": 53.166,
+     "end": 53.406
+    },
+    {
+     "text": "pool,",
+     "start": 53.486,
+     "end": 53.966
+    },
+    {
+     "text": "in",
+     "start": 54.086,
+     "end": 54.206
+    },
+    {
+     "text": "both",
+     "start": 54.326,
+     "end": 54.446
+    },
+    {
+     "text": "directions,",
+     "start": 54.526,
+     "end": 55.326
+    },
+    {
+     "text": "through",
+     "start": 55.406,
+     "end": 55.486
+    },
+    {
+     "text": "the",
+     "start": 55.526,
+     "end": 55.566
+    },
+    {
+     "text": "real",
+     "start": 55.646,
+     "end": 55.886
+    },
+    {
+     "text": "PoolManager,",
+     "start": 55.966,
+     "end": 56.766
+    },
+    {
+     "text": "and",
+     "start": 56.846,
+     "end": 56.926
+    },
+    {
+     "text": "traces",
+     "start": 56.966,
+     "end": 57.406
+    },
+    {
+     "text": "every",
+     "start": 57.486,
+     "end": 57.806
+    },
+    {
+     "text": "token",
+     "start": 57.966,
+     "end": 58.126
+    },
+    {
+     "text": "movement.",
+     "start": 58.206,
+     "end": 59.006
+    },
+    {
+     "text": "This",
+     "start": 59.126,
+     "end": 59.246
+    },
+    {
+     "text": "hook",
+     "start": 59.326,
+     "end": 59.566
+    },
+    {
+     "text": "takes",
+     "start": 59.646,
+     "end": 59.966
+    },
+    {
+     "text": "1%",
+     "start": 60.046,
+     "end": 60.126
+    },
+    {
+     "text": "of",
+     "start": 60.286,
+     "end": 60.926
+    },
+    {
+     "text": "every",
+     "start": 61.006,
+     "end": 61.246
+    },
+    {
+     "text": "swap,",
+     "start": 61.326,
+     "end": 61.886
+    },
+    {
+     "text": "while",
+     "start": 61.966,
+     "end": 62.046
+    },
+    {
+     "text": "the",
+     "start": 62.086,
+     "end": 62.126
+    },
+    {
+     "text": "LP",
+     "start": 62.206,
+     "end": 62.606
+    },
+    {
+     "text": "fee",
+     "start": 62.686,
+     "end": 62.926
+    },
+    {
+     "text": "is",
+     "start": 63.006,
+     "end": 63.166
+    },
+    {
+     "text": "zero.",
+     "start": 63.366,
+     "end": 63.886
+    },
+    {
+     "text": "That's",
+     "start": 63.966,
+     "end": 64.126
+    },
+    {
+     "text": "a",
+     "start": 64.206,
+     "end": 64.286
+    },
+    {
+     "text": "measured",
+     "start": 64.366,
+     "end": 64.686
+    },
+    {
+     "text": "number,",
+     "start": 64.766,
+     "end": 65.326
+    },
+    {
+     "text": "not",
+     "start": 65.406,
+     "end": 65.486
+    },
+    {
+     "text": "a",
+     "start": 65.526,
+     "end": 65.566
+    },
+    {
+     "text": "guess.",
+     "start": 65.646,
+     "end": 66.286
+    },
+    {
+     "text": "And",
+     "start": 66.326,
+     "end": 66.366
+    },
+    {
+     "text": "it's",
+     "start": 66.406,
+     "end": 66.526
+    },
+    {
+     "text": "a",
+     "start": 66.606,
+     "end": 66.686
+    },
+    {
+     "text": "measurement,",
+     "start": 66.966,
+     "end": 67.486
+    },
+    {
+     "text": "not",
+     "start": 67.566,
+     "end": 67.646
+    },
+    {
+     "text": "an",
+     "start": 67.726,
+     "end": 67.806
+    },
+    {
+     "text": "audit.",
+     "start": 67.886,
+     "end": 68.526
+    }
+   ],
+   "phrases": [
+    {
+     "text": "Then we measure.",
+     "start": 47.886,
+     "end": 49.286
+    },
+    {
+     "text": "On a mainnet fork,",
+     "start": 49.486,
+     "end": 50.686
+    },
+    {
+     "text": "HookTax swaps about $50 through a real pool,",
+     "start": 50.766,
+     "end": 53.966
+    },
+    {
+     "text": "in both directions,",
+     "start": 54.086,
+     "end": 55.326
+    },
+    {
+     "text": "through the real PoolManager,",
+     "start": 55.406,
+     "end": 56.766
+    },
+    {
+     "text": "and traces every token movement.",
+     "start": 56.846,
+     "end": 59.006
+    },
+    {
+     "text": "This hook takes 1% of every swap,",
+     "start": 59.126,
+     "end": 61.886
+    },
+    {
+     "text": "while the LP fee is zero.",
+     "start": 61.966,
+     "end": 63.886
+    },
+    {
+     "text": "That's a measured number,",
+     "start": 63.966,
+     "end": 65.326
+    },
+    {
+     "text": "not a guess.",
+     "start": 65.406,
+     "end": 66.286
+    },
+    {
+     "text": "And it's a measurement,",
+     "start": 66.326,
+     "end": 67.486
+    },
+    {
+     "text": "not an audit.",
+     "start": 67.566,
+     "end": 68.526
+    }
+   ]
+  },
+  "worst": {
+   "take": "vo5a",
+   "file": "audio/vo/worst.mp3",
+   "start": 69.797,
+   "duration": 27.402,
+   "gain_db": 5.0,
+   "words": [
+    {
+     "text": "The",
+     "start": 69.93,
+     "end": 69.957
+    },
+    {
+     "text": "scary",
+     "start": 70.037,
+     "end": 70.357
+    },
+    {
+     "text": "part",
+     "start": 70.437,
+     "end": 70.677
+    },
+    {
+     "text": "is",
+     "start": 70.757,
+     "end": 70.917
+    },
+    {
+     "text": "hooks",
+     "start": 70.997,
+     "end": 71.317
+    },
+    {
+     "text": "that",
+     "start": 71.357,
+     "end": 71.397
+    },
+    {
+     "text": "could",
+     "start": 71.477,
+     "end": 71.637
+    },
+    {
+     "text": "start",
+     "start": 71.757,
+     "end": 71.877
+    },
+    {
+     "text": "taking",
+     "start": 72.077,
+     "end": 72.277
+    },
+    {
+     "text": "more.",
+     "start": 72.357,
+     "end": 73.157
+    },
+    {
+     "text": "Here's",
+     "start": 73.237,
+     "end": 73.477
+    },
+    {
+     "text": "SneakyFeeHook,",
+     "start": 73.517,
+     "end": 74.517
+    },
+    {
+     "text": "which",
+     "start": 74.597,
+     "end": 74.677
+    },
+    {
+     "text": "we",
+     "start": 74.757,
+     "end": 74.837
+    },
+    {
+     "text": "planted",
+     "start": 74.877,
+     "end": 75.157
+    },
+    {
+     "text": "on",
+     "start": 75.197,
+     "end": 75.237
+    },
+    {
+     "text": "a",
+     "start": 75.397,
+     "end": 75.504
+    },
+    {
+     "text": "fork.",
+     "start": 75.61,
+     "end": 76.117
+    },
+    {
+     "text": "It's",
+     "start": 76.157,
+     "end": 76.277
+    },
+    {
+     "text": "upgradeable,",
+     "start": 76.477,
+     "end": 77.024
+    },
+    {
+     "text": "and",
+     "start": 77.05,
+     "end": 77.077
+    },
+    {
+     "text": "its",
+     "start": 77.157,
+     "end": 77.317
+    },
+    {
+     "text": "address",
+     "start": 77.397,
+     "end": 77.717
+    },
+    {
+     "text": "has",
+     "start": 77.797,
+     "end": 77.877
+    },
+    {
+     "text": "the",
+     "start": 77.957,
+     "end": 78.037
+    },
+    {
+     "text": "bit",
+     "start": 78.117,
+     "end": 78.277
+    },
+    {
+     "text": "that",
+     "start": 78.357,
+     "end": 78.437
+    },
+    {
+     "text": "lets",
+     "start": 78.517,
+     "end": 78.597
+    },
+    {
+     "text": "it",
+     "start": 78.677,
+     "end": 78.757
+    },
+    {
+     "text": "change",
+     "start": 78.877,
+     "end": 78.997
+    },
+    {
+     "text": "swap",
+     "start": 79.077,
+     "end": 79.317
+    },
+    {
+     "text": "amounts.",
+     "start": 79.477,
+     "end": 80.117
+    },
+    {
+     "text": "From",
+     "start": 80.197,
+     "end": 80.277
+    },
+    {
+     "text": "those",
+     "start": 80.357,
+     "end": 80.437
+    },
+    {
+     "text": "facts",
+     "start": 80.517,
+     "end": 80.757
+    },
+    {
+     "text": "alone,",
+     "start": 80.957,
+     "end": 81.317
+    },
+    {
+     "text": "HookTax",
+     "start": 81.437,
+     "end": 81.797
+    },
+    {
+     "text": "says:",
+     "start": 81.957,
+     "end": 82.437
+    },
+    {
+     "text": "worst",
+     "start": 82.517,
+     "end": 82.677
+    },
+    {
+     "text": "case,",
+     "start": 82.757,
+     "end": 83.317
+    },
+    {
+     "text": "100%",
+     "start": 83.397,
+     "end": 83.877
+    },
+    {
+     "text": "of",
+     "start": 83.957,
+     "end": 84.357
+    },
+    {
+     "text": "your",
+     "start": 84.437,
+     "end": 84.517
+    },
+    {
+     "text": "swap.",
+     "start": 84.677,
+     "end": 85.237
+    },
+    {
+     "text": "Today,",
+     "start": 85.397,
+     "end": 85.717
+    },
+    {
+     "text": "it",
+     "start": 85.797,
+     "end": 85.877
+    },
+    {
+     "text": "takes",
+     "start": 85.957,
+     "end": 86.037
+    },
+    {
+     "text": "a",
+     "start": 86.117,
+     "end": 86.157
+    },
+    {
+     "text": "reasonable",
+     "start": 86.197,
+     "end": 86.597
+    },
+    {
+     "text": "0.3%.",
+     "start": 86.757,
+     "end": 88.277
+    },
+    {
+     "text": "Then",
+     "start": 88.397,
+     "end": 88.517
+    },
+    {
+     "text": "the",
+     "start": 88.557,
+     "end": 88.597
+    },
+    {
+     "text": "owner",
+     "start": 88.677,
+     "end": 88.917
+    },
+    {
+     "text": "upgrades",
+     "start": 88.997,
+     "end": 89.317
+    },
+    {
+     "text": "the",
+     "start": 89.397,
+     "end": 89.477
+    },
+    {
+     "text": "code",
+     "start": 89.597,
+     "end": 89.717
+    },
+    {
+     "text": "behind",
+     "start": 89.797,
+     "end": 89.957
+    },
+    {
+     "text": "the",
+     "start": 90.077,
+     "end": 90.197
+    },
+    {
+     "text": "same",
+     "start": 90.317,
+     "end": 90.437
+    },
+    {
+     "text": "address...",
+     "start": 90.677,
+     "end": 91.317
+    },
+    {
+     "text": "and",
+     "start": 91.397,
+     "end": 91.477
+    },
+    {
+     "text": "now",
+     "start": 91.557,
+     "end": 91.957
+    },
+    {
+     "text": "it",
+     "start": 92.037,
+     "end": 92.117
+    },
+    {
+     "text": "takes",
+     "start": 92.317,
+     "end": 92.517
+    },
+    {
+     "text": "everything.",
+     "start": 92.797,
+     "end": 93.397
+    },
+    {
+     "text": "The",
+     "start": 93.477,
+     "end": 93.557
+    },
+    {
+     "text": "swapper",
+     "start": 93.637,
+     "end": 93.957
+    },
+    {
+     "text": "gets",
+     "start": 94.037,
+     "end": 94.277
+    },
+    {
+     "text": "nothing.",
+     "start": 94.357,
+     "end": 95.077
+    },
+    {
+     "text": "HookTax",
+     "start": 95.197,
+     "end": 95.557
+    },
+    {
+     "text": "flagged",
+     "start": 95.637,
+     "end": 95.877
+    },
+    {
+     "text": "it",
+     "start": 95.957,
+     "end": 96.037
+    },
+    {
+     "text": "before",
+     "start": 96.197,
+     "end": 96.357
+    },
+    {
+     "text": "the",
+     "start": 96.397,
+     "end": 96.437
+    },
+    {
+     "text": "upgrade.",
+     "start": 96.517,
+     "end": 97.237
+    }
+   ],
+   "phrases": [
+    {
+     "text": "The scary part is hooks",
+     "start": 69.93,
+     "end": 71.317
+    },
+    {
+     "text": "that could start taking more.",
+     "start": 71.357,
+     "end": 73.157
+    },
+    {
+     "text": "Here's SneakyFeeHook, which we planted on a fork.",
+     "start": 73.237,
+     "end": 76.117
+    },
+    {
+     "text": "It's upgradeable, and its address has the bit",
+     "start": 76.157,
+     "end": 78.277
+    },
+    {
+     "text": "that lets it change swap amounts.",
+     "start": 78.357,
+     "end": 80.117
+    },
+    {
+     "text": "From those facts alone,",
+     "start": 80.197,
+     "end": 81.317
+    },
+    {
+     "text": "HookTax says:",
+     "start": 81.437,
+     "end": 82.437
+    },
+    {
+     "text": "worst case, 100% of your swap.",
+     "start": 82.517,
+     "end": 85.237
+    },
+    {
+     "text": "Today, it takes a reasonable 0.3%.",
+     "start": 85.397,
+     "end": 88.277
+    },
+    {
+     "text": "Then the owner upgrades the code behind",
+     "start": 88.397,
+     "end": 89.957
+    },
+    {
+     "text": "the same address\u2026",
+     "start": 90.077,
+     "end": 91.317
+    },
+    {
+     "text": "and now it takes everything.",
+     "start": 91.397,
+     "end": 93.397
+    },
+    {
+     "text": "The swapper gets nothing.",
+     "start": 93.477,
+     "end": 95.077
+    },
+    {
+     "text": "HookTax flagged it before the upgrade.",
+     "start": 95.197,
+     "end": 97.237
+    }
+   ]
+  },
+  "real": {
+   "take": "vo6a",
+   "file": "audio/vo/real.mp3",
+   "start": 98.599,
+   "duration": 23.719,
+   "gain_db": 5.7,
+   "words": [
+    {
+     "text": "Then",
+     "start": 98.599,
+     "end": 98.839
+    },
+    {
+     "text": "we",
+     "start": 98.919,
+     "end": 98.999
+    },
+    {
+     "text": "did",
+     "start": 99.079,
+     "end": 99.159
+    },
+    {
+     "text": "the",
+     "start": 99.199,
+     "end": 99.239
+    },
+    {
+     "text": "same",
+     "start": 99.399,
+     "end": 99.639
+    },
+    {
+     "text": "to",
+     "start": 99.719,
+     "end": 99.879
+    },
+    {
+     "text": "real",
+     "start": 99.959,
+     "end": 100.199
+    },
+    {
+     "text": "hooks.",
+     "start": 100.399,
+     "end": 100.679
+    },
+    {
+     "text": "Of",
+     "start": 100.999,
+     "end": 101.159
+    },
+    {
+     "text": "the",
+     "start": 101.239,
+     "end": 101.319
+    },
+    {
+     "text": "35",
+     "start": 101.399,
+     "end": 101.959
+    },
+    {
+     "text": "mainnet",
+     "start": 102.039,
+     "end": 102.359
+    },
+    {
+     "text": "hooks",
+     "start": 102.439,
+     "end": 102.679
+    },
+    {
+     "text": "with",
+     "start": 102.759,
+     "end": 102.839
+    },
+    {
+     "text": "this",
+     "start": 102.919,
+     "end": 102.999
+    },
+    {
+     "text": "worst",
+     "start": 103.079,
+     "end": 103.319
+    },
+    {
+     "text": "case,",
+     "start": 103.399,
+     "end": 104.039
+    },
+    {
+     "text": "24",
+     "start": 104.199,
+     "end": 104.839
+    },
+    {
+     "text": "had",
+     "start": 104.919,
+     "end": 104.999
+    },
+    {
+     "text": "a",
+     "start": 105.079,
+     "end": 105.119
+    },
+    {
+     "text": "pool",
+     "start": 105.159,
+     "end": 105.399
+    },
+    {
+     "text": "we",
+     "start": 105.479,
+     "end": 105.559
+    },
+    {
+     "text": "could",
+     "start": 105.639,
+     "end": 105.719
+    },
+    {
+     "text": "swap",
+     "start": 105.879,
+     "end": 106.039
+    },
+    {
+     "text": "through.",
+     "start": 106.159,
+     "end": 106.679
+    },
+    {
+     "text": "For",
+     "start": 106.759,
+     "end": 106.839
+    },
+    {
+     "text": "19",
+     "start": 106.919,
+     "end": 107.399
+    },
+    {
+     "text": "of",
+     "start": 107.479,
+     "end": 107.559
+    },
+    {
+     "text": "them,",
+     "start": 107.639,
+     "end": 108.039
+    },
+    {
+     "text": "impersonating",
+     "start": 108.159,
+     "end": 108.839
+    },
+    {
+     "text": "the",
+     "start": 108.879,
+     "end": 108.919
+    },
+    {
+     "text": "real",
+     "start": 109.079,
+     "end": 109.319
+    },
+    {
+     "text": "upgrade",
+     "start": 109.399,
+     "end": 109.719
+    },
+    {
+     "text": "authority",
+     "start": 109.999,
+     "end": 110.279
+    },
+    {
+     "text": "on",
+     "start": 110.319,
+     "end": 110.359
+    },
+    {
+     "text": "a",
+     "start": 110.439,
+     "end": 110.519
+    },
+    {
+     "text": "fork",
+     "start": 110.599,
+     "end": 110.919
+    },
+    {
+     "text": "turned",
+     "start": 110.999,
+     "end": 111.239
+    },
+    {
+     "text": "a",
+     "start": 111.279,
+     "end": 111.319
+    },
+    {
+     "text": "take",
+     "start": 111.439,
+     "end": 111.559
+    },
+    {
+     "text": "of",
+     "start": 111.639,
+     "end": 111.719
+    },
+    {
+     "text": "0",
+     "start": 111.799,
+     "end": 112.039
+    },
+    {
+     "text": "to",
+     "start": 112.119,
+     "end": 112.359
+    },
+    {
+     "text": "10%",
+     "start": 112.439,
+     "end": 112.519
+    },
+    {
+     "text": "into",
+     "start": 112.599,
+     "end": 113.479
+    },
+    {
+     "text": "98",
+     "start": 113.559,
+     "end": 114.039
+    },
+    {
+     "text": "to",
+     "start": 114.199,
+     "end": 114.439
+    },
+    {
+     "text": "100%.",
+     "start": 114.519,
+     "end": 115.959
+    },
+    {
+     "text": "Where",
+     "start": 116.039,
+     "end": 116.119
+    },
+    {
+     "text": "it",
+     "start": 116.199,
+     "end": 116.279
+    },
+    {
+     "text": "didn't",
+     "start": 116.359,
+     "end": 116.599
+    },
+    {
+     "text": "work,",
+     "start": 116.679,
+     "end": 117.159
+    },
+    {
+     "text": "HookTax",
+     "start": 117.279,
+     "end": 117.639
+    },
+    {
+     "text": "says",
+     "start": 117.719,
+     "end": 117.959
+    },
+    {
+     "text": "why:",
+     "start": 118.039,
+     "end": 118.759
+    },
+    {
+     "text": "two",
+     "start": 118.919,
+     "end": 119.079
+    },
+    {
+     "text": "had",
+     "start": 119.159,
+     "end": 119.319
+    },
+    {
+     "text": "renounced",
+     "start": 119.439,
+     "end": 119.799
+    },
+    {
+     "text": "their",
+     "start": 119.879,
+     "end": 120.039
+    },
+    {
+     "text": "admin,",
+     "start": 120.239,
+     "end": 120.599
+    },
+    {
+     "text": "so",
+     "start": 120.719,
+     "end": 120.839
+    },
+    {
+     "text": "no",
+     "start": 120.919,
+     "end": 121.079
+    },
+    {
+     "text": "one",
+     "start": 121.159,
+     "end": 121.239
+    },
+    {
+     "text": "can",
+     "start": 121.319,
+     "end": 121.399
+    },
+    {
+     "text": "upgrade",
+     "start": 121.479,
+     "end": 121.799
+    },
+    {
+     "text": "them.",
+     "start": 121.879,
+     "end": 122.359
+    }
+   ],
+   "phrases": [
+    {
+     "text": "Then we did the same to real hooks.",
+     "start": 98.599,
+     "end": 100.679
+    },
+    {
+     "text": "Of the 35 mainnet hooks with this worst case,",
+     "start": 100.999,
+     "end": 104.039
+    },
+    {
+     "text": "24 had a pool we could swap through.",
+     "start": 104.199,
+     "end": 106.679
+    },
+    {
+     "text": "For 19 of them,",
+     "start": 106.759,
+     "end": 108.039
+    },
+    {
+     "text": "impersonating the real upgrade authority",
+     "start": 108.159,
+     "end": 110.279
+    },
+    {
+     "text": "on a fork turned a take of 0",
+     "start": 110.319,
+     "end": 112.039
+    },
+    {
+     "text": "to 10% into 98 to 100%.",
+     "start": 112.119,
+     "end": 115.959
+    },
+    {
+     "text": "Where it didn't work,",
+     "start": 116.039,
+     "end": 117.159
+    },
+    {
+     "text": "HookTax says why:",
+     "start": 117.279,
+     "end": 118.759
+    },
+    {
+     "text": "two had renounced their admin,",
+     "start": 118.919,
+     "end": 120.599
+    },
+    {
+     "text": "so no one can upgrade them.",
+     "start": 120.719,
+     "end": 122.359
+    }
+   ]
+  },
+  "arkiv": {
+   "take": "vo7b",
+   "file": "audio/vo/arkiv.mp3",
+   "start": 123.618,
+   "duration": 26.044,
+   "gain_db": 5.7,
+   "words": [
+    {
+     "text": "All",
+     "start": 123.618,
+     "end": 123.858
+    },
+    {
+     "text": "of",
+     "start": 123.898,
+     "end": 123.938
+    },
+    {
+     "text": "this",
+     "start": 124.018,
+     "end": 124.258
+    },
+    {
+     "text": "is",
+     "start": 124.338,
+     "end": 124.418
+    },
+    {
+     "text": "mirrored",
+     "start": 124.578,
+     "end": 124.898
+    },
+    {
+     "text": "to",
+     "start": 124.978,
+     "end": 125.058
+    },
+    {
+     "text": "Arkiv,",
+     "start": 125.138,
+     "end": 125.778
+    },
+    {
+     "text": "as",
+     "start": 125.858,
+     "end": 125.938
+    },
+    {
+     "text": "HookAtlas:",
+     "start": 126.018,
+     "end": 127.058
+    },
+    {
+     "text": "every",
+     "start": 127.138,
+     "end": 127.378
+    },
+    {
+     "text": "hook,",
+     "start": 127.458,
+     "end": 128.018
+    },
+    {
+     "text": "every",
+     "start": 128.178,
+     "end": 128.338
+    },
+    {
+     "text": "hooked",
+     "start": 128.418,
+     "end": 128.658
+    },
+    {
+     "text": "pool",
+     "start": 128.738,
+     "end": 128.978
+    },
+    {
+     "text": "with",
+     "start": 129.058,
+     "end": 129.138
+    },
+    {
+     "text": "live",
+     "start": 129.218,
+     "end": 129.458
+    },
+    {
+     "text": "liquidity,",
+     "start": 129.578,
+     "end": 130.258
+    },
+    {
+     "text": "and",
+     "start": 130.378,
+     "end": 130.498
+    },
+    {
+     "text": "every",
+     "start": 130.578,
+     "end": 130.818
+    },
+    {
+     "text": "fork",
+     "start": 130.978,
+     "end": 131.218
+    },
+    {
+     "text": "measurement,",
+     "start": 131.298,
+     "end": 131.938
+    },
+    {
+     "text": "written",
+     "start": 132.098,
+     "end": 132.258
+    },
+    {
+     "text": "by",
+     "start": 132.418,
+     "end": 132.578
+    },
+    {
+     "text": "one",
+     "start": 132.658,
+     "end": 132.898
+    },
+    {
+     "text": "wallet.",
+     "start": 132.978,
+     "end": 133.378
+    },
+    {
+     "text": "The",
+     "start": 133.778,
+     "end": 133.858
+    },
+    {
+     "text": "page",
+     "start": 133.938,
+     "end": 134.258
+    },
+    {
+     "text": "is",
+     "start": 134.338,
+     "end": 134.418
+    },
+    {
+     "text": "static.",
+     "start": 134.498,
+     "end": 135.218
+    },
+    {
+     "text": "Your",
+     "start": 135.378,
+     "end": 135.538
+    },
+    {
+     "text": "browser",
+     "start": 135.738,
+     "end": 135.938
+    },
+    {
+     "text": "queries",
+     "start": 136.018,
+     "end": 136.338
+    },
+    {
+     "text": "Arkiv",
+     "start": 136.418,
+     "end": 136.818
+    },
+    {
+     "text": "directly,",
+     "start": 137.058,
+     "end": 137.618
+    },
+    {
+     "text": "with",
+     "start": 137.698,
+     "end": 137.778
+    },
+    {
+     "text": "no",
+     "start": 137.858,
+     "end": 138.018
+    },
+    {
+     "text": "HookTax",
+     "start": 138.098,
+     "end": 138.578
+    },
+    {
+     "text": "server",
+     "start": 138.738,
+     "end": 138.898
+    },
+    {
+     "text": "in",
+     "start": 138.938,
+     "end": 138.978
+    },
+    {
+     "text": "between.",
+     "start": 139.058,
+     "end": 139.538
+    },
+    {
+     "text": "Every",
+     "start": 139.938,
+     "end": 140.258
+    },
+    {
+     "text": "filter",
+     "start": 140.338,
+     "end": 140.738
+    },
+    {
+     "text": "is",
+     "start": 140.818,
+     "end": 140.898
+    },
+    {
+     "text": "a",
+     "start": 140.938,
+     "end": 140.978
+    },
+    {
+     "text": "real",
+     "start": 141.138,
+     "end": 141.458
+    },
+    {
+     "text": "Arkiv",
+     "start": 141.538,
+     "end": 141.858
+    },
+    {
+     "text": "query,",
+     "start": 141.938,
+     "end": 142.578
+    },
+    {
+     "text": "and",
+     "start": 142.658,
+     "end": 142.738
+    },
+    {
+     "text": "here's",
+     "start": 142.818,
+     "end": 142.978
+    },
+    {
+     "text": "a",
+     "start": 143.018,
+     "end": 143.058
+    },
+    {
+     "text": "curl",
+     "start": 143.218,
+     "end": 143.378
+    },
+    {
+     "text": "anyone",
+     "start": 143.538,
+     "end": 143.938
+    },
+    {
+     "text": "can",
+     "start": 144.018,
+     "end": 144.098
+    },
+    {
+     "text": "run.",
+     "start": 144.178,
+     "end": 144.658
+    },
+    {
+     "text": "Safety",
+     "start": 144.898,
+     "end": 145.218
+    },
+    {
+     "text": "numbers",
+     "start": 145.298,
+     "end": 145.618
+    },
+    {
+     "text": "go",
+     "start": 145.698,
+     "end": 145.778
+    },
+    {
+     "text": "stale,",
+     "start": 145.858,
+     "end": 146.498
+    },
+    {
+     "text": "so",
+     "start": 146.618,
+     "end": 146.738
+    },
+    {
+     "text": "each",
+     "start": 146.858,
+     "end": 146.978
+    },
+    {
+     "text": "measurement",
+     "start": 147.058,
+     "end": 147.458
+    },
+    {
+     "text": "deletes",
+     "start": 147.538,
+     "end": 147.858
+    },
+    {
+     "text": "itself",
+     "start": 147.938,
+     "end": 148.338
+    },
+    {
+     "text": "after",
+     "start": 148.498,
+     "end": 148.658
+    },
+    {
+     "text": "seven",
+     "start": 148.738,
+     "end": 148.978
+    },
+    {
+     "text": "days.",
+     "start": 149.058,
+     "end": 149.698
+    }
+   ],
+   "phrases": [
+    {
+     "text": "All of this is mirrored to Arkiv,",
+     "start": 123.618,
+     "end": 125.778
+    },
+    {
+     "text": "as HookAtlas:",
+     "start": 125.858,
+     "end": 127.058
+    },
+    {
+     "text": "every hook, every hooked pool with live liquidity,",
+     "start": 127.138,
+     "end": 130.258
+    },
+    {
+     "text": "and every fork measurement,",
+     "start": 130.378,
+     "end": 131.938
+    },
+    {
+     "text": "written by one wallet.",
+     "start": 132.098,
+     "end": 133.378
+    },
+    {
+     "text": "The page is static.",
+     "start": 133.778,
+     "end": 135.218
+    },
+    {
+     "text": "Your browser queries Arkiv directly,",
+     "start": 135.378,
+     "end": 137.618
+    },
+    {
+     "text": "with no HookTax server in between.",
+     "start": 137.698,
+     "end": 139.538
+    },
+    {
+     "text": "Every filter is a real Arkiv query,",
+     "start": 139.938,
+     "end": 142.578
+    },
+    {
+     "text": "and here's a curl anyone can run.",
+     "start": 142.658,
+     "end": 144.658
+    },
+    {
+     "text": "Safety numbers go stale,",
+     "start": 144.898,
+     "end": 146.498
+    },
+    {
+     "text": "so each measurement deletes itself after seven days.",
+     "start": 146.618,
+     "end": 149.698
+    }
+   ]
+  },
+  "cre": {
+   "take": "vo8c",
+   "file": "audio/vo/cre.mp3",
+   "start": 150.912,
+   "duration": 24.189,
+   "gain_db": 5.7,
+   "words": [
+    {
+     "text": "To",
+     "start": 150.912,
+     "end": 151.072
+    },
+    {
+     "text": "keep",
+     "start": 151.152,
+     "end": 151.312
+    },
+    {
+     "text": "the",
+     "start": 151.392,
+     "end": 151.472
+    },
+    {
+     "text": "atlas",
+     "start": 151.592,
+     "end": 151.872
+    },
+    {
+     "text": "current,",
+     "start": 151.952,
+     "end": 152.592
+    },
+    {
+     "text": "a",
+     "start": 152.672,
+     "end": 152.752
+    },
+    {
+     "text": "Chainlink",
+     "start": 152.912,
+     "end": 153.232
+    },
+    {
+     "text": "CRE",
+     "start": 153.312,
+     "end": 153.872
+    },
+    {
+     "text": "workflow",
+     "start": 153.952,
+     "end": 154.432
+    },
+    {
+     "text": "is",
+     "start": 154.512,
+     "end": 154.592
+    },
+    {
+     "text": "the",
+     "start": 154.672,
+     "end": 154.752
+    },
+    {
+     "text": "orchestration",
+     "start": 154.832,
+     "end": 155.472
+    },
+    {
+     "text": "layer.",
+     "start": 155.552,
+     "end": 155.992
+    },
+    {
+     "text": "It",
+     "start": 156.192,
+     "end": 156.352
+    },
+    {
+     "text": "listens",
+     "start": 156.432,
+     "end": 156.752
+    },
+    {
+     "text": "to",
+     "start": 156.832,
+     "end": 156.912
+    },
+    {
+     "text": "the",
+     "start": 156.952,
+     "end": 156.992
+    },
+    {
+     "text": "PoolManager",
+     "start": 157.072,
+     "end": 157.792
+    },
+    {
+     "text": "for",
+     "start": 157.872,
+     "end": 157.952
+    },
+    {
+     "text": "new",
+     "start": 158.032,
+     "end": 158.192
+    },
+    {
+     "text": "hooked",
+     "start": 158.272,
+     "end": 158.512
+    },
+    {
+     "text": "pools,",
+     "start": 158.592,
+     "end": 159.232
+    },
+    {
+     "text": "calls",
+     "start": 159.392,
+     "end": 159.552
+    },
+    {
+     "text": "our",
+     "start": 159.632,
+     "end": 159.712
+    },
+    {
+     "text": "refresh",
+     "start": 159.792,
+     "end": 160.192
+    },
+    {
+     "text": "API,",
+     "start": 160.272,
+     "end": 160.912
+    },
+    {
+     "text": "and",
+     "start": 160.992,
+     "end": 161.072
+    },
+    {
+     "text": "checks",
+     "start": 161.152,
+     "end": 161.392
+    },
+    {
+     "text": "the",
+     "start": 161.472,
+     "end": 161.552
+    },
+    {
+     "text": "answer",
+     "start": 161.632,
+     "end": 161.952
+    },
+    {
+     "text": "before",
+     "start": 162.032,
+     "end": 162.352
+    },
+    {
+     "text": "it",
+     "start": 162.432,
+     "end": 162.512
+    },
+    {
+     "text": "accepts",
+     "start": 162.712,
+     "end": 162.992
+    },
+    {
+     "text": "it.",
+     "start": 163.072,
+     "end": 163.552
+    },
+    {
+     "text": "This",
+     "start": 163.632,
+     "end": 163.872
+    },
+    {
+     "text": "is",
+     "start": 163.952,
+     "end": 164.032
+    },
+    {
+     "text": "a",
+     "start": 164.112,
+     "end": 164.192
+    },
+    {
+     "text": "real",
+     "start": 164.272,
+     "end": 164.432
+    },
+    {
+     "text": "simulation",
+     "start": 164.512,
+     "end": 165.152
+    },
+    {
+     "text": "with",
+     "start": 165.232,
+     "end": 165.312
+    },
+    {
+     "text": "the",
+     "start": 165.392,
+     "end": 165.472
+    },
+    {
+     "text": "CRE",
+     "start": 165.552,
+     "end": 166.032
+    },
+    {
+     "text": "CLI,",
+     "start": 166.112,
+     "end": 166.832
+    },
+    {
+     "text": "fed",
+     "start": 166.952,
+     "end": 167.072
+    },
+    {
+     "text": "a",
+     "start": 167.152,
+     "end": 167.232
+    },
+    {
+     "text": "real",
+     "start": 167.312,
+     "end": 167.552
+    },
+    {
+     "text": "pool",
+     "start": 167.632,
+     "end": 167.792
+    },
+    {
+     "text": "creation",
+     "start": 167.872,
+     "end": 168.352
+    },
+    {
+     "text": "from",
+     "start": 168.432,
+     "end": 168.512
+    },
+    {
+     "text": "mainnet,",
+     "start": 168.592,
+     "end": 169.232
+    },
+    {
+     "text": "for",
+     "start": 169.272,
+     "end": 169.312
+    },
+    {
+     "text": "the",
+     "start": 169.392,
+     "end": 169.472
+    },
+    {
+     "text": "same",
+     "start": 169.552,
+     "end": 169.712
+    },
+    {
+     "text": "hook",
+     "start": 169.792,
+     "end": 170.032
+    },
+    {
+     "text": "you",
+     "start": 170.112,
+     "end": 170.192
+    },
+    {
+     "text": "just",
+     "start": 170.272,
+     "end": 170.432
+    },
+    {
+     "text": "saw.",
+     "start": 170.512,
+     "end": 171.152
+    },
+    {
+     "text": "The",
+     "start": 171.192,
+     "end": 171.232
+    },
+    {
+     "text": "pool",
+     "start": 171.312,
+     "end": 171.472
+    },
+    {
+     "text": "is",
+     "start": 171.552,
+     "end": 171.632
+    },
+    {
+     "text": "verified,",
+     "start": 171.712,
+     "end": 172.512
+    },
+    {
+     "text": "re-indexed,",
+     "start": 172.592,
+     "end": 173.392
+    },
+    {
+     "text": "and",
+     "start": 173.472,
+     "end": 173.552
+    },
+    {
+     "text": "re-measured",
+     "start": 173.632,
+     "end": 174.272
+    },
+    {
+     "text": "on",
+     "start": 174.312,
+     "end": 174.352
+    },
+    {
+     "text": "a",
+     "start": 174.432,
+     "end": 174.512
+    },
+    {
+     "text": "fork.",
+     "start": 174.712,
+     "end": 175.152
+    }
+   ],
+   "phrases": [
+    {
+     "text": "To keep the atlas current,",
+     "start": 150.912,
+     "end": 152.592
+    },
+    {
+     "text": "a Chainlink CRE workflow is the orchestration layer.",
+     "start": 152.672,
+     "end": 155.992
+    },
+    {
+     "text": "It listens to the PoolManager for new hooked pools,",
+     "start": 156.192,
+     "end": 159.232
+    },
+    {
+     "text": "calls our refresh API,",
+     "start": 159.392,
+     "end": 160.912
+    },
+    {
+     "text": "and checks the answer before it accepts it.",
+     "start": 160.992,
+     "end": 163.552
+    },
+    {
+     "text": "This is a real simulation with the CRE CLI,",
+     "start": 163.632,
+     "end": 166.832
+    },
+    {
+     "text": "fed a real pool creation from mainnet,",
+     "start": 166.952,
+     "end": 169.232
+    },
+    {
+     "text": "for the same hook you just saw.",
+     "start": 169.272,
+     "end": 171.152
+    },
+    {
+     "text": "The pool is verified,",
+     "start": 171.192,
+     "end": 172.512
+    },
+    {
+     "text": "re-indexed, and re-measured on a fork.",
+     "start": 172.592,
+     "end": 175.152
+    }
+   ]
+  },
+  "close": {
+   "take": "vo9a",
+   "file": "audio/vo/close.mp3",
+   "start": 176.451,
+   "duration": 4.284,
+   "gain_db": 4.6,
+   "words": [
+    {
+     "text": "HookTax.",
+     "start": 176.787,
+     "end": 177.491
+    },
+    {
+     "text": "Know",
+     "start": 177.731,
+     "end": 177.891
+    },
+    {
+     "text": "what",
+     "start": 177.971,
+     "end": 178.051
+    },
+    {
+     "text": "a",
+     "start": 178.131,
+     "end": 178.171
+    },
+    {
+     "text": "hook",
+     "start": 178.211,
+     "end": 178.371
+    },
+    {
+     "text": "can",
+     "start": 178.451,
+     "end": 178.611
+    },
+    {
+     "text": "take...",
+     "start": 178.691,
+     "end": 179.411
+    },
+    {
+     "text": "before",
+     "start": 179.611,
+     "end": 179.811
+    },
+    {
+     "text": "you",
+     "start": 179.891,
+     "end": 180.051
+    },
+    {
+     "text": "trade.",
+     "start": 180.251,
+     "end": 180.771
+    }
+   ],
+   "phrases": [
+    {
+     "text": "HookTax. Know what a hook can take\u2026",
+     "start": 176.787,
+     "end": 179.411
+    },
+    {
+     "text": "before you trade.",
+     "start": 179.611,
+     "end": 180.771
+    }
+   ]
+  }
+ }
+}

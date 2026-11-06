@@ -1,0 +1,4 @@
+{
+  "query": "arkiv.schema = str('hooktax.v1.hook') AND canAffectSwapAmounts = true AND isUpgradeable = true AND $owner = addr(0x4aAa2e7d4693fe0648BB8767381266fe09497c2A) ORDER BY poolCount:i32 DESC",
+  "curl": "curl -s https://rpc.rabdi.db-chain.testnet.arkiv.network -H 'content-type: application/json' --data '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"arkiv_query\",\"params\":[\"arkiv.schema = str('\\''hooktax.v1.hook'\\'') AND canAffectSwapAmounts = true AND isUpgradeable = true AND $owner = addr(0x4aAa2e7d4693fe0648BB8767381266fe09497c2A) ORDER BY poolCount:i32 DESC\",{\"select\":{\"key\":true,\"attributes\":true},\"limit\":\"0x19\"}]}'"
+}

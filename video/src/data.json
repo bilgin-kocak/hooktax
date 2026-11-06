@@ -1,0 +1,392 @@
+{
+ "events": [
+  {
+   "block": 21714864,
+   "id": "0xdf6c45ce7ee049d6ad2fb392188c53205f2ddd79cbe9ad6487d38c6530ccff5a",
+   "pair": "WETH / USDT",
+   "fee": "0.01%",
+   "tickSpacing": 1,
+   "hooks": "0xa6C8D7514785c4314EE05ED566CB41151D43c0C0"
+  },
+  {
+   "block": 23927390,
+   "id": "0x4b6f79fe5e01ee9a7467d1d4ec37385b5740961d744fce2182c3dceb3ff8e766",
+   "pair": "ETH / STR",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0x5e8A308B07194d115bcF78dac9a426C7b46Ae444"
+  },
+  {
+   "block": 24251613,
+   "id": "0x1a9078ea5a369e52c2ea4ae18e452cdd7f482a2475b8d00cf5e9e9db91808d43",
+   "pair": "DAI / $PONZI-DEMO",
+   "fee": "0.3%",
+   "tickSpacing": 60,
+   "hooks": "0x4d8a70b3A3376653E70456385D3AaD882Bf46888"
+  },
+  {
+   "block": 24931862,
+   "id": "0xfe123791bdd820c8ee068c52aa15e7bc20dd5b0af9884de062b4316d182f8a08",
+   "pair": "ETH / FLORK",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0xba806A6135c5CD93EcCe1258C28f57A8D291E0CC"
+  },
+  {
+   "block": 24949194,
+   "id": "0x95c55c60d4284a1792ffb8f1734dbc4de1e1d6e5c3a682c7d624ac3aef4b7a99",
+   "pair": "ETH / Midori",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x07F17023db9CEc3f8C6bB53c6940e29DfFB0A0cc"
+  },
+  {
+   "block": 24959589,
+   "id": "0xcc690a0374e35335651f9d5ed3a4a507182f1514d4c6017ed50f2a1dec734fc1",
+   "pair": "ETH / pluto",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x0d62529346ac2c61f5c0582210D01214687bc0CC"
+  },
+  {
+   "block": 24967977,
+   "id": "0x4d21ee94203eb7bdb15061d1255d9fffa88d879d22f3f52931534179a4c2d939",
+   "pair": "ETH / FP",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x96b893683AfbFec071E90f78d00dE4bb932Fe0Cc"
+  },
+  {
+   "block": 24974883,
+   "id": "0x1dc8ae7f5eaf0799030d9079fd7413f4679a0abddf5c2e2a92e163c9c9e00c70",
+   "pair": "apyUSD / apxUSD",
+   "fee": "0%",
+   "tickSpacing": 10,
+   "hooks": "0x3fb49F96338b22cADd9614A51633189d4ce21088"
+  },
+  {
+   "block": 24981420,
+   "id": "0x425112cdbe08a3dd75ba8f2166147219364607f82f48b1a7f4f4c816b179327a",
+   "pair": "ETH / Manifestor",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x0d62529346ac2c61f5c0582210D01214687bc0CC"
+  },
+  {
+   "block": 24990732,
+   "id": "0x3ea0a5d49053db0cac97dfefac316e5a33f7fb0a71094ffb56056cbb9e28dc57",
+   "pair": "USDe / SY-hwHLP",
+   "fee": "0%",
+   "tickSpacing": 10,
+   "hooks": "0x81BDC19AE9f8c5E183d8634f80bADa8f1d7dc088"
+  },
+  {
+   "block": 25012333,
+   "id": "0x02a16a806c7e9d94c934ac85dae20ecaa074bf28185af9a563b79833dbc3eb74",
+   "pair": "ETH / Spirit",
+   "fee": "0.01%",
+   "tickSpacing": 1,
+   "hooks": "0xe3f42C8D04d766e8AF1630C0dc83f30271A38044"
+  },
+  {
+   "block": 25058592,
+   "id": "0x5d04ad0868c4c953f0e8c96bf39b9f45a7c6d3057ad6ba0d57cef169f4fb0419",
+   "pair": "ETH / test",
+   "fee": "0.3%",
+   "tickSpacing": 60,
+   "hooks": "0x3D0fFDa6C3B1A0ba7343a32dd570b325fc8358c8"
+  },
+  {
+   "block": 25080271,
+   "id": "0x17165301b18af3a736967a711acc21b9ca4b68286656d34cb1c73894ef613d71",
+   "pair": "ETH / Kevun",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x0d62529346ac2c61f5c0582210D01214687bc0CC"
+  },
+  {
+   "block": 25097011,
+   "id": "0xaf9b760163c464a39b269ee5048d5fc1726c887055743b1871d90ef2024be7a5",
+   "pair": "ETH / UNI-V2",
+   "fee": "0%",
+   "tickSpacing": 10,
+   "hooks": "0xF556a698ECCA4e03600428Acf8457bE1C1FCC088"
+  },
+  {
+   "block": 25134725,
+   "id": "0x9ddb3ba1908f7786edf903e8682eaef55e258c6001294807099b02e8b5f56e80",
+   "pair": "aEtheBTC / eBTC",
+   "fee": "0%",
+   "tickSpacing": 10,
+   "hooks": "0x27Fc27afb68c96707B39733a7C587bdC13470088"
+  },
+  {
+   "block": 25206814,
+   "id": "0x36d873f982163fbb88263f1d21700247a4678d71bca94c709b19fefcea3f467d",
+   "pair": "? / WETH",
+   "fee": "dynamic",
+   "tickSpacing": 200,
+   "hooks": "0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc"
+  },
+  {
+   "block": 25256988,
+   "id": "0xfd6d2575899bbd45e9b032ee394d38bc1f43b8b670abfa2fb25c66579f44b21c",
+   "pair": "DOLA / sUSDe",
+   "fee": "0%",
+   "tickSpacing": 10,
+   "hooks": "0x60b8fe787789A6e01415181BA80e68358E67c088"
+  },
+  {
+   "block": 25305300,
+   "id": "0xdb0093809251d6aa3f26e0abac525f43452bff520b161ad0bdc8d3d8b1aeb419",
+   "pair": "ETH / BONKZ",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0x1b153a4ed40929dc2e699b6020296843aD98aAcc"
+  },
+  {
+   "block": 25406896,
+   "id": "0x776d63f8f5b9aa696c3572c94341b36d0a6b994eaa1bc94eb22840b5197aa5d9",
+   "pair": "ETH / PEPE",
+   "fee": "0.03%",
+   "tickSpacing": 1,
+   "hooks": "0xdfA04B8B60Bf496594A3c256512409FbA5a94080"
+  },
+  {
+   "block": 25558659,
+   "id": "0xd378bee90b812120bd6072b977cb8d3b883487d05b1652f77cb22b62c07e02fe",
+   "pair": "ETH / SATURN",
+   "fee": "5%",
+   "tickSpacing": 1000,
+   "hooks": "0xc1523e353260130a61F9482103366D74D2b51000"
+  },
+  {
+   "block": 25593450,
+   "id": "0xf4f44c3c213c2b018164d24fa005d31256dfaee4df06b533135bfcf8ecf24b50",
+   "pair": "ETH / G45",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x96b893683AfbFec071E90f78d00dE4bb932Fe0Cc"
+  },
+  {
+   "block": 25682249,
+   "id": "0x4f89eb59ddaef2df29d4698467389d9050866c14788201d708e5a437d4d461a3",
+   "pair": "ETH / PUDDO",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x0d62529346ac2c61f5c0582210D01214687bc0CC"
+  },
+  {
+   "block": 25776155,
+   "id": "0x4e84b87b02c08c3df12bb2185358501ac29b715c2b7d023350df51389c3d13ba",
+   "pair": "cbBTC / USDT",
+   "fee": "0%",
+   "tickSpacing": 1,
+   "hooks": "0xf13851802Ae470747025609aCFE691B6E99ce888"
+  },
+  {
+   "block": 25821493,
+   "id": "0x6b93b0babd02b5f75323ed0b7c8202c8fb1cac56c5d4bc7a1fc452d04038e5a5",
+   "pair": "ETH / HOTTER",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0xB8D9477eB6eF5F0df5219Cf0c8130DD7e520e0CC"
+  },
+  {
+   "block": 25919902,
+   "id": "0xf7caa8ee16fff4e0cd360f9248c1dde011a28a0de3038845c85b904cda1c9b75",
+   "pair": "ETH / AMERICA",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0xB8D9477eB6eF5F0df5219Cf0c8130DD7e520e0CC"
+  },
+  {
+   "block": 25971033,
+   "id": "0xd42cff1a87bac92beb6d90b936dfefa08ef195b00c3f9beaf5381db0e0ed6ae3",
+   "pair": "X28 / LOUNGE",
+   "fee": "1%",
+   "tickSpacing": 200,
+   "hooks": "0xA6D34D6Ac8BE369072cCacC6700C1A7363997AcC"
+  },
+  {
+   "block": 26045735,
+   "id": "0x699c5008d212aeb08183c073c083b215985016cce4123b4410b1af1414d0821b",
+   "pair": "ETH / WEBCAT",
+   "fee": "1%",
+   "tickSpacing": 200,
+   "hooks": "0xCb69D5aBe0589AF4c57b0dCCA292980D5E52C0c0"
+  },
+  {
+   "block": 26079223,
+   "id": "0xc14663e3d0c78f3d4cdb1ae735fa88592866923528b33080466941c2deaf2a6e",
+   "pair": "LOOMER / SPCXon",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x322dcEc4958C14e021A9F1cD49DF11b9457968cC"
+  },
+  {
+   "block": 26111469,
+   "id": "0x7878f713f7c31b967122ded880533724cf4566e79027e35a2fbe05090eac7941",
+   "pair": "ETH / IMDINU",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0x51768F5dA32BA2008304cC81674da51aCb802888"
+  },
+  {
+   "block": 26134747,
+   "id": "0xe990cf5479cea40fa0e7c61ebc1967c4a969b80e0bc9fef12781930a9a35f7d2",
+   "pair": "SPCXon / SXSICAT",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x322dcEc4958C14e021A9F1cD49DF11b9457968cC"
+  },
+  {
+   "block": 26149526,
+   "id": "0x9999296801d76f5738aa185ecb537df9aca04e842e4f775790bdef96e7c8a706",
+   "pair": "EMIU / IMD",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0x6bFA74084eb72Fe4e69E197c3fCcBfFd5Bf960Cc"
+  },
+  {
+   "block": 26165671,
+   "id": "0x3295d096b992eb8f1b2da06d9e4818fc92643ba60972bb314a8c9e970e9b4ac0",
+   "pair": "SS / MSTRon",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0xf6ce7756E6813f259a2B2bCb746f8cf0042Fe0cC"
+  },
+  {
+   "block": 26186498,
+   "id": "0x1b476309641bcc8f00970854b2befcb51e508416a5e882e3f2c3b21fb8cd05ad",
+   "pair": "PROMPT / WETH",
+   "fee": "0%",
+   "tickSpacing": 200,
+   "hooks": "0x322dcEc4958C14e021A9F1cD49DF11b9457968cC"
+  },
+  {
+   "block": 26213096,
+   "id": "0x5dd2c45987ca94cc2b54e02ebf9dc7e7b11780cc48e61472377142ac2e57d79f",
+   "pair": "INTEL / WETH",
+   "fee": "0%",
+   "tickSpacing": 10,
+   "hooks": "0x6B5115B68AaF0142F62D127Df9a497d2ce37eaEC"
+  },
+  {
+   "block": 26244766,
+   "id": "0xb7a86778c9a8243ea3ee9b276780ebdadbc617011ba208e757ba301c64ee410b",
+   "pair": "ETH / MERCURY",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0x05e1934d8B52a8dED4F3F42AA9a7a12244192544"
+  },
+  {
+   "block": 26285750,
+   "id": "0xe26c43e2bbf7d50e4d89bebb5988d1b1ad8ff9955100128cf6dd445819736748",
+   "pair": "PIETER / WETH",
+   "fee": "0%",
+   "tickSpacing": 60,
+   "hooks": "0xfbFE536CeC8C6331c81431A1b9eB80b1e795a0Cc"
+  }
+ ],
+ "trace": {
+  "hook": "0x676E38B66A7547FF685549E4Ad88134aC62200cC",
+  "poolId": "0x0bba3ef6c00e82539d742ebd5d4625c676f15f0aec243709b26a7921abfadf86",
+  "pair": "ETH / Bether",
+  "forkBlock": 26347887,
+  "takeBps": 99.99,
+  "lpFeeBps": 0,
+  "directions": [
+   {
+    "tokenIn": "ETH",
+    "tokenOut": "Bether",
+    "amountIn": 0.016666666666666666,
+    "amountOut": 10003437.457326736,
+    "takeBps": 99.99,
+    "lpFeeBps": 0,
+    "flows": [
+     {
+      "role": "pool-manager",
+      "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+      "token": "Bether",
+      "amount": -10003437.457326736,
+      "kind": "erc20"
+     },
+     {
+      "role": "swapper",
+      "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+      "token": "Bether",
+      "amount": 10003437.457326736,
+      "kind": "erc20"
+     },
+     {
+      "role": "swapper",
+      "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+      "token": "ETH",
+      "amount": -0.016666666666666666,
+      "kind": "native"
+     },
+     {
+      "role": "pool-manager",
+      "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+      "token": "ETH",
+      "amount": 0.0165,
+      "kind": "native"
+     },
+     {
+      "role": "hook",
+      "address": "0x676E38B66A7547FF685549E4Ad88134aC62200cC",
+      "token": "ETH",
+      "amount": 0.000166666666666666,
+      "kind": "native"
+     }
+    ]
+   },
+   {
+    "tokenIn": "Bether",
+    "tokenOut": "ETH",
+    "amountIn": 10234853.078584898,
+    "amountOut": 0.016287728549796585,
+    "takeBps": 98.71,
+    "lpFeeBps": 0,
+    "flows": [
+     {
+      "role": "swapper",
+      "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+      "token": "Bether",
+      "amount": -10234853.078584898,
+      "kind": "erc20"
+     },
+     {
+      "role": "pool-manager",
+      "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+      "token": "Bether",
+      "amount": 10234853.078584898,
+      "kind": "erc20"
+     },
+     {
+      "role": "pool-manager",
+      "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+      "token": "ETH",
+      "amount": -0.01645225106040059,
+      "kind": "native"
+     },
+     {
+      "role": "hook",
+      "address": "0x676E38B66A7547FF685549E4Ad88134aC62200cC",
+      "token": "ETH",
+      "amount": 0.000164522510604005,
+      "kind": "native"
+     },
+     {
+      "role": "swapper",
+      "address": "0x506b40454dAE0990Cc66c330c763aF75acde7C9d",
+      "token": "ETH",
+      "amount": 0.016287728549796585,
+      "kind": "native"
+     }
+    ]
+   }
+  ]
+ }
+}

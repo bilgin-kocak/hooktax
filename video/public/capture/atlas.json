@@ -1,0 +1,14 @@
+{
+  "frames": 303,
+  "duration": 20.235,
+  "startedAt": "2026-11-06T06:40:10.830Z",
+  "marks": {
+    "all": 2.311,
+    "click-swap": 6.083,
+    "swap": 6.374,
+    "click-upgradeable": 9.624,
+    "both": 9.876,
+    "query-open": 13.361,
+    "curl-copied": 17.625
+  }
+}

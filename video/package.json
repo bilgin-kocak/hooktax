@@ -1,0 +1,20 @@
+{
+  "name": "hooktax-video",
+  "private": true,
+  "description": "The HookTax demo video: Remotion scenes over real captures of the live HookAtlas and real terminal runs, with an ElevenLabs voiceover.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render HookTax out/hooktax-raw.mp4 && sh tools/master.sh",
+    "still": "remotion still HookTax"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.9.3"
+  }
+}
