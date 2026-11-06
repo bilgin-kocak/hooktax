@@ -89,8 +89,8 @@ two with no discoverable authority. See [`docs/measurement.md`](docs/measurement
 - Web app reads Arkiv directly from the browser, scoped `.ownedBy(writer)`: [`apps/web/src/arkiv.ts`](apps/web/src/arkiv.ts)
 
 **Chainlink CRE**
-- Log trigger on PoolManager `Initialize` (finalized), `hooks != 0` filtered in code: [`cre/hooktax-refresh/workflow.ts:158`](cre/hooktax-refresh/workflow.ts) (`initWorkflow`)
-- HTTP POST to the API with consensus + answer verification: [`cre/hooktax-refresh/workflow.ts:89`](cre/hooktax-refresh/workflow.ts) (`postRefresh`, `onInitialize`)
+- Log trigger on PoolManager `Initialize` (finalized), `hooks != 0` filtered in code: [`cre/hooktax-refresh/workflow.ts:160`](cre/hooktax-refresh/workflow.ts#L160) (`initWorkflow`)
+- HTTP POST to the API with consensus + answer verification: [`cre/hooktax-refresh/workflow.ts:91`](cre/hooktax-refresh/workflow.ts#L91) (`postRefresh`, `onInitialize`)
 - Build + simulation notes: [`docs/cre-simulation.md`](docs/cre-simulation.md)
 
 ## Quick start (clean clone)
