@@ -60,9 +60,10 @@ UI's page buttons.
 
 ## Known gaps (honest)
 
-- **Not all 47,130 hooked pools are mirrored** — only the 24,535 with live liquidity, because a
-  swap can only be measured where there is liquidity, and a full mirror costs ~20.8 tGLM (see
-  [`reach.md`](reach.md)). The full dataset is in the committed `data/*.json`.
+- **Not all 47,130 hooked pools are mirrored**: all 24,535 with live liquidity are, the 22,595
+  without are not, because a swap can only be measured where there is liquidity. Mirroring every
+  hook and active pool cost ≈ 13.7 tGLM (see [`reach.md`](reach.md)). The full dataset is in the
+  committed `data/*.json`.
 - **Fork measurements cover a sample**: 20 pools of the highest-pool-count hooks (`make measure`)
   plus 24 pools of the worst-case-100% hooks (`make probe`); the rest carry their capability flags
   (from bits + proxy) but no measured take yet. Pools with no priced token are skipped for

@@ -75,7 +75,7 @@ See [`why-arkiv.md`](why-arkiv.md).
 
 ## Write order (when the budget does not cover everything)
 
-A full mirror costs ~16.5–20.5 tGLM; a faucet claim is less. `make arkiv-sync` writes in this
+A full mirror costs ≈ 13.7 tGLM (measured); a faucet claim is less. `make arkiv-sync` writes in this
 order ([`priority.ts`](../packages/arkiv/src/priority.ts)), so whatever the balance buys is the most
 useful part:
 

@@ -15,7 +15,7 @@ notes after review.*
   wallet — exactly when you most want a preview.
 - **Workaround:** the estimator now halves the sample on failure down to one op and reports
   `gas/op × total` ([`packages/arkiv/src/sync.ts`](../packages/arkiv/src/sync.ts)). With it,
-  `make arkiv-estimate` projects 35,800 entities ≈ 20.8 tGLM.
+  `make arkiv-estimate` projects 35,800 entities ≈ 20.8 tGLM (a hook-only sample; the real write measured ≈ 13.7 tGLM, see `reach.md`).
 - **Repro:** fresh key via `make arkiv-keygen` (do **not** fund it), then `make arkiv-estimate`;
   revert the shrink loop to see the raw failure.
 

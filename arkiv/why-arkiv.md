@@ -40,6 +40,6 @@ database.
 ## What we still keep off Arkiv
 
 Honesty: the raw 50 MB of `data/hooks.json` / `data/pools.json` is committed to the repo, not all
-mirrored. Mirroring all 35,800 entities costs ~20.8 tGLM (see [`reach.md`](reach.md)). What belongs
+mirrored. Mirroring all 35,800 entities cost ≈ 13.7 tGLM (see [`reach.md`](reach.md)). What belongs
 on Arkiv is the **queryable, safety-relevant, expiring** view — permissions, upgradeability, worst
 case, and the measured takes — which is exactly what the schemas hold.
