@@ -29,3 +29,16 @@ describe("Arkiv queries built by the page", () => {
     expect(c).toContain("str('\\''hooktax.v1.hook'\\'')");
   });
 });
+
+describe("writer address resolution", () => {
+  it("falls back to the published HookTax writer, so a build without .env still works", async () => {
+    const { DEFAULT_WRITER, resolveWriter } = await import("../src/config");
+    expect(DEFAULT_WRITER).toBe("0x4aAa2e7d4693fe0648BB8767381266fe09497c2A");
+    expect(resolveWriter(null, undefined)).toBe(DEFAULT_WRITER);
+    expect(resolveWriter(null, "  ")).toBe(DEFAULT_WRITER);
+    expect(resolveWriter(null, "0x000000000000000000000000000000000000dEaD")).toBe("0x000000000000000000000000000000000000dEaD");
+    expect(resolveWriter(" 0x1111111111111111111111111111111111111111 ", "0x000000000000000000000000000000000000dEaD")).toBe(
+      "0x1111111111111111111111111111111111111111",
+    );
+  });
+});

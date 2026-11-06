@@ -25,40 +25,82 @@ Result (CRE CLI `v1.39.0`, 2026-11-05):
 
 ```
 ✓ Workflow compiled successfully
-  Binary hash: 93bfa7661e04f1535b17297dee1029e888805e52f5282381375bca61b11e0fb1
+  Binary hash: b37015ec55bf5ccb0dcf49f4ee76cb0d31c1d38c36d258dddb2d96528211422e
 ✓ Build output written to cre/hooktax-refresh/binary.wasm
 ```
 
-The workflow compiles to a 2.6 MB WASM binary. Its unit tests pass against real mainnet log
-fixtures (`bun test`, 6 passing — see [`testing.md`](testing.md)).
+The build is reproducible: a clean macOS checkout produced the same hash. (Before the `refreshUrl`
+fix below it was `93bfa766…0fb1`, also reproduced byte for byte on a second machine.) The workflow
+compiles to a 2.6 MB WASM binary. Its unit tests pass against real mainnet log fixtures
+(`bun test`, 8 passing — see [`testing.md`](testing.md)).
 
-## Simulate (needs a CRE account)
+## Simulate: a real run (2026-11-05, CRE CLI v1.39.0)
 
-```bash
-make cre-sim
-# = cre workflow simulate hooktax-refresh --target staging-settings \
-#     --non-interactive --trigger-index 0 \
-#     --evm-tx-hash <tx of an Initialize with a hook> --evm-event-index <n>
-```
-
-🧑 **Human step.** `cre workflow simulate` requires authentication — `cre login` (browser-based) or
-`CRE_API_KEY` for headless use. In this build environment neither was available (no browser, no
-key), so the simulation was not run here; the workflow is built and unit-tested instead.
-
-With an account, point the simulator at a real mainnet transaction that emitted an `Initialize` with
-a non-zero hook (any hooked pool's creation tx from `data/pools.json` — the `transactionHash` and
-`logIndex` fields). The simulator fetches that log from the configured RPC and runs the workflow
-against it. Start the HookTax API first so the HTTP call has a target:
+The trigger is a real Ethereum mainnet transaction: the `Initialize` of pool `0x4a338214…`, whose
+hook `0x7074e4a0…` has all 14 permission bits and is upgradeable. (It is one of the 19 hooks whose
+worst case `make probe` demonstrated on a fork, see [`measurement.md`](measurement.md).) In that
+transaction's receipt, the `Initialize` log is at index **19** (its block-level `logIndex` is 188;
+the simulator wants the index within the transaction).
 
 ```bash
-make api                     # terminal 1: POST /refresh on :8787 (needs REFRESH_API_TOKEN)
-export REFRESH_API_TOKEN=... # same token the API uses; the workflow reads it as a secret
-make cre-sim                 # terminal 2
+make api      # terminal 1: POST /refresh on :8787 (REFRESH_API_TOKEN from .env)
+export REFRESH_API_TOKEN=...   # terminal 2: the same token; the workflow reads it as a secret
+make cre-sim TX=0xc4e97d3a1d8622747f9a8e68fb7cb24534e031bae8d8e6973441c9e52acaa12b EVENT=19
 ```
 
-Expected: the workflow logs the new hooked pool, POSTs `/refresh`, the API answers `202` with the
-hook's capabilities, and the workflow logs `refresh queued for 0x… (worst case: …)`. Save the CLI
-output under this file when run.
+Output (verbatim; the timestamps are the CLI's local time, IST, although it prints `Z`; it was 18:02
+UTC; the bearer token never appears in the output):
+
+```
+✓ Workflow compiled
+✓ Simulation limits enabled
+  Binary hash: b37015ec55bf5ccb0dcf49f4ee76cb0d31c1d38c36d258dddb2d96528211422e
+  Config hash: 96f0b78cde8c84d1c9691868669ed2f03402b9b72bad3283d2eac5b37124e2bf
+Fetching transaction receipt for 0xc4e97d3a1d8622747f9a8e68fb7cb24534e031bae8d8e6973441c9e52acaa12b...
+2026-11-05T23:31:58Z [SIMULATION] Simulator Initialized
+2026-11-05T23:31:58Z [SIMULATION] Running trigger trigger=evm:ChainSelector:5009297550715157269@1.0.0
+2026-11-05T23:31:58Z [USER LOG] new hooked pool 0x4a3382142bac0e41a222bc5950e2dec8770e05441766a7de0646de0bdadfe31e hook 0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf bits 0x3fff (can change swap amounts) (dynamic fee)
+2026-11-05T23:32:00Z [USER LOG] refresh accepted: job d12d9a7d-3ebc-4aa7-8b57-5fc2fe29e0e9, worst case swap-100
+
+✓ Workflow Simulation Result:
+"refresh queued for 0x4a3382142bac0e41a222bc5950e2dec8770e05441766a7de0646de0bdadfe31e (worst case: swap-100)"
+
+2026-11-05T23:32:00Z [SIMULATION] Execution finished signal received
+```
+
+What happened, end to end:
+
+1. The EVM log trigger delivered the real `Initialize` log; the workflow decoded it, saw a non-zero
+   hook, and read its permission bits from the address (`0x3fff`).
+2. It POSTed `/refresh {poolId, txHash}` with the bearer token. The API verified the pool against
+   mainnet (the `Initialize` log exists, the hook matches) and answered `202` with the hook's
+   capabilities and worst case.
+3. The workflow checked the answer (same `poolId`, same permission bits) and returned the result.
+4. The API's job then ran in 12 seconds (`GET /jobs/:id`, also bearer-authenticated):
+
+```json
+{ "status": "done", "steps": [
+  { "step": "index",    "status": "ok", "detail": "hook 0x7074e4a0f9c1Ae1073c7E6Fc7D07A843ecFD3fFf, worst case swap-100" },
+  { "step": "simulate", "status": "ok", "detail": "ok, take 205 bps" },
+  { "step": "mirror",   "status": "skipped", "detail": "ARKIV_PRIVATE_KEY not set" } ] }
+```
+
+The mirror step was skipped on purpose: the full Arkiv sync was writing with the same key at the
+time, and Arkiv writes must come from one process. (The 205 bps re-measure also exposed two sim
+bugs, since fixed: the re-measure deleted the pool's upgrade demonstration, and its directions were
+measured sequentially; the same pool now measures 2.299%, as in the probe.)
+
+Two problems the first real simulation found, both fixed (commit `b8a880f`):
+
+- **`Config validation failed: refreshUrl: Invalid url`** for `http://localhost:8787/refresh`.
+  zod's `.url()` calls the global `URL`, which inside the CRE WASM runtime is the SDK's bundled
+  polyfill; bun's native `URL` accepted it, so the unit tests passed. The config now validates the
+  URL with a pattern, and two config tests cover it.
+- **`bun is required … but was not found in PATH`**: `make cre-sim` only added `~/.cre/bin`. The
+  Makefile now adds `~/.bun/bin` and `~/.cre/bin`, the official installers' default directories.
+
+The CLI also warns that the secret `REFRESH_API_TOKEN` uses its own name as the env var. That is
+deliberate (one name in `.env`, the API and the workflow), and harmless for simulation.
 
 ## Configuration
 

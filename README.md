@@ -10,7 +10,8 @@ that question in three parts, over all **11,242 hooks** on Ethereum mainnet:
   its owner, or anyone other than the swapper, the PoolManager and the LPs — as a share of the swap.
 - **Capability ceiling (tomorrow).** From onchain facts (permission bits in the hook address, proxy
   slots, the dynamic-fee flag) it computes the worst case, and where it can, **proves** it on the
-  fork: impersonate the admin, use the power, swap again.
+  fork: impersonate the admin, use the power, swap again. For **19 real mainnet hooks** it did: the
+  same swap went from 0–9.9% today to **98–100%** after an impersonated upgrade.
 - **HookAtlas.** A public, queryable directory of every v4 hook, stored on **Arkiv** and read
   straight from the browser — no HookTax server in the read path. A **Chainlink CRE** workflow keeps
   it fresh.
@@ -20,16 +21,22 @@ audit**, and never labels a hook.
 
 | | |
 |---|---|
-| Live HookAtlas | 🧑 _deploy the `apps/web` build to any static host; it needs the writer funded (below)_ |
+| Live HookAtlas | **https://bilgin-kocak.github.io/hooktax/** (static, reads Arkiv from the browser; redeployed by CI on every push to `main`) |
 | Demo video | 🧑 _record from [`docs/demo-script.md`](docs/demo-script.md)_ |
 | Partner tracks | **Uniswap Foundation** ("Build with Uniswap") · **Arkiv** ("Mirror something Ethereum depends on") · **Chainlink** ("Best workflow with CRE") |
-| Arkiv writer wallet | `0x4aAa2e7d4693fe0648BB8767381266fe09497c2A` (Rabdi testnet; readers filter `.ownedBy` this) |
+| Arkiv writer wallet | `0x4aAa2e7d4693fe0648BB8767381266fe09497c2A` (Rabdi testnet; readers filter `.ownedBy` this). Mirrors **all 11,242 hooks, all 24,535 hooked pools with live liquidity and 70 SimResults**, verified on-chain with no duplicate IDs (2026-11-06) |
 
 ## What one import found (Ethereum mainnet, block 26,347,887)
 
 186,872 v4 pools · 47,130 hooked · 24,535 hooked pools with live liquidity · **11,242 unique
 hooks** · **687 upgradeable** · **8,716 can change swap amounts** · 829 with a dynamic-fee pool ·
 **35 that are upgradeable *and* can change swap amounts** (worst case: up to 100% of swap value).
+
+Of those 35, 24 have a priced pool with liquidity. On a mainnet fork, impersonating each one's
+upgrade authority and pointing the proxy at a take-everything implementation **succeeded for 19**:
+today's take of 0–9.9% became 98.13–100%. The other 5 are "not demonstrated", each with the reason:
+two ProxyAdmins whose ownership is renounced (no one can upgrade them), one `UpgradesDisabled()`,
+two with no discoverable authority. See [`docs/measurement.md`](docs/measurement.md).
 
 ## Architecture
 
@@ -71,11 +78,14 @@ hooks** · **687 upgradeable** · **8,716 can change swap amounts** · 829 with 
 - Decoding real `Initialize` events: [`packages/indexer/src/pools.ts:23`](packages/indexer/src/pools.ts)
 - Fork swap + full money-trace through the real PoolManager (v4-core `PoolSwapTest`): [`packages/sim/test/utils/TakeMeter.sol:101`](packages/sim/test/utils/TakeMeter.sol) (`measureSwap`, `vm.recordLogs`/`startStateDiffRecording`)
 - Mining a hook address (v4-periphery `HookMiner`) + proving an upgrade: [`packages/sim/test/SneakyFeeHookDemo.t.sol:51`](packages/sim/test/SneakyFeeHookDemo.t.sol)
+- Proving the worst case on **real** hooks (impersonate the upgrade authority, try ProxyAdmin/UUPS paths, re-measure): [`packages/sim/test/ProbeUpgrade.t.sol`](packages/sim/test/ProbeUpgrade.t.sol) (`_tryUpgrades`), with [`TakeAllImplementation.sol`](packages/sim/src/TakeAllImplementation.sol)
 
 **Arkiv**
 - Entity schemas (31-indexed-column `Hook`, `Pool`, `SimResult`, `Import`): [`packages/arkiv/src/schemas.ts`](packages/arkiv/src/schemas.ts)
 - State-derived, idempotent sync + write-safety executor: [`packages/arkiv/src/sync.ts`](packages/arkiv/src/sync.ts), [`execute.ts`](packages/arkiv/src/execute.ts)
-- **7-day `SimResult` expiry** (stale safety numbers self-delete): [`packages/arkiv/src/sync.ts:31`](packages/arkiv/src/sync.ts) (`SIM_LIFETIME_DAYS`)
+- **7-day `SimResult` expiry**, counted from the measurement (stale safety numbers self-delete): [`packages/arkiv/src/sync.ts`](packages/arkiv/src/sync.ts) (`SIM_LIFETIME_DAYS`, `simLifetimeBlocks`)
+- Readonly `SimResult`s replaced (delete + create) when a result is re-derived: [`packages/arkiv/src/plan.ts`](packages/arkiv/src/plan.ts) (`planImmutable`)
+- Risk-first mirror order and the tGLM reserve for a short budget: [`packages/arkiv/src/priority.ts`](packages/arkiv/src/priority.ts), [`execute.ts`](packages/arkiv/src/execute.ts) (`reserveWei`)
 - Web app reads Arkiv directly from the browser, scoped `.ownedBy(writer)`: [`apps/web/src/arkiv.ts`](apps/web/src/arkiv.ts)
 
 **Chainlink CRE**
@@ -102,8 +112,9 @@ make doctor             # shows toolchain + which config keys are set (never pri
 ```
 
 ```bash
-make test               # 109 unit tests across the TS packages
+make test               # 144 unit tests across the TS packages
 make demo               # M5: SneakyFeeHook worst case on a fork (0.3% today -> 100% after upgrade)
+make probe              # M5 on real hooks: impersonated upgrades of the 24 probe-able worst-case hooks
 make atlas              # one-line summary of the committed dataset
 make check ARG=0x676E38B66A7547FF685549E4Ad88134aC62200cC   # the HookTax card for a real hook
 ```
@@ -114,24 +125,36 @@ All make targets: `make help`. Regenerating the data and mirroring it:
 make index              # incremental mainnet import -> data/hooks.json, data/pools.json (~53 min cold)
 make measure ARGS="--limit 20"   # measured take on real pools (fork)
 make arkiv-estimate     # unsigned projected tGLM cost of mirroring (no signing)
-make arkiv-sync         # write HookAtlas to Arkiv (needs a funded writer, below)
+make arkiv-sync         # write HookAtlas to Arkiv, riskiest first (needs a funded writer)
 make web                # run the HookAtlas page (reads Arkiv directly)
 ```
 
+**One Arkiv query, no SDK needed.** Hooks that can change swap amounts *and* whose code can be
+replaced, as HookTax's writer published them:
+
+```bash
+curl -s https://rpc.rabdi.db-chain.testnet.arkiv.network -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"arkiv_query","params":["arkiv.schema = str('"'"'hooktax.v1.hook'"'"') AND $owner = addr(0x4aAa2e7d4693fe0648BB8767381266fe09497c2A) AND canAffectSwapAmounts = true AND isUpgradeable = true",{"select":{"key":true,"attributes":true},"limit":"0x19"}]}'
+```
+
+More queries and every schema: [`arkiv/schema.md`](arkiv/schema.md). The web page shows the exact
+query behind each view.
+
 ## 🧑 Human checkpoints
 
-These need a person; everything around them is built and tested.
+| | Status |
+|---|---|
+| Fund the Arkiv writer (tGLM, faucet is browser + captcha) | ✅ done; the key lives in the gitignored `.env` |
+| `cre login` for `make cre-sim` | ✅ done; real simulation in [`docs/cre-simulation.md`](docs/cre-simulation.md) |
+| Archive RPC in `MAINNET_RPC_URL` | optional (public endpoints worked for import, measure and probe) |
+| **Record the video** from [`docs/demo-script.md`](docs/demo-script.md) | 🧑 to do |
+| **Submit the Uniswap feedback form** with [`FEEDBACK.md`](FEEDBACK.md) | 🧑 to do |
+| Your own notes in [`arkiv/friction.md`](arkiv/friction.md); the review column in [`docs/ai.md`](docs/ai.md) | 🧑 to do |
 
-1. **Fund the Arkiv writer.** `make arkiv-keygen` created a testnet-only key in `.env` (gitignored)
-   with address `0x4aAa2e7d4693fe0648BB8767381266fe09497c2A`. Fund it with tGLM at
-   [hub.arkiv.network/faucet](https://hub.arkiv.network/faucet) (browser + captcha), and optionally
-   add a free `ARKIV_ACCESS_KEY` from [hub.arkiv.network/access-keys](https://hub.arkiv.network/access-keys).
-   Then `make arkiv-sync` mirrors the atlas and the web page goes live.
-2. **Archive RPC** in `MAINNET_RPC_URL` for faster, rate-limit-free imports (optional; a public
-   endpoint works).
-3. **`cre login`** (or `CRE_API_KEY`) to run `make cre-sim`.
-4. **Record the video** ([`docs/demo-script.md`](docs/demo-script.md)) and **submit the Uniswap
-   feedback form** with [`FEEDBACK.md`](FEEDBACK.md).
+To mirror with your own writer: `make arkiv-keygen` (testnet-only key into `.env`, prints the
+address), fund it at [hub.arkiv.network/faucet](https://hub.arkiv.network/faucet), optionally add a
+free `ARKIV_ACCESS_KEY` from [hub.arkiv.network/access-keys](https://hub.arkiv.network/access-keys),
+then `make arkiv-sync`. A short balance is fine: the sync writes the riskiest entities first, stops
+before `--reserve` (0.2 tGLM), and a re-run after funding continues where it stopped.
 
 ## Data source and license
 
@@ -148,8 +171,15 @@ These need a person; everything around them is built and tested.
   `SimResult` entities on Arkiv expire after 7 days. See [`docs/measurement.md`](docs/measurement.md).
 - **Unverified bytecode.** For hooks without published source we can only try known admin selectors;
   a power we could not exercise is "not demonstrated", never "absent".
-- **Not all pools mirrored.** A full mirror is ~20.8 tGLM; we mirror the pools with live liquidity
-  and scope as needed (see [`arkiv/reach.md`](arkiv/reach.md)). The full dataset is in `data/*.json`.
+- **Only pools with live liquidity are mirrored.** All 24,535 of them are on Arkiv (≈13.7 tGLM for
+  the whole mirror); the other 22,595 hooked pools have no in-range liquidity, so there is nothing to
+  swap or measure, and they live only in `data/*.json` (the CLI reads it). With a short budget the
+  sync writes the riskiest and deepest first.
+- **"Upgradeable" is a slot-based label.** The probes found ProxyAdmins with renounced ownership and
+  an implementation with upgrades disabled; those hooks still show `isUpgradeable`, and their
+  SimResult says why the worst case was not demonstrated.
+- **A take above 100% of input is not a take** (e.g. a token paying out its own tax inside the swap):
+  it is reported as "not determined" with its flows, never as a number.
 
 ## Third-party libraries and starter kits
 

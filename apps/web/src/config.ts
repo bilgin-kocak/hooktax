@@ -4,7 +4,15 @@
 
 const params = new URLSearchParams(typeof location === "undefined" ? "" : location.search);
 
-export const WRITER = (params.get("writer") ?? import.meta.env.VITE_ARKIV_WRITER_ADDRESS ?? "").trim();
+/** The HookTax writer on Rabdi. Public by design: readers must filter by it (.ownedBy). */
+export const DEFAULT_WRITER = "0x4aAa2e7d4693fe0648BB8767381266fe09497c2A";
+
+/** ?writer= wins, then the build's VITE_ARKIV_WRITER_ADDRESS, then the HookTax writer. */
+export function resolveWriter(param: string | null, env: string | undefined): string {
+  return (param?.trim() || env?.trim() || DEFAULT_WRITER).trim();
+}
+
+export const WRITER = resolveWriter(params.get("writer"), import.meta.env.VITE_ARKIV_WRITER_ADDRESS);
 /** Browser access key, locked to the site's origin in the Arkiv Hub. Empty = public endpoint. */
 export const ACCESS_KEY = (import.meta.env.VITE_ARKIV_ACCESS_KEY ?? "").trim();
 export const RPC_URL = "https://rpc.rabdi.db-chain.testnet.arkiv.network";

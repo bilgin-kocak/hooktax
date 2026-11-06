@@ -174,6 +174,14 @@ describe("poolValues / simResultValues", () => {
     expect(v.takeZeroForOneBps).toEqual({ type: "dec", value: "30" });
     expect("takeOneForZeroBps" in v).toBe(false);
     await expectValid(SimResultSchema, v);
+
+    // The content hash changes when a re-derivation changes the headline (e.g. take -> null).
+    expect(v.contentHash).toMatch(/^[0-9a-f]{64}$/);
+    expect(simResultValues(r).contentHash).toBe(v.contentHash);
+    const rederived = simResultValues({ ...r, measuredTakeBps: null, notes: ["excluded"] });
+    expect(rederived.contentHash).not.toBe(v.contentHash);
+    expect("measuredTakeBps" in rederived).toBe(false);
+    await expectValid(SimResultSchema, rederived);
   });
 });
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { planSize, planSync, type DesiredEntity, type ExistingEntity } from "../src/plan";
+import { planImmutable, planSize, planSync, type DesiredEntity, type ExistingEntity } from "../src/plan";
 
 const d = (id: string, hash: string, values: Record<string, unknown> = { a: 1 }): DesiredEntity<Record<string, unknown>> => ({
   id,
@@ -55,5 +55,32 @@ describe("planSync", () => {
 
   it("rejects duplicate desired ids", () => {
     expect(() => planSync([d("1", "a"), d("1", "b")], [], opts)).toThrow(/duplicate/);
+  });
+});
+
+describe("planImmutable (readonly SimResults)", () => {
+  it("creates missing, replaces changed or hash-less ones (delete + create), keeps identical", () => {
+    const plan = planImmutable(
+      [d("new", "h1"), d("same", "h2"), d("changed", "h3-new"), d("legacy", "h4")],
+      [e("same", "h2", 10_000n), e("changed", "h3-old", 10_000n), e("legacy", null, 10_000n)],
+    );
+    expect(plan.creates.map((c) => c.id)).toEqual(["new", "changed", "legacy"]);
+    expect(plan.deletes.map((x) => [x.id, x.reason])).toEqual([
+      ["changed", "replaced"],
+      ["legacy", "replaced"],
+    ]);
+    expect(plan.unchanged).toBe(1);
+  });
+
+  it("deletes duplicates, keeping the longest-lived copy when it is current", () => {
+    const plan = planImmutable([d("x", "h")], [e("x", "h", 5_000n, "0x01"), e("x", "h", 9_000n, "0x02")]);
+    expect(plan.deletes).toEqual([{ entityKey: "0x01", id: "x", reason: "duplicate" }]);
+    expect(plan.creates).toEqual([]);
+    expect(plan.unchanged).toBe(1);
+  });
+
+  it("never touches entities that are not desired (e.g. results outside the current file)", () => {
+    const plan = planImmutable([], [e("old", "h", 10_000n)]);
+    expect(planSize(plan)).toBe(0);
   });
 });

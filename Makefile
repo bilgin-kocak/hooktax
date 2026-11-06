@@ -2,11 +2,12 @@
 # Targets are added as milestones land (index, arkiv-sync, web, sim, cre-sim, demo).
 
 SHELL := /bin/bash
-# Foundry installs to ~/.foundry/bin by default; make it visible to recipes.
-export PATH := $(HOME)/.foundry/bin:$(PATH)
+# Foundry, bun and the cre CLI install to ~/.foundry/bin, ~/.bun/bin and ~/.cre/bin by default
+# (their official installers); make them visible to recipes even before the shell is reloaded.
+export PATH := $(HOME)/.foundry/bin:$(HOME)/.bun/bin:$(HOME)/.cre/bin:$(PATH)
 
 .DEFAULT_GOAL := help
-.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure sim-build check atlas web cre-build cre-sim
+.PHONY: help install doctor test index arkiv-keygen arkiv-plan arkiv-estimate arkiv-sync api demo measure probe sim-build check atlas web cre-build cre-sim
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
@@ -59,6 +60,9 @@ demo: ## M5: SneakyFeeHook worst case on a local mainnet fork: 0.3% today, 100% 
 measure: ## M4: measured take on real hooked pools on a fork (ARGS="--limit 12" to size the batch)
 	pnpm --filter @hooktax/sim run measure $(ARGS)
 
+probe: ## M5: real upgradeable swap-delta hooks: impersonate the upgrade authority on a fork, re-measure
+	pnpm --filter @hooktax/sim run probe
+
 check: ## M6: print the HookTax card for a pool or hook (ARG=0x...): make check ARG=0x<poolId|hook>
 	pnpm --filter @hooktax/cli exec tsx src/bin.ts check $(ARG)
 
@@ -69,7 +73,7 @@ web: ## M2: run the HookAtlas web app (reads Arkiv directly) in dev mode
 	pnpm --filter @hooktax/web run dev
 
 cre-build: ## M3: compile the CRE workflow to WASM (no account needed)
-	cd cre && PATH="$(HOME)/.cre/bin:$(PATH)" cre workflow build hooktax-refresh --target staging-settings
+	cd cre && cre workflow build hooktax-refresh --target staging-settings
 
 cre-sim: ## M3: simulate the CRE workflow (needs `cre login` or CRE_API_KEY). Pass TX=0x.. EVENT=n
-	cd cre && PATH="$(HOME)/.cre/bin:$(PATH)" cre workflow simulate hooktax-refresh --target staging-settings --non-interactive --trigger-index 0 --evm-tx-hash $(TX) --evm-event-index $(EVENT)
+	cd cre && cre workflow simulate hooktax-refresh --target staging-settings --non-interactive --trigger-index 0 --evm-tx-hash $(TX) --evm-event-index $(EVENT)

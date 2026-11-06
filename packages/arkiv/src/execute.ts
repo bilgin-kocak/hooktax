@@ -127,6 +127,11 @@ export interface ExecuteOptions {
   log: (msg: string) => void;
   /** Called after each confirmed batch (for progress persistence). */
   onBatch?: (info: { ops: readonly Op[]; txHash: Hex; createdKeys: Hex[] }) => void;
+  /**
+   * Stop cleanly (no error) before a batch whose gas limit x gas price would take the writer's
+   * balance below this many wei. Keeps tGLM for later small writes (CRE refreshes, the Import).
+   */
+  reserveWei?: bigint;
 }
 
 export interface ExecuteResult {
@@ -134,6 +139,8 @@ export interface ExecuteResult {
   ops: number;
   gasUsedEstimate: bigint;
   txHashes: Hex[];
+  /** Set when the run stopped early because of reserveWei; ops[result.ops..] were not sent. */
+  stoppedForBudget?: { balanceWei: bigint; neededWei: bigint };
 }
 
 function journal(file: string, entry: Record<string, unknown>) {
@@ -141,39 +148,38 @@ function journal(file: string, entry: Record<string, unknown>) {
   appendFileSync(file, JSON.stringify({ ts: new Date().toISOString(), ...entry }, (_k, v) => (typeof v === "bigint" ? v.toString() : v)) + "\n");
 }
 
-/** Split ops into batches that fit maxOps, gas (half block) and calldata limits, using unsigned estimates. */
-async function nextFittingBatch(
+/**
+ * Split ops into batches that fit maxOps, gas (half block) and calldata limits, using unsigned
+ * estimates. A batch the node refuses to estimate at all (e.g. calldata over its 128 KiB tx cap,
+ * which fails as "Execution error without revert data") is halved too; only a single operation
+ * that cannot be estimated is an error.
+ */
+export async function nextFittingBatch(
   writer: Address,
   ops: readonly Op[],
   start: number,
-  opts: ExecuteOptions,
+  opts: Pick<ExecuteOptions, "maxOps" | "maxCalldataBytes" | "accessKey" | "log">,
   blockGasLimit: bigint,
-  startSize: number,
+  estimateFn: (writer: Address, ops: readonly Op[], accessKey?: string) => Promise<Estimate> = estimateBatch,
 ): Promise<{ batch: Op[]; gas: bigint; estimate: Estimate }> {
-  let n = Math.min(startSize, ops.length - start);
-  let rateLimitRetries = 0;
+  let n = Math.min(opts.maxOps, ops.length - start);
   while (n >= 1) {
     const batch = ops.slice(start, start + n);
     let estimate: Estimate;
     try {
-      estimate = await estimateBatch(writer, batch, opts.accessKey);
+      estimate = await estimateFn(writer, batch, opts.accessKey);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      // A rate limit is not about size: back off and retry the same batch.
-      if (/\b429\b|rate.?limit|too many requests/i.test(msg) && rateLimitRetries < 6) {
-        await new Promise((r) => setTimeout(r, 1000 * 2 ** rateLimitRetries++));
-        continue;
-      }
-      // The node can reject estimating a large batch outright (observed on Rabdi: 20 ops errors,
-      // 10 ops estimates fine). Treat an estimate error like "too big": halve, down to one op.
       if (n === 1) throw err;
-      n = Math.max(1, Math.floor(n / 2));
+      opts.log(`  estimate of ${n} ops failed; retrying with ${Math.floor(n / 2)}`);
+      n = Math.floor(n / 2);
       continue;
     }
     const gas = [gasFloor(batch.length), 2n * estimate.gas].reduce((a, b) => (a > b ? a : b));
     if (gas <= blockGasLimit / 2n && estimate.calldataBytes <= opts.maxCalldataBytes) return { batch, gas, estimate };
     if (n === 1) throw new Error(`a single operation does not fit (gas ${gas}, calldata ${estimate.calldataBytes} bytes)`);
-    n = Math.max(1, Math.floor(n / 2));
+    // Shrink in proportion to the worse overflow (gas or calldata), always by at least one op.
+    const ratio = Math.min(opts.maxCalldataBytes / Math.max(1, estimate.calldataBytes), Number(blockGasLimit / 2n) / Number(gas));
+    n = Math.max(1, Math.min(n - 1, Math.floor(n * ratio)));
   }
   throw new Error("unreachable");
 }
@@ -187,20 +193,27 @@ export async function executeOps(
   const writer = wallet.account.address;
   const result: ExecuteResult = { transactions: 0, ops: 0, gasUsedEstimate: 0n, txHashes: [] };
   let i = 0;
-  // Start each batch at the size that last fit, so a learned limit isn't re-probed every time.
-  let sizeHint = opts.maxOps;
+  // Start each batch at the size that last fitted (+2), so a run of large entities does not pay
+  // a failed estimate per transaction, and smaller ones later grow back to maxOps.
+  let cap = opts.maxOps;
   while (i < ops.length) {
-    const [latestNonce, pendingNonce, block, gasPrice] = await Promise.all([
+    const [latestNonce, pendingNonce, block, gasPrice, balance] = await Promise.all([
       publicClient.getTransactionCount({ address: writer, blockTag: "latest" }),
       publicClient.getTransactionCount({ address: writer, blockTag: "pending" }),
       publicClient.getBlock({ blockTag: "latest" }),
       gasPriceOf(publicClient),
+      opts.reserveWei !== undefined ? publicClient.getBalance({ address: writer }) : Promise.resolve(0n),
     ]);
     if (pendingNonce !== latestNonce) {
       throw new Error(`writer ${writer} has a pending transaction (nonce ${latestNonce}..${pendingNonce}); reconcile before writing`);
     }
-    const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, opts, block.gasLimit, sizeHint);
-    sizeHint = batch.length;
+    const { batch, gas, estimate } = await nextFittingBatch(writer, ops, i, { ...opts, maxOps: cap }, block.gasLimit);
+    cap = Math.min(opts.maxOps, batch.length + 2);
+    if (opts.reserveWei !== undefined && balance < gas * gasPrice + opts.reserveWei) {
+      result.stoppedForBudget = { balanceWei: balance, neededWei: gas * gasPrice + opts.reserveWei };
+      opts.log(`  stopping before op ${i}/${ops.length}: balance ${balance} wei < batch ${gas * gasPrice} + reserve ${opts.reserveWei}`);
+      break;
+    }
     const ids = batch.map((o) => `${o.kind}:${o.id}`);
     journal(opts.journalFile, { status: "submitting", nonce: latestNonce, gas, gasPrice, estimate: estimate.gas, calldataBytes: estimate.calldataBytes, ids });
     let res;

@@ -58,14 +58,59 @@ transaction*) netted more than the swapper paid. HookTax keeps that direction's 
 billion %". This happened on 2 of the first 20 pools before the price-aware sizing fix; see
 [`arkiv/data-quality.md`](../arkiv/data-quality.md).
 
+The rule lives in one pure function, `headlineTake()` in
+[`packages/sim/runner/parse.ts`](../packages/sim/runner/parse.ts), so stored results can be
+re-derived without re-forking when it changes: `pnpm --filter @hooktax/sim run rederive`. That is
+how pool `0x6fc55403…` (hook `0xCBa49142…`) was corrected: its committed result predated the guard
+and claimed **92,648%**. The token paid out its own accumulated tax inside the swap (0.926 tokens
+to third parties on a 0.001-token swap). Both directions exceed 100%, so its headline is now
+*not determined* and the card says so; the flows are kept. On Arkiv the old readonly `SimResult`
+was replaced (deleted and re-created), see [`arkiv/schema.md`](../arkiv/schema.md).
+
 ## Worst case, proved ([`packages/sim/test/SneakyFeeHookDemo.t.sol`](../packages/sim/test/SneakyFeeHookDemo.t.sol))
 
 The same meter proves the capability ceiling for an upgradeable hook. `SneakyFeeHook` is planted on
 the fork with its proxy address mined to `BEFORE_SWAP | BEFORE_SWAP_RETURNS_DELTA`. HookTax says, from
 the bits + the EIP-1967 slot alone, "worst case: 100% of swap value" — *before* any upgrade. v1
 measures 0.30%; the owner is impersonated and upgrades to v2; it measures 100%, swapper receives 0.
-For real upgradeable mainnet hooks, the same fork-impersonation approach probes known admin powers
-and records only what actually executed ("not demonstrated" otherwise).
+
+
+## Worst case on real hooks ([`packages/sim/test/ProbeUpgrade.t.sol`](../packages/sim/test/ProbeUpgrade.t.sol), `make probe`)
+
+The same proof, run against real mainnet hooks. Targets: every hook whose worst case is 100% of swap
+value (upgradeable **and** a swap `RETURNS_DELTA` bit) with a pool that has liquidity and a priced
+token: **24 of the 35** such hooks. For each, at the dataset's snapshot block (26,347,887), on a
+local fork:
+
+1. measure today's take, both directions;
+2. impersonate each candidate upgrade authority (the indexer's resolved authority, the ProxyAdmin's
+   `owner()`, the admin slot, the hook's `owner()`, `getRoleMember(0, 0)`) and try the known
+   upgrade paths: `ProxyAdmin.upgradeAndCall` / `upgrade` (OpenZeppelin v4 and v5) and
+   `proxy.upgradeToAndCall` / `upgradeTo` (transparent and UUPS), pointing the proxy at
+   [`TakeAllImplementation`](../packages/sim/src/TakeAllImplementation.sol);
+3. only if the EIP-1967 implementation slot now holds it, measure again.
+
+`TakeAllImplementation` is storage-agnostic (immutables only) and takes 100% **only through the
+proxy's own permission bits**: the specified amount in `beforeSwap` if `BEFORE_SWAP_RETURNS_DELTA`
+is set, the output in `afterSwap` if `AFTER_SWAP_RETURNS_DELTA` is set. The take is minted as
+PoolManager ERC-6909 claims to a fresh address, so a token with transfer restrictions cannot block
+it. Every swap starts from the block's state (snapshot per direction), so "today" and "after the
+upgrade" differ only in the hook's code.
+
+**Result: demonstrated for 19 of 24.** Today's measured take on those pools was 0% to 9.9%; after
+the impersonated upgrade it was 100% (18 hooks) and 98.13% (one hook with only the after-swap delta
+bit: it takes the output, whose value excludes the LP fee and price impact). Not demonstrated, with
+the reason recorded:
+
+| Hook | Why not |
+|---|---|
+| `0x37Bfb8AC…`, `0x3d10A53B…` | OpenZeppelin 5.0.0 ProxyAdmin whose **ownership is renounced** (`owner()` is the zero address): no one can upgrade them. Their "upgradeable" label overstates them. |
+| `0x8301a6b5…` | UUPS; the owner's `upgradeToAndCall` reverts `UpgradesDisabled()` |
+| `0x4439607e…`, `0x6d3e3447…` | no upgrade authority found (no admin slot, `owner()` or role admin) |
+
+Every attempt, executed or not, is stored in the `after-admin-upgrade` SimResult's `probes`; a
+failed probe is status `not-run` with no take, never a zero. Impersonating a contract authority (a
+multisig, a timelock) shows what it can do; on mainnet a timelock would add a delay first.
 
 ## Limits
 

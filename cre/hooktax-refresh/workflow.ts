@@ -27,7 +27,9 @@ import { z } from "zod";
 export const configSchema = z.object({
   chainSelectorName: z.string(),
   poolManager: z.string().regex(/^0x[0-9a-fA-F]{40}$/),
-  refreshUrl: z.string().url(),
+  // An http(s) URL, checked by pattern: zod's .url() calls the global URL, which in the CRE WASM
+  // runtime is a polyfill that rejects valid URLs such as http://localhost:8787/refresh.
+  refreshUrl: z.string().regex(/^https?:\/\/[^\s/?#]+(:\d+)?(\/[^\s]*)?$/, "refreshUrl must be an http(s) URL"),
 });
 export type Config = z.infer<typeof configSchema>;
 

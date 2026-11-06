@@ -5,6 +5,8 @@ import { computeCapabilities, worstCase } from "./capabilities";
 import { DYNAMIC_FEE_FLAG } from "./constants";
 import { formatBps, formatFee } from "./format";
 import type { HookPermissions } from "./permissions";
+import { probeShort } from "./probes";
+import type { ProbeAttempt } from "./types";
 
 export interface CardSim {
   scenario: string;
@@ -14,6 +16,8 @@ export interface CardSim {
   forkBlock: number;
   measuredAt: number;
   label?: string | null;
+  /** Upgrade attempts on the fork (real-hook probes); non-executed ones explain "not demonstrated". */
+  probes?: ProbeAttempt[] | null;
 }
 
 export interface CardInput {
@@ -73,6 +77,14 @@ export function buildCard(input: CardInput): Card {
       value: `${formatBps(today.measuredTakeBps)} of swap input (worst of both directions, fork block ${today.forkBlock})`,
       tone: today.measuredTakeBps > 0 ? "warn" : "ok",
     });
+  } else if (today && today.status === "ok") {
+    // The swap ran, but every direction's take exceeded 100% of input (sim runner headlineTake).
+    lines.push({
+      label: "Measured take today",
+      value:
+        "not determined: the swap ran, but other addresses received more than the swapper paid (e.g. a token paying out its own tax inside the swap); see the money flows",
+      tone: "info",
+    });
   } else if (today) {
     lines.push({ label: "Measured take today", value: `not measured: ${STATUS_TEXT[today.status] ?? today.status}`, tone: "info" });
   } else {
@@ -107,10 +119,11 @@ export function buildCard(input: CardInput): Card {
       value: `${formatBps(worst.measuredTakeBps!)} of swap input after "${worst.label ?? worst.scenario}" on the fork`,
       tone: (worst.measuredTakeBps ?? 0) >= 5_000 ? "risk" : "warn",
     });
-  } else if ((input.notDemonstrated ?? []).length > 0) {
+  } else if ((input.notDemonstrated ?? []).length > 0 || probed(input.demonstrations).length > 0) {
+    const tried = [...(input.notDemonstrated ?? []), ...probed(input.demonstrations).map(probeShort)];
     lines.push({
       label: "Demonstrated worst case",
-      value: `not demonstrated (tried: ${input.notDemonstrated!.join(", ")})`,
+      value: `not demonstrated (tried: ${[...new Set(tried)].join(", ")})`,
       tone: "info",
     });
   } else {
@@ -118,4 +131,9 @@ export function buildCard(input: CardInput): Card {
   }
 
   return { lines, capabilities };
+}
+
+/** Upgrade attempts that did not execute, from not-run demonstrations. */
+function probed(demos: CardSim[] | undefined): ProbeAttempt[] {
+  return (demos ?? []).filter((d) => d.status !== "ok").flatMap((d) => (d.probes ?? []).filter((p) => !p.executed));
 }

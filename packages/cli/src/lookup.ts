@@ -50,6 +50,7 @@ const toCardSim = (r: SimResultRecord): CardSim => ({
   forkBlock: r.forkBlock,
   measuredAt: r.measuredAt,
   label: r.label ?? null,
+  probes: r.probes ?? null,
 });
 
 /** Latest by measuredAt. */

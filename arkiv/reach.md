@@ -42,9 +42,12 @@ independent, equally-authoritative copy.
 
 ## Cost of a full mirror (measured)
 
-`make arkiv-estimate` against the live Rabdi node: **35,800 entities** (11,242 hooks + 24,535 active
-pools + the SimResults), **~580k gas/op**, ≈ **20.8 tGLM** at 1 gwei, over ~1,790 transactions of 20
-ops each. This is a real sizing input: the faucet gives less per claim, so a complete mirror is
+The first `make arkiv-estimate` against the live Rabdi node projected **35,800 entities** (11,242
+hooks + 24,535 active pools + the SimResults) at **~580k gas/op**, ≈ **20.8 tGLM** at 1 gwei. That
+sample was all hook entities, which carry more `details`. Measured during the real write: **~477k
+gas per hook and ~337k per pool**, so the complete mirror cost **≈ 13.7 tGLM** over 2,044
+transactions (14–15 hooks or 20 pools per transaction; more would exceed the node's 128 KiB
+transaction cap). This is a real sizing input: the faucet gives less per claim, so a complete mirror is
 staged across claims, or scoped (e.g. the upgradeable + swap-delta hooks and their active pools
 first). HookTax is built for incremental sync — `contentHash` means a re-import only rewrites hooks
 that actually changed, and the CRE workflow adds single pools as they appear.

@@ -5,18 +5,10 @@
 // price is fine; it just keeps the probe near a fixed USD notional instead of a fixed token count.
 
 import type { HookRecord, PoolRecord } from "@hooktax/core";
-import { NATIVE_CURRENCY } from "@hooktax/core";
+import { APPROX_PRICES_USD, depthUsd } from "@hooktax/core";
 
-/** Approximate USD prices for sizing only (mainnet). Unknown tokens use a decimal-based fallback. */
-export const SIZING_PRICES_USD: Record<string, number> = {
-  [NATIVE_CURRENCY]: 3000, // ETH
-  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 3000, // WETH
-  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 3600, // wstETH
-  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 1, // USDC
-  "0xdac17f958d2ee523a2206206994597c13d831ec7": 1, // USDT
-  "0x6b175474e89094c44da98b954eedeac495271d0f": 1, // DAI
-  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 95000, // WBTC
-};
+/** Approximate USD prices for sizing only (mainnet), shared with the Arkiv mirror's ranking. */
+export const SIZING_PRICES_USD = APPROX_PRICES_USD;
 
 const TARGET_USD = 50;
 const Q192 = 1n << 192n;
@@ -129,5 +121,38 @@ export function selectPools(hooks: HookRecord[], pools: PoolRecord[], opts: Sele
 export function selectionLines(sel: Selection[]): string {
   return sel
     .map((s) => [s.poolId, s.currency0, s.currency1, s.fee, s.tickSpacing, s.hooks, s.amount0In, s.amount1In].join("|"))
+    .join("\n");
+}
+
+export interface ProbeTarget extends Selection {
+  /** The indexer's upgrade authority (ProxyAdmin owner, admin slot or owner()); zero if none. */
+  authority: string;
+}
+
+/**
+ * M5 on real hooks: one pool per hook whose worst case is 100% of swap value (upgradeable AND a
+ * swap RETURNS_DELTA bit), the deepest active pool with a priced token, so the probe swap is sized.
+ */
+export function selectProbeTargets(hooks: HookRecord[], pools: PoolRecord[]): ProbeTarget[] {
+  const byId = new Map(pools.map((p) => [p.poolId.toLowerCase(), p]));
+  const out: ProbeTarget[] = [];
+  for (const hook of hooks) {
+    if (hook.status !== "ok" || hook.worstCase.level !== "swap-100") continue;
+    const candidates = hook.poolIds
+      .map((id) => byId.get(id.toLowerCase()))
+      .filter((p): p is PoolRecord => !!p && isActive(p))
+      .map((p) => ({ p, s: toSelection(p), depth: depthUsd(p) }))
+      .filter((c) => c.s !== null && c.depth > 0)
+      .sort((a, b) => b.depth - a.depth);
+    const best = candidates[0];
+    if (!best) continue;
+    out.push({ ...best.s!, authority: hook.proxy.upgradeAuthority ?? "0x0000000000000000000000000000000000000000" });
+  }
+  return out;
+}
+
+export function probeSelectionLines(sel: ProbeTarget[]): string {
+  return sel
+    .map((s) => [s.poolId, s.currency0, s.currency1, s.fee, s.tickSpacing, s.hooks, s.amount0In, s.amount1In, s.authority].join("|"))
     .join("\n");
 }

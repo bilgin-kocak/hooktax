@@ -46,8 +46,15 @@ Indexed: `poolId`, `hook`, `currency0/1`, `symbol0/1`, `fee`, `isDynamicFee`, `h
 ### `hooktax.v1.simresult` — one fork measurement
 
 Indexed: `simId`, `poolId`, `hook`, `scenario`, `status`, `measuredTakeBps`, `isDemo`, `forkBlock`.
-Stored: per-direction takes, `lpFeeBps`, `measuredAt`, `details` (bytes: every traced flow with its
-role). Written **readonly** (an immutable measurement).
+Stored: per-direction takes, `lpFeeBps`, `measuredAt`, `contentHash`, `details` (bytes: every
+traced flow with its role, notes, and for real-hook upgrade probes every attempt in `probes`).
+Written **readonly** (an immutable measurement).
+
+Readonly means its attributes can never change, but the owner can still delete it. So when a
+result is re-derived (e.g. a rule fix in `headlineTake`), the sync compares `contentHash` and
+**replaces** the entity: delete, then create
+([`plan.ts` `planImmutable`](../packages/arkiv/src/plan.ts)). That is how the 92,648% record for
+pool `0x6fc55403…` was taken down. Entities written before `contentHash` existed were replaced once.
 
 ### `hooktax.v1.import` — one per import run
 
@@ -60,11 +67,28 @@ the atlas is (the web app's header reads the latest one).
 |---|---|---|---|
 | `hook` | writer | 30 days, refreshed/extended on each import | long-lived facts |
 | `pool` | writer | 30 days, refreshed on each import | long-lived facts |
-| `simresult` | writer | **7 days**, readonly | **a measured take is only true for a point in time; after 7 days a stale safety number should disappear rather than mislead** |
+| `simresult` | writer | **7 days after it was measured** (`measuredAt`), readonly | **a measured take is only true for a point in time; after 7 days a stale safety number should disappear rather than mislead**. The lifetime counts from the measurement, not from the write, and a result older than 7 days is never re-created |
 | `import` | writer | max (≈182 days) | provenance should outlive the data it describes |
 
 The 7-day `SimResult` expiry is the core "why Arkiv" point: the safety numbers delete themselves.
 See [`why-arkiv.md`](why-arkiv.md).
+
+## Write order (when the budget does not cover everything)
+
+A full mirror costs ≈ 13.7 tGLM (measured); a faucet claim is less. `make arkiv-sync` writes in this
+order ([`priority.ts`](../packages/arkiv/src/priority.ts)), so whatever the balance buys is the most
+useful part:
+
+1. `SimResult`s (small, and the measured facts)
+2. **every** `Hook` (the atlas lists all hooks), riskiest first: worst case 100% → measured →
+   upgradeable → can change swap amounts → dynamic fee → the rest; within a tier, the hook whose
+   deepest pool is deepest first
+3. `Pool`s in the same tiers, deepest first (virtual USD depth at the current price)
+4. the `Import` entity, upserted by its `runId`, recording how many pools were actually mirrored
+
+The run stops cleanly before the balance drops below `--reserve` (default 0.2 tGLM), pays the
+`Import` from it, and leaves the rest for CRE refreshes. Re-running after funding continues where it
+stopped: the plan is always derived from what the writer already owns on Arkiv.
 
 ## One copy-pasteable query
 

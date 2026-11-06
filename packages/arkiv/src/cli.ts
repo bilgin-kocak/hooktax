@@ -3,11 +3,13 @@
 //   make arkiv-estimate   pnpm --filter @hooktax/arkiv sync --estimate
 //   make arkiv-sync       pnpm --filter @hooktax/arkiv sync --write
 // Options: --only hooks,pools,sims   --max-ops 20   --limit 5 (first N ops only, for a smoke write)
+//          --reserve 0.2 (tGLM to keep back: a write stops cleanly before going below it, then
+//          records the Import from it; re-run after funding to continue where it stopped)
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
-import type { Address, Hex } from "viem";
+import { parseEther, type Address, type Hex } from "viem";
 import type { HooksFile, PoolsFile, SimResultsFile } from "@hooktax/core";
 import { RABDI_EXPLORER, redactArkiv } from "./client";
 import { syncHookAtlas, type SyncMode, type SyncTarget } from "./sync";
@@ -32,6 +34,7 @@ async function main() {
       only: { type: "string", default: "hooks,pools,sims" },
       "max-ops": { type: "string", default: "20" },
       limit: { type: "string" },
+      reserve: { type: "string", default: "0.2" },
       data: { type: "string", default: path.join(REPO_ROOT, "data") },
     },
   });
@@ -55,12 +58,17 @@ async function main() {
     writer: (writerEnv as Address | undefined) || undefined,
     maxOps: Number(values["max-ops"]),
     limitOps: values.limit ? Number(values.limit) : undefined,
+    reserveWei: parseEther(values.reserve!),
     journalFile: path.join(values.data!, "cache", "arkiv-journal.jsonl"),
     log: (m) => console.error(m),
   });
   console.log(JSON.stringify(summary, (_k, v) => (typeof v === "bigint" ? v.toString() : v), 2));
   if (summary.written?.txHashes.length) {
     console.error(`explorer: ${RABDI_EXPLORER}/tx/${summary.written.txHashes.at(-1)}`);
+  }
+  if (summary.written?.stoppedForBudget) {
+    const b = summary.written.stoppedForBudget;
+    console.error(`stopped to keep the ${values.reserve} tGLM reserve (balance ${b.balanceTGLM}); ${b.remainingOps} ops left: fund the writer and re-run to continue`);
   }
 }
 
