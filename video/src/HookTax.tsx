@@ -7,7 +7,8 @@ import { Arkiv, Close, Cre, Real } from "./scenesB";
 import { C } from "./theme";
 import { FPS, T, ramp, useSeconds } from "./time";
 
-export const HookTax: React.FC = () => {
+/** `stills` hides the captions, for screenshots of single frames. */
+export const HookTax: React.FC<{ stills?: boolean }> = ({ stills = false }) => {
   const t = useSeconds();
   return (
     <AbsoluteFill style={{ background: C.bg }}>
@@ -22,7 +23,7 @@ export const HookTax: React.FC = () => {
       <Cre t={t} />
       <Close t={t} />
       <ChapterTag t={t} />
-      <Caption t={t} hidden={["title", "close"]} />
+      {!stills && <Caption t={t} hidden={["title", "close"]} />}
       <AbsoluteFill style={{ background: "#000", opacity: ramp(t, T.duration - 0.7, T.duration) }} />
       {Object.entries(T.vo).map(([name, vo]) => (
         <Sequence key={name} from={Math.round(vo.start * FPS)} durationInFrames={Math.ceil((vo.duration + 0.2) * FPS)} layout="none">

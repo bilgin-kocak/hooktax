@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- HookTax mark: a percent sign whose slash is a fishing hook. -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#25221b"/>
+      <stop offset="100%" stop-color="#121109"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="#3a362d" stroke-width="3"/>
+  <!-- the two rings of the % -->
+  <circle cx="146" cy="134" r="46" fill="none" stroke="#ece8de" stroke-width="28"/>
+  <circle cx="372" cy="384" r="46" fill="none" stroke="#ece8de" stroke-width="28"/>
+  <!-- the slash: a hook, drawn upright and tilted into the % -->
+  <g transform="translate(14 8) rotate(38 256 256)">
+    <circle cx="256" cy="84" r="18" fill="none" stroke="#f2c467" stroke-width="15"/>
+    <path d="M256 102 L256 334 A52 52 0 0 1 152 334 L152 318" fill="none" stroke="#f2c467" stroke-width="28" stroke-linecap="butt" stroke-linejoin="round"/>
+    <!-- a tapered point with a small barb on the inside -->
+    <path d="M138 320 L152 270 L166 320 Z" fill="#f2c467"/>
+    <path d="M160 300 L186 318 L164 316 Z" fill="#f2c467"/>
+  </g>
+</svg>
