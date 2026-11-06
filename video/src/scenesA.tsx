@@ -71,7 +71,7 @@ export const Cold: React.FC<{ t: number }> = ({ t }) => {
         </div>
       )}
       <div style={{ position: "absolute", left: 1150, top: 250, ...rise(t, tCut - 0.1), fontFamily: SANS, fontSize: 34, fontWeight: 700, color: C.warn }}>takes a cut</div>
-      <div style={{ position: "absolute", left: 1150, top: 300, ...rise(t, tTomorrow - 0.2), fontFamily: SANS, fontSize: 30, color: C.warn, opacity: 0.9 }}>…and could change tomorrow</div>
+      <div style={{ position: "absolute", left: 1150, top: 300, ...rise(t, tTomorrow - 0.2), fontFamily: SANS, fontSize: 30, color: C.warn }}>…and could change tomorrow</div>
     </Scene>
   );
 };
